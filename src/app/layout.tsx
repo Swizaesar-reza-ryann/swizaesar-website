@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
-import Head from 'next/head';
-import EmotionProvider from '@/components/EmotionProvider';
-import Header from '@/components/Header';
+import { Roboto } from 'next/font/google';
+import ClientProviders from '../components/providers/ClientProviders';
+
+const roboto = Roboto({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '700'],
+  display: 'swap',
+  variable: '--font-roboto',
+});
 
 export const metadata: Metadata = {
   title: 'Swizaesar',
@@ -14,18 +20,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+    <html lang="en" className={roboto.variable}>
       <body>
-        <EmotionProvider>
-          <Header />
-          {children}
-        </EmotionProvider>
+        <ClientProviders>{children}</ClientProviders>
       </body>
     </html>
   );
