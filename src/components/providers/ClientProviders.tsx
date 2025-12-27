@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import cache from '@/lib/emotion-cache';
 import { theme } from '@/theme';
 import globalStyle from './style';
-import Header from '../UI/Header';
+import Header from '@/components/Layout/Header';
 
 export default function ClientProviders({ children }: { children: ReactNode }) {
   return (
