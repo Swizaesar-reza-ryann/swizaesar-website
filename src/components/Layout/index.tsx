@@ -10,6 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Header />
       <LayoutStyle>
         <div className="blur-circle blur-circle-top" />
+        <div className="blur-circle blur-circle-bottom" />
         {children}
       </LayoutStyle>
     </div>

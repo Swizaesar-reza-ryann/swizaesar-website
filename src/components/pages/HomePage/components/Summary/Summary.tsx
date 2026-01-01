@@ -11,17 +11,17 @@ const Summary = () => {
       </h1>
 
       <p className="summary-description">
-        Frontend Developer with experience building modern web applications
-        using React, Next.js, and TypeScript. Skilled in developing responsive,
-        high-performance, and scalable user interfaces, while applying best
-        practices such as clean code, state management, and robust error
-        handling. Strong understanding of SSR/CSR, hydration, API integration,
-        and performance optimization (Core Web Vitals). Experienced in
-        collaborating with backend, product, and design teams to deliver
-        impactful user-centric solutions.
+        Front End Developer with experience since 2019, using React.js since
+        2020. Experienced in building responsive and scalable web applications
+        with React.js, Next.js, and TypeScript, including state management, API
+        integration, unit testing, and performance optimization. Experienced in
+        using Ant Design and Tailwind to ensure high-quality UI/UX and
+        maintainable code.
       </p>
 
-      <Button size="large">Download CV</Button>
+      <Button size="large" className="summary-button">
+        Download CV
+      </Button>
     </div>
   );
 };

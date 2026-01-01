@@ -19,6 +19,7 @@ export const globalStyle = css`
    color: ${theme.colors.text};
    text-decoration: none;
    transition: color 0.3s ease;
+   cursor: pointer;
 
    &:hover {
     color: ${theme.colors.secondary};
@@ -29,19 +30,26 @@ export const globalStyle = css`
 export const LayoutStyle = styled.div`
   padding-top: 52px;
   position: relative;
+  min-height: 100dvh;
+  overflow: clip;
 
   .blur-circle{
     position: absolute;
     opacity: 0.3;
+    width: 500px;
+    height: 500px;
     background-color: ${theme.colors.secondary}; 
     border-radius: 50%; 
     filter: blur(120px);
 
     &-top{
         top: -250px;
-        right: -250px;
-        width: 500px;
-        height: 500px;
+        right: -250px;  
+    }
+
+    &-bottom{
+        bottom: -250px;
+        left: -250px;
     }
   }
 `;
