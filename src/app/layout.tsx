@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 import ClientProviders from '@/components/providers/ClientProviders';
 
-const roboto = Roboto({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
-  variable: '--font-roboto',
+  variable: '--font-montserrat',
 });
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={roboto.variable}>
+    <html lang="en" className={montserrat.variable}>
       <body>
         <ClientProviders>{children}</ClientProviders>
       </body>

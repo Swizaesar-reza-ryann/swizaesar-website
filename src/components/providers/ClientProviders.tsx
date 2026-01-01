@@ -1,19 +1,16 @@
 'use client';
 
-import { CacheProvider, ThemeProvider, Global } from '@emotion/react';
+import { CacheProvider, ThemeProvider } from '@emotion/react';
 import { ReactNode } from 'react';
 import cache from '@/lib/emotion-cache';
 import { theme } from '@/theme';
-import globalStyle from './style';
-import Header from '@/components/Layout/Header';
+import Layout from '@/components/Layout';
 
 export default function ClientProviders({ children }: { children: ReactNode }) {
   return (
     <CacheProvider value={cache}>
       <ThemeProvider theme={theme}>
-        <Global styles={globalStyle} />
-        <Header />
-        {children}
+        <Layout>{children}</Layout>
       </ThemeProvider>
     </CacheProvider>
   );
