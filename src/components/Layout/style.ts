@@ -11,7 +11,7 @@ export const globalStyle = css`
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
-    background: ${theme.colors.background};
+    background: ${theme.colors.primary};
     color: ${theme.colors.text}
   }
 
@@ -28,6 +28,22 @@ export const globalStyle = css`
 
 export const LayoutStyle = styled.div`
   padding-top: 52px;
+  position: relative;
+
+  .blur-circle{
+    position: absolute;
+    opacity: 0.3;
+    background-color: ${theme.colors.secondary}; 
+    border-radius: 50%; 
+    filter: blur(120px);
+
+    &-top{
+        top: -250px;
+        right: -250px;
+        width: 500px;
+        height: 500px;
+    }
+  }
 `;
 
 

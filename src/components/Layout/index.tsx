@@ -8,7 +8,10 @@ const Layout = ({ children }: { children: ReactNode }) => {
     <div>
       <Global styles={globalStyle} />
       <Header />
-      <LayoutStyle>{children}</LayoutStyle>
+      <LayoutStyle>
+        <div className="blur-circle blur-circle-top" />
+        {children}
+      </LayoutStyle>
     </div>
   );
 };

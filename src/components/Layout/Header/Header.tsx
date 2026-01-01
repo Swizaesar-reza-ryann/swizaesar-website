@@ -1,15 +1,19 @@
 import Link from 'next/link';
 import { NAVBAR_LIST } from './constant';
 import HeaderStyle from './style';
+import Button from '@/components/Button';
 
 const Header = () => {
   return (
     <HeaderStyle>
-      {NAVBAR_LIST.map((item) => (
-        <Link key={item.key} href={item.link}>
-          {item.label}
-        </Link>
-      ))}
+      <div className="header-list">
+        {NAVBAR_LIST.map((item) => (
+          <Link key={item.key} href={item.link}>
+            {item.label}
+          </Link>
+        ))}
+        <Button size="small">Let's Chat</Button>
+      </div>
     </HeaderStyle>
   );
 };

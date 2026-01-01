@@ -1,13 +1,13 @@
+import Container from '@/components/Layout/Container';
 import Summary from './components/Summary';
 import HomePageStyle from './style';
 
 const Homepage = () => {
   return (
     <HomePageStyle>
-      <div className="flex-content">
+      <Container>
         <Summary />
-      </div>
-      <div className="flex-content profile"></div>
+      </Container>
     </HomePageStyle>
   );
 };
