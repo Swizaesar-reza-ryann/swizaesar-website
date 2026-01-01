@@ -1,3 +1,5 @@
+'use client';
+
 import Homepage from '@/components/pages/HomePage';
 
 const Home = () => {

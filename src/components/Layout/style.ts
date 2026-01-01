@@ -27,7 +27,9 @@ export const globalStyle = css`
 `;
 
 export const LayoutStyle = styled.div`
-  padding-top: 64px;
+  padding-top: 52px;
 `;
+
+
 
 
