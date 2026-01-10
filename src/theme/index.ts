@@ -1,8 +1,7 @@
 export const theme = {
   colors: {
-    primary: '#111111',
+    primary: '#09090b',
     secondary: '#f97316',
-    background: '#292929',
     text: '#fff'
   },
   spacing: (value: number) => `${value * 8}px`,

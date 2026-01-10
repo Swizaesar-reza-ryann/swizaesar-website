@@ -18,7 +18,7 @@ export const ButtonStyle = styled.button`
   &.primary {
     background: ${theme.colors.secondary};
     color: ${theme.colors.text};
-    border-color: ${theme.colors.secondary};
+    border-color: ${theme.colors.text};
 
     &:hover {
       opacity: 0.9;

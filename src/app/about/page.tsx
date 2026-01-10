@@ -1,4 +1,8 @@
+'use client';
+
+import AboutPage from '@/components/pages/About';
+
 const About = () => {
-  return <div>About</div>;
+  return <AboutPage />;
 };
 export default About;
