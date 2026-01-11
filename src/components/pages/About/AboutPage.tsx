@@ -1,5 +1,7 @@
 import Container from '@/components/Layout/Container';
 import AboutPageStyle from './style';
+import Image from 'next/image';
+import aboutImage from '@/assets/images/about-image.webp';
 
 const AboutPage = () => {
   return (
@@ -14,47 +16,25 @@ const AboutPage = () => {
         </div>
 
         <div className="about-content">
-          <div className="about-content__image"></div>
+
           <div className="about-content__text">
             <p>
-              I am a Frontend Developer with over 6 years of experience,
-              starting my journey in 2019 as a self-taught developer. Throughout
-              my career, I have focused on building modern, scalable, and
-              user-centric web applications using TypeScript, Next.js, and
-              React.js.
+              I am a Frontend Developer with over 6 years of experience, starting my journey in 2019 as a self-taught developer. I specialize in building modern, scalable, and user-centric web applications using TypeScript, React.js, and Next.js, with a strong focus on performance, maintainability, and clean architecture.
             </p>
 
             <p>
-              Coming from an autodidact background, I have developed a strong
-              ability to learn independently, adapt quickly to new technologies,
-              and solve problems effectively. I enjoy turning complex
-              requirements into clean, maintainable, and high-performance
-              interfaces, while maintaining a strong focus on code quality,
-              performance optimization, and user experience.
+             Coming from an autodidact background, I am highly adaptable and comfortable learning new technologies independently. I enjoy transforming complex requirements into clean, reusable, and high-performance interfaces, while consistently applying best practices in modern frontend development and user experience.
             </p>
 
             <p>
-              I have hands-on experience in developing responsive web
-              applications, building reusable component systems, and
-              implementing best practices in modern frontend development. I am
-              comfortable working in remote environments, collaborating with
-              cross-functional teams, and contributing to products from planning
-              to deployment.
+              I have experience working in remote and cross-functional teams, contributing to products from planning to deployment. I value scalability and long-term maintainability, actively refactoring and improving codebases, and continuously staying up to date with the evolving frontend ecosystem to deliver impactful digital products.
             </p>
 
-            <p>
-              I value clean architecture, scalability, and long-term
-              maintainability, and I continuously improve existing codebases
-              through refactoring and thoughtful technical decisions. Beyond
-              coding, I am passionate about continuous learning and staying up
-              to date with the evolving frontend ecosystem.
-            </p>
-
-            <p>
-              My goal is to contribute to impactful digital products while
-              continuously growing as a frontend engineer who delivers both
-              technical excellence and meaningful user experiences.
-            </p>
+            
+          </div>
+          
+          <div className="about-content__image">
+            <Image src={aboutImage} alt="profile-image"priority width={500} height={500} quality={100}/>
           </div>
         </div>
       </AboutPageStyle>

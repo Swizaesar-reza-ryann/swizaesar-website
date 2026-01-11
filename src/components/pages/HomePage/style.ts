@@ -4,7 +4,14 @@ import styled from "@emotion/styled";
 const HomePageStyle = styled.div`
  display: block;
 
+ .home-section{
+    display: flex;
+    gap: 24px;
+    align-items: center;
+ }
+
  .summary{
+ 
     &-job{
         color: ${theme.colors.secondary};
         transform: translateX(-1000px);
@@ -12,7 +19,7 @@ const HomePageStyle = styled.div`
     }
 
     &-name{
-        font-size: 6rem;
+        font-size: 4rem;
         margin-top: 0px;
         line-height: 0.9;
         margin-bottom: 16px;
@@ -30,7 +37,7 @@ const HomePageStyle = styled.div`
     &-description{
         color: ${theme.colors.text};
         line-height: 1.5;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         max-width: 920px;
         transform: translateX(-1000px);
         animation: slideIn 0.6s ease-out forwards;
@@ -40,6 +47,103 @@ const HomePageStyle = styled.div`
         transform: translateX(-1000px);
         animation: slideIn 0.8s ease-out forwards;
         font-weight: 600;
+    }
+ }
+
+ .card-developer{
+    width: 65%;
+    height: 550px;
+    background: #352723;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__code{
+        width: 350px;
+        height: 250px;
+        background: ${theme.colors.primary};
+        border-radius: 8px;
+        padding: 16px;
+        transition: all 0.3s ease;
+
+        &-menu{
+            display: flex;
+            gap: 6px;
+            margin-bottom: 24px;
+
+            &-item{
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                
+                &.close{
+                    background: #ef4444;
+                }
+
+                &.minimize{
+                    background: #ebb30b;
+                }
+
+                &.full-screen{
+                    background: #22c55f;
+                }
+            }
+        }
+
+        &-content{
+
+            &-variable{
+                display: flex;
+
+                .const{
+                    color: #c084fc;
+                }
+
+                .name{
+                    color: #a3e635;
+                }
+
+                .operator{
+                    color: #f97316;
+                }
+            }
+
+            &-object{
+                margin-left: 16px;
+
+                &-value{
+                    display: flex;
+
+                    .value{
+                        color: #60a5fa;
+
+                        &-boolean{
+                            color: #ad06ca;
+                        }
+                    }
+
+                    .bracket{
+                        color: #60a5fa;
+                    }
+                }
+            }
+        }
+
+        .bracket{
+            color: #60a5fa;
+        }
+
+        
+    }
+
+    &:hover{
+        transition: all 0.3s ease;
+        
+        .card-developer__code{
+            transform: scale(1.15);
+            transition: all 0.3s ease;
+        }
     }
  }
 
