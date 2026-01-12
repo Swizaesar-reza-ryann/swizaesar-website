@@ -13,7 +13,9 @@ const Homepage = () => {
         </div>
         
          <div className='card-developer'>
-          <CardDeveloper />
+          <div className="card-developer__wrapper">
+            <CardDeveloper />
+          </div>
          </div>
        </div>
       </Container>

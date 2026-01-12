@@ -47,25 +47,50 @@ const HomePageStyle = styled.div`
         transform: translateX(-1000px);
         animation: slideIn 0.8s ease-out forwards;
         font-weight: 600;
+        margin-bottom: 24px;
+    }
+
+    &-social__media{
+        transform: translateX(-1000px);
+        animation: slideIn 1s ease-out forwards;
+        display: flex;
+        gap: 16px;
+        position: relative;
+        z-index: 2;
+
+        a{
+            cursor: pointer;
+        }
     }
  }
 
  .card-developer{
     width: 65%;
-    height: 550px;
-    background: #352723;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 550px;
+  background: #352723;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateX(1500px);
+  animation: slideIn 0.2s ease-out forwards;
+
+    &__wrapper{
+        transform: translateX(1500px);
+        animation: slideIn 0.4s ease-out forwards;
+    }
 
     &__code{
         width: 350px;
-        height: 250px;
-        background: ${theme.colors.primary};
-        border-radius: 8px;
-        padding: 16px;
-        transition: all 0.3s ease;
+    height: 250px;
+    background: ${theme.colors.primary};
+    border-radius: 8px;
+    padding: 16px;
+
+    /* ONLY hover animation */
+    transition: transform 0.3s ease;
+    will-change: transform;
 
         &-menu{
             display: flex;
@@ -92,9 +117,12 @@ const HomePageStyle = styled.div`
         }
 
         &-content{
+            transform: translateX(1500px);
+            animation: slideIn 0.8s ease-out forwards;
 
             &-variable{
                 display: flex;
+        
 
                 .const{
                     color: #c084fc;
@@ -142,7 +170,6 @@ const HomePageStyle = styled.div`
         
         .card-developer__code{
             transform: scale(1.15);
-            transition: all 0.3s ease;
         }
     }
  }

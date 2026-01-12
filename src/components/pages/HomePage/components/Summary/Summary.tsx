@@ -1,4 +1,6 @@
 import Button from '@/components/Button';
+import { Facebook, Github, Instagram } from 'lucide-react';
+import Link from 'next/link';
 
 const Summary = () => {
   return (
@@ -17,6 +19,20 @@ const Summary = () => {
       <Button size="large" className="summary-button">
         Download CV
       </Button>
+
+      <div className='summary-social__media'>
+        <Link href="https://www.instagram.com/swizaesarreza/" target='_blank'>
+          <Instagram size={32} />
+        </Link>
+
+        <Link href="">  
+          <Facebook size={32} />
+        </Link>
+
+        <Link href="https://github.com/Swizaesar-reza-ryann" target='_blank'>
+          <Github size={32} />
+        </Link>
+      </div>
     </>
   );
 };
