@@ -8,22 +8,22 @@ export const globalStyle = css`
   }
 
   body {
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
     background: ${theme.colors.primary};
-    color: ${theme.colors.text}
+    color: ${theme.colors.text};
   }
 
-  a{
-   color: ${theme.colors.text};
-   text-decoration: none;
-   transition: color 0.3s ease;
-   cursor: pointer;
+  a {
+    color: ${theme.colors.text};
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
 
-   &:hover {
-    color: ${theme.colors.secondary};
-   }
+    &:hover {
+      color: ${theme.colors.secondary};
+    }
   }
 `;
 
@@ -32,28 +32,25 @@ export const LayoutStyle = styled.div`
   position: relative;
   min-height: 100dvh;
   overflow: clip;
+  padding-bottom: 32px;
 
-  .blur-circle{
+  .blur-circle {
     position: absolute;
     opacity: 0.3;
     width: 500px;
     height: 500px;
-    background-color: ${theme.colors.secondary}; 
-    border-radius: 50%; 
+    background-color: ${theme.colors.secondary};
+    border-radius: 50%;
     filter: blur(120px);
 
-    &-top{
-        top: -250px;
-        right: -250px;  
+    &-top {
+      top: -250px;
+      right: -250px;
     }
 
-    &-bottom{
-        bottom: -250px;
-        left: -250px;
+    &-bottom {
+      bottom: -250px;
+      left: -250px;
     }
   }
 `;
-
-
-
-

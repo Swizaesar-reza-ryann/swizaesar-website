@@ -83,14 +83,14 @@ const HomePageStyle = styled.div`
 
     &__code{
         width: 350px;
-    height: 250px;
-    background: ${theme.colors.primary};
-    border-radius: 8px;
-    padding: 16px;
+        height: 250px;
+        background: ${theme.colors.primary};
+        border-radius: 8px;
+        padding: 16px;
 
-    /* ONLY hover animation */
-    transition: transform 0.3s ease;
-    will-change: transform;
+        /* ONLY hover animation */
+        transition: transform 0.3s ease;
+        will-change: transform;
 
         &-menu{
             display: flex;
