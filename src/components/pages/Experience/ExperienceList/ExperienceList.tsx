@@ -1,40 +1,40 @@
-import { theme } from '@/theme';
 import { Briefcase } from 'lucide-react';
 import ExperienceListStyle from './style';
+import { ExperienceListType } from '../types';
 
-const ExperienceList = () => {
+interface ExperienceListProps {
+  data: ExperienceListType;
+}
+
+const ExperienceList = ({ data }: ExperienceListProps) => {
+  const { title, subtitle, description, startDate, endDate } = data;
   return (
-    <ExperienceListStyle>
+    <ExperienceListStyle key={`experience-${data.id}`}>
       <div className="experience-list__icon">
         <Briefcase width={16} />
       </div>
 
       <div className="experience-list__content">
-        <h4 className="experience-list__content-title">Frontend Developer</h4>
+        <h4 className="experience-list__content-title">{title}</h4>
 
-        <p className="experience-list__content-subtitle">
-          PT Jaya Digital Properti
-        </p>
+        <p className="experience-list__content-subtitle">{subtitle}</p>
 
         <ul className="experience-list__content-description">
-          <li className="experience-list__content-description-list">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Consectetur, qui ad quam consequuntur commodi rem quo magni
-            architecto deleniti ratione? Eius, quos. Tenetur tempora dicta
-            repudiandae, dolorem ea enim mollitia.
-          </li>
-
-          <li>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Consectetur, qui ad quam consequuntur commodi rem quo magni
-            architecto deleniti ratione? Eius, quos. Tenetur tempora dicta
-            repudiandae, dolorem ea enim mollitia.
-          </li>
+          {description.map((item, index) => (
+            <li
+              key={`description-${index}`}
+              className="experience-list__content-description-list"
+            >
+              {item}
+            </li>
+          ))}
         </ul>
       </div>
 
       <div className="experience-list__date">
-        <span>2022 - Present</span>
+        <span>
+          {startDate} - {endDate}
+        </span>
       </div>
     </ExperienceListStyle>
   );

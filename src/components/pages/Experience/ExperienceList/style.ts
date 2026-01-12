@@ -34,7 +34,7 @@ const ExperienceListStyle = styled.div`
 
     &__content {
       z-index: 3;
-      width: calc(100% - 30px - 15%);
+      width: calc(100% - 30px - 20%);
 
       &-title {
         color: ${theme.colors.secondary};
@@ -58,9 +58,11 @@ const ExperienceListStyle = styled.div`
     }
 
     &__date {
-      width: 15%;
+      width: 20%;
+      font-size: 14px;
       margin: 5px 0;
       z-index: 3;
+      text-align: right;
       color: ${theme.colors.text};
     }
   }

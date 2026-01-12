@@ -1,6 +1,7 @@
 import Container from '@/components/Layout/Container';
 import ExperiencePageStyle from './style';
 import ExperienceList from './ExperienceList';
+import { EXPERIENCE_LIST } from './constant';
 
 const ExperiencePage = () => {
   return (
@@ -14,9 +15,9 @@ const ExperiencePage = () => {
           <h4>My professional journey so far.</h4>
         </div>
 
-        <ExperienceList />
-        <ExperienceList />
-        <ExperienceList />
+        {EXPERIENCE_LIST.map((item, index) => (
+          <ExperienceList key={index} data={item} />
+        ))}
       </ExperiencePageStyle>
     </Container>
   );
