@@ -27,7 +27,7 @@ const CardProject = ({ data }: CardProjectProps) => {
           className="view-project-btn"
         >
           <ExternalLink size={16} />
-          View Project
+          View Details
         </a>
       </div>
     </CardProjectStyle>
