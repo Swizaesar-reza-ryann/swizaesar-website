@@ -17,11 +17,12 @@ const PortfolioPage = () => {
         </div>
 
         <Row>
-          {PORTFOLIO_LIST.map((project) => (
-            <Column key={project.id} width={4}>
-              <CardProject data={project} />
-            </Column>
-          ))}
+          {PORTFOLIO_LIST &&
+            PORTFOLIO_LIST.map((project) => (
+              <Column key={project.id} width={4}>
+                <CardProject data={project} />
+              </Column>
+            ))}
         </Row>
       </PortfolioPageStyle>
     </Container>

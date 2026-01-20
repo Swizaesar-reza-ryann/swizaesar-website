@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 const Header = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  console.log('pathname', pathname);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
