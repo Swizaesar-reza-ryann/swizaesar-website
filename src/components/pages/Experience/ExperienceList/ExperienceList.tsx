@@ -1,6 +1,6 @@
 import { Briefcase } from 'lucide-react';
 import ExperienceListStyle from './style';
-import { ExperienceListType } from '../types';
+import { ExperienceListType } from '@/components/pages/Experience/types';
 
 interface ExperienceListProps {
   data: ExperienceListType;

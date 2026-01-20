@@ -1,5 +1,6 @@
 export type PortfolioType = {
   id: string;
+  urlId: number;
   title: string;
   category:
     | CategoryPortfolioEnum.WEB_APP

@@ -13,8 +13,8 @@ const slideIn = keyframes`
   }
 `;
 
-const ExperiencePageStyle = styled.div`
-  .experience {
+const PortfolioPageStyle = styled.div`
+  .portfolio {
     &-title {
       text-align: center;
       margin-bottom: 32px;
@@ -48,4 +48,4 @@ const ExperiencePageStyle = styled.div`
   }
 `;
 
-export default ExperiencePageStyle;
+export default PortfolioPageStyle;

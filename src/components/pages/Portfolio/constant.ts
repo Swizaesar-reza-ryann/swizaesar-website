@@ -3,6 +3,7 @@ import { CategoryPortfolioEnum, PortfolioType } from './types';
 export const PORTFOLIO_LIST: PortfolioType[] = [
   {
     id: 'fithub-website',
+    urlId: 1,
     title: 'Fithub Website',
     category: CategoryPortfolioEnum.WEB_APP,
     description:
@@ -25,6 +26,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'fithub-dashboard',
+    urlId: 2,
     title: 'Fithub Internal Dashboard',
     category: CategoryPortfolioEnum.DASHBOARD,
     description:
@@ -48,6 +50,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'tataskola-dashboard',
+    urlId: 3,
     title: 'Tataskola Dashboard',
     category: CategoryPortfolioEnum.DASHBOARD,
     description:
@@ -62,6 +65,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'lakugan-platform',
+    urlId: 4,
     title: 'Lakugan Platform',
     category: CategoryPortfolioEnum.WEB_APP,
     description:
@@ -82,6 +86,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'nusamed-website',
+    urlId: 5,
     title: 'Nusamed Company Website',
     category: CategoryPortfolioEnum.LANDING_PAGE,
     description:
