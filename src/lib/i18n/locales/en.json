@@ -39,7 +39,7 @@
     "subtitle": "My professional journey so far.",
     "fithub": {
       "title": "Frontend Developer",
-      "subtitle": "PT. Jaya Property Indonesia (Fithub)",
+      "subtitle": "PT. Jaya Digital Properti (Fithub)",
       "description": [
         "Developed and optimized web applications using React.js, Next.js, and TypeScript",
         "Improved web performance through code splitting, lazy loading, and render optimization",
@@ -99,7 +99,7 @@
     }
   },
   "portfolio": {
-    "title": "Feature Project",
+    "title": "Feature Projects",
     "subtitle": "Check out some of my recent work.",
     "swizaesar_portfolio": {
       "title": "Personal Portfolio Website",
