@@ -4,9 +4,12 @@ import { Home, User, Briefcase, Code, MessageCircle } from 'lucide-react';
 import { NAVBAR_LIST } from '@/components/Layout/Header/constant';
 import NavMobileStyle from './style';
 import { theme } from '@/theme';
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const NavMobile = () => {
   const pathname = usePathname();
+  const { t } = useLanguage();
 
   const getIcon = (key: string) => {
     switch (key) {
@@ -56,7 +59,7 @@ const NavMobile = () => {
             rel={isExternalLink(item.link) ? 'noopener noreferrer' : ''}
           >
             <div className="nav-icon">{getIcon(item.key)}</div>
-            <span className="nav-label">{item.label}</span>
+            <span className="nav-label">{t(`navigation.${item.key}`)}</span>
           </Link>
         ))}
       </div>

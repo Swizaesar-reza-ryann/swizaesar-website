@@ -1,0 +1,171 @@
+{
+  "common": {
+    "download_cv": "Download CV",
+    "hello": "Hello",
+    "loading": "Loading...",
+    "read_more": "Read More",
+    "contact": "Contact",
+    "projects": "Projects",
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "tech_stack": "Tech Stack",
+    "back_to_portfolio": "Back to Portfolio",
+    "view_live_project": "View Live Project",
+    "responsibilities": "Responsibilities"
+  },
+  "home": {
+    "greeting": "Hello, I'm",
+    "title": "Website",
+    "subtitle": "Developer",
+    "description": "I build accessible, pixel-perfect, secure, and performant web applications. Let's turn your vision into reality."
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "portfolio": "Portfolio",
+    "contact": "Let's Chat"
+  },
+  "about": {
+    "who_i_am": "who i am",
+    "title": "About Me",
+    "paragraph1": "I am a Frontend Developer with over 6 years of experience, starting my journey in 2019 as a self-taught developer. I specialize in building modern, scalable, and user-centric web applications using TypeScript, React.js, and Next.js, with a strong focus on performance, maintainability, and clean architecture.",
+    "paragraph2": "Coming from an autodidact background, I am highly adaptable and comfortable learning new technologies independently. I enjoy transforming complex requirements into clean, reusable, and high-performance interfaces, while consistently applying best practices in modern frontend development and user experience.",
+    "paragraph3": "I have experience working in remote and cross-functional teams, contributing to products from planning to deployment. I value scalability and long-term maintainability, actively refactoring and improving codebases, and continuously staying up to date with the evolving frontend ecosystem to deliver impactful digital products."
+  },
+  "experience": {
+    "title": "Work Experience",
+    "subtitle": "My professional journey so far.",
+    "fithub": {
+      "title": "Frontend Developer",
+      "subtitle": "PT. Jaya Digital Properti (Fithub)",
+      "description": [
+        "Developed and optimized web applications using React.js, Next.js, and TypeScript",
+        "Improved web performance through code splitting, lazy loading, and render optimization",
+        "Integrated RESTful APIs and ensured smooth communication between frontend and backend",
+        "Applied clean architecture principles to maintain scalable and maintainable codebases",
+        "Designed and managed internal dashboard workflows to support landing page requirements",
+        "Enhanced Core Web Vitals (LCP, CLS, FID) through performance audits and best practices"
+      ],
+      "startDate": "July 2022",
+      "endDate": "January 2026"
+    },
+    "tataskola": {
+      "title": "Frontend Developer",
+      "subtitle": "Pinduit Indonesia (Tataskola)",
+      "description": [
+        "Built internal dashboards using React.js and Material UI",
+        "Integrated RESTful APIs using Axios",
+        "Developed real-time file upload progress features using Firebase",
+        "Maintained consistent UI and improved user experience across dashboard features"
+      ],
+      "startDate": "August 2021",
+      "endDate": "June 2022"
+    },
+    "triple_one": {
+      "title": "Frontend Developer",
+      "subtitle": "PT. Triple One Global Indonesia (TOG)",
+      "description": [
+        "Developed web applications and internal dashboards using React.js",
+        "Built dashboards for supplier and reseller management",
+        "Integrated payment gateways to support secure transactions",
+        "Collaborated on UI development and application feature workflows"
+      ],
+      "startDate": "October 2020",
+      "endDate": "August 2021"
+    },
+    "panggilin": {
+      "title": "Frontend Developer",
+      "subtitle": "Panggilin",
+      "description": [
+        "Developed web applications using React.js and Styled Components",
+        "Integrated RESTful APIs for backend communication",
+        "Built real-time chat features using Firebase"
+      ],
+      "startDate": "June 2020",
+      "endDate": "September 2020"
+    },
+    "salt": {
+      "title": "Frontend Developer",
+      "subtitle": "PT. Ako Media Asia (SALT)",
+      "description": [
+        "Built websites using HTML, CSS, and jQuery",
+        "Integrated RESTful APIs using Ajax",
+        "Supported UI development and basic web feature implementation"
+      ],
+      "startDate": "July 2019",
+      "endDate": "May 2020"
+    }
+  },
+  "portfolio": {
+    "title": "Feature Projects",
+    "subtitle": "Check out some of my recent work.",
+    "swizaesar_portfolio": {
+      "title": "Personal Portfolio Website",
+      "description": "A modern, responsive personal portfolio website showcasing projects and professional experience with optimized performance.",
+      "responsibilities": [
+        "Designed and developed portfolio website from scratch using Next.js",
+        "Implemented responsive design with mobile-first approach",
+        "Optimized performance with lazy loading and code splitting",
+        "Created reusable UI components with TypeScript and Emotion.js"
+      ]
+    },
+    "fithub_website": {
+      "title": "Fithub Website",
+      "description": "A responsive company website focused on performance optimization and modern UI/UX.",
+      "responsibilities": [
+        "Improved web performance for faster load times and better responsiveness",
+        "Built responsive pages optimized for multiple devices",
+        "Revamped existing pages to enhance UI/UX consistency",
+        "Implemented form validation and user-friendly interactions"
+      ]
+    },
+    "fithub_dashboard": {
+      "title": "Fithub Internal Dashboard",
+      "description": "An internal dashboard used to manage content and operational data for Fithub platform.",
+      "responsibilities": [
+        "Designed and improved internal dashboard workflows",
+        "Migrated class components to functional components using TypeScript",
+        "Applied clean architecture for maintainable and scalable code",
+        "Built reusable UI components and code generator tools",
+        "Optimized application performance and rendering"
+      ]
+    },
+    "tataskola_dashboard": {
+      "title": "Tataskola Dashboard",
+      "description": "An internal dashboard application supporting education-related operational workflows.",
+      "responsibilities": [
+        "Developed dashboard features using Material UI",
+        "Integrated RESTful APIs for backend communication",
+        "Implemented real-time file upload progress using Firebase",
+        "Ensured consistent and user-friendly UI across features"
+      ]
+    },
+    "lakugan_platform": {
+      "title": "Lakugan Platform",
+      "description": "A multi-role web platform including supplier, reseller, internal dashboards, and buyer-facing websites.",
+      "responsibilities": [
+        "Built dashboards for suppliers, resellers, and internal teams from scratch",
+        "Implemented payment flow and order tracking features",
+        "Collaborated with product team to design step-by-step checkout flow",
+        "Defined base API contracts between frontend and backend"
+      ]
+    },
+    "nusamed_website": {
+      "title": "Nusamed Company Website",
+      "description": "A fully responsive company profile website built from scratch.",
+      "responsibilities": [
+        "Converted UI design into clean and maintainable React components",
+        "Ensured responsive layout across multiple screen sizes",
+        "Optimized website for mobile devices"
+      ]
+    }
+  },
+  "portfolio_detail": {
+    "project_category": "Category",
+    "responsibilities": "Responsibilities",
+    "tech_stack": "Tech Stack",
+    "view_live_project": "View Live Project"
+  }
+}

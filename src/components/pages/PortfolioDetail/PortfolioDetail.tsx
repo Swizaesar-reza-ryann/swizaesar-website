@@ -11,9 +11,11 @@ import {
 } from 'lucide-react';
 import { PORTFOLIO_LIST } from '@/components/pages/Portfolio/constant';
 import PortfolioDetailStyle from './style';
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const PortfolioDetailPage = () => {
   const { id } = useParams();
+  const { t, tArray } = useLanguage();
 
   const project: PortfolioType | undefined = PORTFOLIO_LIST.find(
     (p) => p.urlId.toString() === id
@@ -23,31 +25,40 @@ const PortfolioDetailPage = () => {
     notFound();
   }
 
+  // Get translated content
+  const responsibilitiesList = tArray(
+    `portfolio.${project.key}.responsibilities`
+  );
+
   return (
     <Container>
       <PortfolioDetailStyle>
         <Link href="/portfolio" className="back-button">
           <ArrowLeft size={16} />
-          Back to Portfolio
+          {t('common.back_to_portfolio')}
         </Link>
 
         <div className="project-header">
-          <h1 className="project-title">{project.title}</h1>
+          <h1 className="project-title">
+            {t(`portfolio.${project.key}.title`)}
+          </h1>
           <div className="project-category">
             <Code size={14} />
             {project.category}
           </div>
-          <p className="project-description">{project.description}</p>
+          <p className="project-description">
+            {t(`portfolio.${project.key}.description`)}
+          </p>
         </div>
 
         <div className="project-content">
           <div className="section">
             <h3>
               <Briefcase size={20} />
-              Responsibilities
+              {t('portfolio_detail.responsibilities')}
             </h3>
             <ul className="responsibilities-list">
-              {project.responsibilities.map(
+              {responsibilitiesList.map(
                 (responsibility: string, index: number) => (
                   <li key={index}>
                     <CheckCircle size={16} />
@@ -61,7 +72,7 @@ const PortfolioDetailPage = () => {
           <div className="section">
             <h3>
               <Code size={20} />
-              Tech Stack
+              {t('portfolio_detail.tech_stack')}
             </h3>
             <div className="tech-stack">
               {project.techStack.map((tech: string, index: number) => (
@@ -80,7 +91,7 @@ const PortfolioDetailPage = () => {
                   className="view-project-btn"
                 >
                   <ExternalLink size={16} />
-                  View Live Project
+                  {t('portfolio_detail.view_live_project')}
                 </a>
               </div>
             )}

@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import ClientProviders from '@/components/providers/ClientProviders';
+import StylesReadyLoader from '@/components/StylesReadyLoader';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -78,7 +81,32 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable}>
       <body>
-        <ClientProviders>{children}</ClientProviders>
+        <GoogleAnalytics />
+        <ClientProviders>
+          <StylesReadyLoader
+            fallback={
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  height: '100vh',
+                  background: '#09090b',
+                  color: '#ffffff',
+                  padding: 0,
+                  margin: 0,
+                  fontFamily: 'var(--font-montserrat)',
+                  fontSize: '16px',
+                }}
+              >
+                Loading...
+              </div>
+            }
+          >
+            {children}
+          </StylesReadyLoader>
+          <LanguageSwitcher />
+        </ClientProviders>
       </body>
     </html>
   );
