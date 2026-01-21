@@ -36,7 +36,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (locales.includes(newLocale)) {
       setLocaleState(newLocale);
       document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
-      window.location.reload();
+      loadTranslations(newLocale);
     }
   };
 

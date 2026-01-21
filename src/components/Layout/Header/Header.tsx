@@ -43,7 +43,6 @@ const Header = () => {
             </Link>
           )
         )}
-        <LanguageSwitcher />
         <Button
           onClick={() => window.open(CONTACT_LINK, '_blank')}
           size="small"

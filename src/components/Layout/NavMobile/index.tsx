@@ -62,11 +62,6 @@ const NavMobile = () => {
             <span className="nav-label">{t(`navigation.${item.key}`)}</span>
           </Link>
         ))}
-        <div className="nav-item language-item">
-          <div className="nav-icon">
-            <LanguageSwitcher />
-          </div>
-        </div>
       </div>
     </NavMobileStyle>
   );
