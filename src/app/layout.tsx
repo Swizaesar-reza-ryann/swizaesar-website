@@ -11,10 +11,62 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'Swizaesar',
-  description: 'Generated Swizasear Website',
-  other: {
-    'font-display': 'swap',
+  title: {
+    default: 'Swizaesar | Professional Web Development & Digital Solutions',
+    template: '%s | Swizaesar',
+  },
+  description:
+    'Swizaesar delivers professional web development, digital solutions, and innovative technology services. Transform your business with custom websites, applications, and cutting-edge digital strategies.',
+  keywords: [
+    'web development',
+    'digital solutions',
+    'technology services',
+    'custom websites',
+    'web applications',
+    'digital transformation',
+    'professional development',
+  ],
+  authors: [{ name: 'Swizaesar' }],
+  creator: 'Swizaesar',
+  publisher: 'Swizaesar',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://swizaesar.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://swizaesar.com',
+    title: 'Swizaesar | Professional Web Development & Digital Solutions',
+    description:
+      'Swizaesar delivers professional web development, digital solutions, and innovative technology services. Transform your business with custom websites, applications, and cutting-edge digital strategies.',
+    siteName: 'Swizaesar',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Swizaesar | Professional Web Development & Digital Solutions',
+    description:
+      'Swizaesar delivers professional web development, digital solutions, and innovative technology services. Transform your business with custom websites, applications, and cutting-edge digital strategies.',
+    creator: '@swizaesar',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 };
 
