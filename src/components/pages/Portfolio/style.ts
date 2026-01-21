@@ -14,6 +14,9 @@ const slideIn = keyframes`
 `;
 
 const PortfolioPageStyle = styled.div`
+  position: relative;
+  z-index: 1;
+
   .portfolio {
     &-title {
       text-align: center;

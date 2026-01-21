@@ -3,6 +3,7 @@ import { Facebook, Github, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { useScreenSize } from '@/context/ScreenContext';
 import CardDeveloper from '@/components/pages/HomePage/components/CardDeveloper';
+import { downloadCV } from '@/utils/download';
 
 const Summary = () => {
   const isMobile = useScreenSize();
@@ -11,10 +12,12 @@ const Summary = () => {
     <>
       <h3 className="summary-job">Hello, I'm</h3>
 
-      <h1 className="summary-name" data-mobile={isMobile}>
-        Website <br />
-        <span>Developer</span>
-      </h1>
+      <div>
+        <h1 className="summary-name" data-mobile={isMobile}>
+          Website <br />
+          <span>Developer</span>
+        </h1>
+      </div>
 
       <p className="summary-description" data-mobile={isMobile}>
         I build accessible, pixel-perfect, secure, and performant web
@@ -23,7 +26,12 @@ const Summary = () => {
 
       {isMobile && <CardDeveloper />}
 
-      <Button size="large" className="summary-button" data-mobile={isMobile}>
+      <Button
+        onClick={() => downloadCV(false)}
+        size="large"
+        className="summary-button"
+        data-mobile={isMobile}
+      >
         Download CV
       </Button>
 

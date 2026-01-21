@@ -2,8 +2,30 @@ import { CategoryPortfolioEnum, PortfolioType } from './types';
 
 export const PORTFOLIO_LIST: PortfolioType[] = [
   {
-    id: 'fithub-website',
+    id: 'swizaesar-portfolio',
     urlId: 1,
+    title: 'Personal Portfolio Website',
+    category: CategoryPortfolioEnum.WEB_APP,
+    description:
+      'A modern, responsive personal portfolio website showcasing projects and professional experience with optimized performance.',
+    responsibilities: [
+      'Designed and developed portfolio website from scratch using Next.js',
+      'Implemented responsive design with mobile-first approach',
+      'Optimized performance with lazy loading and code splitting',
+      'Created reusable UI components with TypeScript and Emotion.js',
+    ],
+    techStack: [
+      'Next.js',
+      'React.js',
+      'TypeScript',
+      'Emotion.js',
+      'Lucide React',
+    ],
+    websiteUrl: 'https://swizaesar.com',
+  },
+  {
+    id: 'fithub-website',
+    urlId: 2,
     title: 'Fithub Website',
     category: CategoryPortfolioEnum.WEB_APP,
     description:
@@ -26,7 +48,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'fithub-dashboard',
-    urlId: 2,
+    urlId: 3,
     title: 'Fithub Internal Dashboard',
     category: CategoryPortfolioEnum.DASHBOARD,
     description:
@@ -50,7 +72,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'tataskola-dashboard',
-    urlId: 3,
+    urlId: 4,
     title: 'Tataskola Dashboard',
     category: CategoryPortfolioEnum.DASHBOARD,
     description:
@@ -65,7 +87,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'lakugan-platform',
-    urlId: 4,
+    urlId: 5,
     title: 'Lakugan Platform',
     category: CategoryPortfolioEnum.WEB_APP,
     description:
@@ -86,7 +108,7 @@ export const PORTFOLIO_LIST: PortfolioType[] = [
   },
   {
     id: 'nusamed-website',
-    urlId: 5,
+    urlId: 6,
     title: 'Nusamed Company Website',
     category: CategoryPortfolioEnum.LANDING_PAGE,
     description:
