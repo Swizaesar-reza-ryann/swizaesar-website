@@ -4,24 +4,25 @@ import Link from 'next/link';
 import { useScreenSize } from '@/context/ScreenContext';
 import CardDeveloper from '@/components/pages/HomePage/components/CardDeveloper';
 import { downloadCV } from '@/utils/download';
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const Summary = () => {
   const isMobile = useScreenSize();
+  const { t } = useLanguage();
 
   return (
     <>
-      <h3 className="summary-job">Hello, I'm</h3>
+      <h3 className="summary-job">{t('home.greeting')}</h3>
 
       <div>
         <h1 className="summary-name" data-mobile={isMobile}>
-          Website <br />
-          <span>Developer</span>
+          {t('home.title')} <br />
+          <span>{t('home.subtitle')}</span>
         </h1>
       </div>
 
       <p className="summary-description" data-mobile={isMobile}>
-        I build accessible, pixel-perfect, secure, and performant web
-        applications. Let's turn your vision into reality.
+        {t('home.description')}
       </p>
 
       {isMobile && <CardDeveloper />}
@@ -32,7 +33,7 @@ const Summary = () => {
         className="summary-button"
         data-mobile={isMobile}
       >
-        Download CV
+        {t('common.download_cv')}
       </Button>
 
       <div className="summary-social__media">

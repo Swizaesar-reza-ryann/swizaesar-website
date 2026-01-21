@@ -5,11 +5,14 @@ import HeaderStyle from './style';
 import Button from '@/components/Button';
 import { useEffect, useState } from 'react';
 import { useScreenSize } from '@/context/ScreenContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const Header = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useScreenSize();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,7 +39,7 @@ const Header = () => {
               target={item.link.startsWith('http') ? '_blank' : '_self'}
               rel={item.link.startsWith('http') ? 'noopener noreferrer' : ''}
             >
-              {item.label}
+              {t(`navigation.${item.key}`)}
             </Link>
           )
         )}
@@ -45,7 +48,7 @@ const Header = () => {
           size="small"
           variant="primary"
         >
-          Let's Chat
+          {t('navigation.contact')}
         </Button>
       </div>
     </HeaderStyle>

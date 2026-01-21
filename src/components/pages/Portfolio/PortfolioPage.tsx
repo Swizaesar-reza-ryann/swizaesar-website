@@ -4,19 +4,21 @@ import CardProject from './components/CardProject';
 import { Row, Column } from '@/components/Layout/Grid';
 import { PORTFOLIO_LIST } from './constant';
 import { useScreenSize } from '@/context/ScreenContext';
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const PortfolioPage = () => {
   const isMobile = useScreenSize();
+  const { t } = useLanguage();
 
   return (
     <Container>
       <PortfolioPageStyle>
         <div className="portfolio-title">
           <div>
-            <h1>Feature Project</h1>
+            <h1>{t('portfolio.title')}</h1>
           </div>
 
-          <h4>Check out some of my recent work.</h4>
+          <h4>{t('portfolio.subtitle')}</h4>
         </div>
 
         <Row justify="center">

@@ -35,7 +35,7 @@ export const LayoutStyle = styled.div`
   padding-bottom: 32px;
 
   &[data-mobile='true'] {
-    padding-top: 16px;
+    padding-top: 64px;
     padding-bottom: 95px;
   }
 

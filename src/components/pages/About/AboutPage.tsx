@@ -5,50 +5,33 @@ import aboutImage from '@/assets/images/about-image.webp';
 import Skills from '@/components/Skills';
 import { Column, Row } from '@/components/Layout/Grid';
 import { useScreenSize } from '@/context/ScreenContext';
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const AboutPage = () => {
   const isMobile = useScreenSize();
+  const { t } = useLanguage();
+
   return (
     <Container>
       <AboutPageStyle>
         <div className="about-title">
-          <h4>who i am</h4>
+          <h4>{t('about.who_i_am')}</h4>
 
           <div>
-            <h1>About Me</h1>
+            <h1>{t('about.title')}</h1>
           </div>
         </div>
 
         <Row direction={isMobile ? 'column-reverse' : 'row'} align="center">
           <Column width={isMobile ? 12 : 6}>
             <div className="about-content__text">
-              <p>
-                I am a Frontend Developer with over 6 years of experience,
-                starting my journey in 2019 as a self-taught developer. I
-                specialize in building modern, scalable, and user-centric web
-                applications using TypeScript, React.js, and Next.js, with a
-                strong focus on performance, maintainability, and clean
-                architecture.
-              </p>
+              <p>{t('about.paragraph1')}</p>
 
-              <p>
-                Coming from an autodidact background, I am highly adaptable and
-                comfortable learning new technologies independently. I enjoy
-                transforming complex requirements into clean, reusable, and
-                high-performance interfaces, while consistently applying best
-                practices in modern frontend development and user experience.
-              </p>
+              <p>{t('about.paragraph2')}</p>
 
-              <p>
-                I have experience working in remote and cross-functional teams,
-                contributing to products from planning to deployment. I value
-                scalability and long-term maintainability, actively refactoring
-                and improving codebases, and continuously staying up to date
-                with the evolving frontend ecosystem to deliver impactful
-                digital products.
-              </p>
+              <p>{t('about.paragraph3')}</p>
 
-              <h4>Tech Stack</h4>
+              <h4>{t('common.tech_stack')}</h4>
 
               <Skills />
             </div>
