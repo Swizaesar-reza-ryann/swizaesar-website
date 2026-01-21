@@ -1,8 +1,18 @@
+import LoadingPage from '@/components/Layout/LoadingPage';
 import dynamic from 'next/dynamic';
 
 const ExperiencePageLazy = dynamic(
-    () => import(/* webpackChunkName: "experience-page-lazy" */ './ExperiencePage'),
-    { ssr: true, loading: () => <div>Loading...</div> }
-  );    
+  () =>
+    import(/* webpackChunkName: "experience-page-lazy" */ './ExperiencePage'),
+  {
+    ssr: true,
+    loading: () => (
+      <LoadingPage
+        message="Loading Experience"
+        subtitle="Fetching your projects..."
+      />
+    ),
+  }
+);
 
-  export default ExperiencePageLazy;
+export default ExperiencePageLazy;

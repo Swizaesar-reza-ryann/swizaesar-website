@@ -11,8 +11,6 @@ const AboutPageStyle = styled.div`
             color: ${theme.colors.secondary};
             text-transform: uppercase;
             margin: 18px 0 12px 0;
-            transform: translateX(-1000px);
-            animation: slideIn 0.2s ease-out forwards;
         }
 
          div{
@@ -22,14 +20,10 @@ const AboutPageStyle = styled.div`
             h1{
                 color: ${theme.colors.text};
                 margin: 0;
-                transform: translateX(-1000px);
-                animation: slideIn 0.4s ease-out forwards;
                 
             }
 
             &::after{
-                transform: translateX(-1000px);
-                animation: slideIn 0.4s ease-out forwards;
                 content: '';
                 position: absolute;
                 width: 50%;
@@ -50,8 +44,6 @@ const AboutPageStyle = styled.div`
         &__image{
             width: calc(50% - 12px);
             position: relative;
-            transform: translateX(1500px);
-            animation: slideIn 0.6s ease-out forwards;
 
             img{
                 width: 100%;
@@ -62,8 +54,6 @@ const AboutPageStyle = styled.div`
 
         &__text{
             width: calc(50% - 12px);
-            transform: translateX(-1000px);
-            animation: slideIn 0.6s ease-out forwards;
 
             p{
                 line-height: 1.6;
