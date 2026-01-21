@@ -16,7 +16,7 @@ const PortfolioPage = () => {
           <h4>Check out some of my recent work.</h4>
         </div>
 
-        <Row>
+        <Row justify="center">
           {PORTFOLIO_LIST &&
             PORTFOLIO_LIST.map((project) => (
               <Column key={project.id} width={4}>

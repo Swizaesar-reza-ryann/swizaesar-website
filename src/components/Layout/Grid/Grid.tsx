@@ -1,14 +1,17 @@
 'use client';
 
-import React from 'react';
 import { Row, Column } from './style';
 import { RowProps, ColumnProps } from './types';
 
-const GridRow: React.FC<RowProps> = ({ children, className }) => {
-  return <Row className={className}>{children}</Row>;
+const GridRow = ({ children, className, justify }: RowProps) => {
+  return (
+    <Row className={className} justify={justify}>
+      {children}
+    </Row>
+  );
 };
 
-const GridColumn: React.FC<ColumnProps> = ({ children, width, className }) => {
+const GridColumn = ({ children, width, className }: ColumnProps) => {
   return (
     <Column width={width} className={className}>
       {children}

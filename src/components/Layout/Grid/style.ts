@@ -4,6 +4,13 @@ import { WIDTH_MAP } from './constants';
 
 interface RowProps {
   className?: string;
+  justify?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
 }
 
 interface ColumnProps {
@@ -15,6 +22,12 @@ export const Row = styled.div<RowProps>`
   display: flex;
   flex-wrap: wrap;
   margin: -8px;
+
+  ${(props) =>
+    props.justify &&
+    `
+    justify-content: ${props.justify};
+  `}
 `;
 
 export const Column = styled.div<ColumnProps>`
