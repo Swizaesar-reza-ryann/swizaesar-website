@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Home, User, Briefcase, Code, MessageCircle } from 'lucide-react';
 import { NAVBAR_LIST } from '@/components/Layout/Header/constant';
 import NavMobileStyle from './style';
+import { theme } from '@/theme';
 
 const NavMobile = () => {
   const pathname = usePathname();
@@ -10,7 +11,7 @@ const NavMobile = () => {
   const getIcon = (key: string) => {
     switch (key) {
       case 'home':
-        return <Home size={20} />;
+        return <Home color={theme.colors.secondary} size={34} />;
       case 'about':
         return <User size={20} />;
       case 'experience':
@@ -32,10 +33,19 @@ const NavMobile = () => {
     return link.startsWith('http');
   };
 
+  // Reorder navigation: about, experience, HOME, portfolio, contact
+  const reorderedNavList = [
+    NAVBAR_LIST.find((item) => item.key === 'about'),
+    NAVBAR_LIST.find((item) => item.key === 'experience'),
+    NAVBAR_LIST.find((item) => item.key === 'home'),
+    NAVBAR_LIST.find((item) => item.key === 'portfolio'),
+    NAVBAR_LIST.find((item) => item.key === 'contact'),
+  ].filter((item): item is NonNullable<typeof item> => item !== undefined);
+
   return (
     <NavMobileStyle>
       <div className="nav-mobile">
-        {NAVBAR_LIST.map((item) => (
+        {reorderedNavList.map((item) => (
           <Link
             key={item.key}
             href={item.link}
