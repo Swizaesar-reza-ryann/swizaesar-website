@@ -34,6 +34,11 @@ export const LayoutStyle = styled.div`
   overflow: clip;
   padding-bottom: 32px;
 
+  &[data-mobile='true'] {
+    padding-top: 16px;
+    padding-bottom: 95px;
+  }
+
   .blur-circle {
     position: absolute;
     opacity: 0.3;
