@@ -1,0 +1,171 @@
+{
+  "common": {
+    "download_cv": "Unduh CV",
+    "hello": "Halo",
+    "loading": "Memuat...",
+    "read_more": "Baca Selengkapnya",
+    "contact": "Kontak",
+    "projects": "Proyek",
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "skills": "Keahlian",
+    "tech_stack": "Teknologi",
+    "back_to_portfolio": "Kembali ke Portfolio",
+    "view_live_project": "Lihat Proyek Live",
+    "responsibilities": "Tanggung Jawab"
+  },
+  "home": {
+    "greeting": "Halo, saya",
+    "title": "Website",
+    "subtitle": "Developer",
+    "description": "Saya membangun aplikasi web yang mudah diakses, pixel-perfect, aman, dan berkinerja tinggi. Mari wujudkan visi Anda menjadi kenyataan."
+  },
+  "navigation": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "portfolio": "Portfolio",
+    "contact": "Kontak"
+  },
+  "about": {
+    "who_i_am": "siapa saya",
+    "title": "Tentang Saya",
+    "paragraph1": "Saya adalah Frontend Developer dengan pengalaman lebih dari 6 tahun, memulai perjalanan pada tahun 2019 sebagai pengembang otodidak. Saya berspesialisasi dalam membangun aplikasi web yang modern, skalabel, dan berpusat pada pengguna menggunakan TypeScript, React.js, dan Next.js, dengan fokus kuat pada kinerja, kemudahan pemeliharaan, dan arsitektur yang bersih.",
+    "paragraph2": "Berasal dari latar belakang otodidak, saya sangat adaptif dan nyaman mempelajari teknologi baru secara mandiri. Saya menikmati mengubah persyaratan yang kompleks menjadi antarmuka yang bersih, dapat digunakan kembali, dan berkinerja tinggi, sambil secara konsisten menerapkan praktik terbaik dalam pengembangan frontend modern dan pengalaman pengguna.",
+    "paragraph3": "Saya memiliki pengalaman bekerja dalam tim jarak jauh dan lintas fungsional, berkontribusi pada produk dari perencanaan hingga penerapan. Saya menghargai skalabilitas dan kemudahan pemeliharaan jangka panjang, secara aktif melakukan refactoring dan meningkatkan basis kode, dan terus memperbarui diri dengan ekosistem frontend yang terus berkembang untuk menghasilkan produk digital yang berdampak."
+  },
+  "experience": {
+    "title": "Pengalaman Kerja",
+    "subtitle": "Perjalanan profesional saya sejauh ini.",
+    "fithub": {
+      "title": "Frontend Developer",
+      "subtitle": "PT. Jaya Property Indonesia (Fithub)",
+      "description": [
+        "Mengembangkan dan mengoptimalkan aplikasi web menggunakan React.js, Next.js, dan TypeScript",
+        "Meningkatkan kinerja web melalui code splitting, lazy loading, dan optimasi render",
+        "Mengintegrasikan RESTful APIs dan memastikan komunikasi yang lancar antara frontend dan backend",
+        "Menerapkan prinsip arsitektur yang bersih untuk mempertahankan codebase yang skalabel dan dapat dipelihara",
+        "Merancang dan mengelola workflow dashboard internal untuk mendukung persyaratan landing page",
+        "Meningkatkan Core Web Vitals (LCP, CLS, FID) melalui audit kinerja dan praktik terbaik"
+      ],
+      "startDate": "Juli 2022",
+      "endDate": "Januari 2026"
+    },
+    "tataskola": {
+      "title": "Frontend Developer",
+      "subtitle": "Pinduit Indonesia (Tataskola)",
+      "description": [
+        "Membangun dashboard internal menggunakan React.js dan Material UI",
+        "Mengintegrasikan RESTful APIs menggunakan Axios",
+        "Mengembangkan fitur progress upload file real-time menggunakan Firebase",
+        "Memelihara UI yang konsisten dan meningkatkan pengalaman pengguna di seluruh fitur dashboard"
+      ],
+      "startDate": "Agustus 2021",
+      "endDate": "Juni 2022"
+    },
+    "triple_one": {
+      "title": "Frontend Developer",
+      "subtitle": "PT. Triple One Global Indonesia (TOG)",
+      "description": [
+        "Mengembangkan aplikasi web dan dashboard internal menggunakan React.js",
+        "Membangun dashboard untuk manajemen supplier dan reseller",
+        "Mengintegrasikan payment gateway untuk mendukung transaksi yang aman",
+        "Berkolaborasi dalam pengembangan UI dan workflow fitur aplikasi"
+      ],
+      "startDate": "Oktober 2020",
+      "endDate": "Agustus 2021"
+    },
+    "panggilin": {
+      "title": "Frontend Developer",
+      "subtitle": "Panggilin",
+      "description": [
+        "Mengembangkan aplikasi web menggunakan React.js dan Styled Components",
+        "Mengintegrasikan RESTful APIs untuk komunikasi backend",
+        "Membangun fitur chat real-time menggunakan Firebase"
+      ],
+      "startDate": "Juni 2020",
+      "endDate": "September 2020"
+    },
+    "salt": {
+      "title": "Frontend Developer",
+      "subtitle": "PT. Ako Media Asia (SALT)",
+      "description": [
+        "Membangun website menggunakan HTML, CSS, dan jQuery",
+        "Mengintegrasikan RESTful APIs menggunakan Ajax",
+        "Mendukung pengembangan UI dan implementasi fitur web dasar"
+      ],
+      "startDate": "Juli 2019",
+      "endDate": "Mei 2020"
+    }
+  },
+  "portfolio": {
+    "title": "Proyek Unggulan",
+    "subtitle": "Lihat beberapa karya terbaru saya.",
+    "swizaesar_portfolio": {
+      "title": "Website Portfolio Pribadi",
+      "description": "Website portfolio pribadi yang modern dan responsif yang menampilkan proyek dan pengalaman profesional dengan kinerja yang dioptimalkan.",
+      "responsibilities": [
+        "Merancang dan mengembangkan website portfolio dari awal menggunakan Next.js",
+        "Menerapkan desain responsif dengan pendekatan mobile-first",
+        "Mengoptimalkan kinerja dengan lazy loading dan code splitting",
+        "Membuat komponen UI yang dapat digunakan kembali dengan TypeScript dan Emotion.js"
+      ]
+    },
+    "fithub_website": {
+      "title": "Website Fithub",
+      "description": "Website perusahaan yang responsif dengan fokus pada optimasi kinerja dan UI/UX modern.",
+      "responsibilities": [
+        "Meningkatkan kinerja web untuk waktu muat lebih cepat dan responsivitas yang lebih baik",
+        "Membangun halaman responsif yang dioptimalkan untuk berbagai perangkat",
+        "Memperbarui halaman yang ada untuk meningkatkan konsistensi UI/UX",
+        "Menerapkan validasi form dan interaksi yang user-friendly"
+      ]
+    },
+    "fithub_dashboard": {
+      "title": "Dashboard Internal Fithub",
+      "description": "Dashboard internal yang digunakan untuk mengelola konten dan data operasional untuk platform Fithub.",
+      "responsibilities": [
+        "Merancang dan meningkatkan workflow dashboard internal",
+        "Migrasi komponen class ke komponen fungsional menggunakan TypeScript",
+        "Menerapkan arsitektur yang bersih untuk kode yang dapat dipelihara dan skalabel",
+        "Membangun komponen UI yang dapat digunakan kembali dan tools generator kode",
+        "Mengoptimalkan kinerja aplikasi dan rendering"
+      ]
+    },
+    "tataskola_dashboard": {
+      "title": "Dashboard Tataskola",
+      "description": "Aplikasi dashboard internal yang mendukung workflow operasional terkait pendidikan.",
+      "responsibilities": [
+        "Mengembangkan fitur dashboard menggunakan Material UI",
+        "Mengintegrasikan RESTful APIs untuk komunikasi backend",
+        "Menerapkan progress upload file real-time menggunakan Firebase",
+        "Memastikan UI yang konsisten dan user-friendly di seluruh fitur"
+      ]
+    },
+    "lakugan_platform": {
+      "title": "Platform Lakugan",
+      "description": "Platform web multi-peran termasuk dashboard supplier, reseller, internal, dan website yang menghadap pembeli.",
+      "responsibilities": [
+        "Membangun dashboard untuk supplier, reseller, dan tim internal dari awal",
+        "Menerapkan alur pembayaran dan fitur pelacakan pesanan",
+        "Berkolaborasi dengan tim produk untuk merancang alur checkout langkah demi langkah",
+        "Mendefinisikan kontrak API dasar antara frontend dan backend"
+      ]
+    },
+    "nusamed_website": {
+      "title": "Website Perusahaan Nusamed",
+      "description": "Website profil perusahaan yang sepenuhnya responsif yang dibangun dari awal.",
+      "responsibilities": [
+        "Mengkonversi desain UI menjadi komponen React yang bersih dan dapat dipelihara",
+        "Memastikan layout responsif di berbagai ukuran layar",
+        "Mengoptimalkan website untuk perangkat mobile"
+      ]
+    }
+  },
+  "portfolio_detail": {
+    "project_category": "Kategori",
+    "responsibilities": "Tanggung Jawab",
+    "tech_stack": "Teknologi",
+    "view_live_project": "Lihat Proyek Live"
+  }
+}

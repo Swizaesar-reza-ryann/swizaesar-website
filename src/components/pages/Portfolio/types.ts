@@ -1,13 +1,14 @@
 export type PortfolioType = {
   id: string;
   urlId: number;
-  title: string;
+  key: string; // Translation key for portfolio
+  title?: string; // Optional fallback title
   category:
     | CategoryPortfolioEnum.WEB_APP
     | CategoryPortfolioEnum.DASHBOARD
     | CategoryPortfolioEnum.LANDING_PAGE;
-  description: string;
-  responsibilities: string[];
+  description?: string; // Optional fallback description
+  responsibilities?: string[]; // Optional fallback responsibilities
   techStack: string[];
   websiteUrl?: string;
 };
