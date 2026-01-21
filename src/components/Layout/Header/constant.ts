@@ -1,5 +1,7 @@
 import { NavbarListType } from './types';
 
+export const CONTACT_LINK = 'https://wa.me/6282258526357';
+
 export const NAVBAR_LIST: NavbarListType[] = [
   {
     label: 'Home',
@@ -23,7 +25,7 @@ export const NAVBAR_LIST: NavbarListType[] = [
   },
   {
     label: 'Contact',
-    link: 'https://wa.me/6281234567890',
+    link: CONTACT_LINK,
     key: 'contact',
   },
 ];

@@ -32,10 +32,6 @@ const Summary = () => {
           <Instagram size={isMobile ? 24 : 32} />
         </Link>
 
-        <Link href="">
-          <Facebook size={isMobile ? 24 : 32} />
-        </Link>
-
         <Link href="https://github.com/Swizaesar-reza-ryann" target="_blank">
           <Github size={isMobile ? 24 : 32} />
         </Link>

@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { NAVBAR_LIST } from './constant';
+import { CONTACT_LINK, NAVBAR_LIST } from './constant';
 import HeaderStyle from './style';
 import Button from '@/components/Button';
 import { useEffect, useState } from 'react';
@@ -40,7 +40,11 @@ const Header = () => {
             </Link>
           )
         )}
-        <Button size="small" variant="primary">
+        <Button
+          onClick={() => window.open(CONTACT_LINK, '_blank')}
+          size="small"
+          variant="primary"
+        >
           Let's Chat
         </Button>
       </div>

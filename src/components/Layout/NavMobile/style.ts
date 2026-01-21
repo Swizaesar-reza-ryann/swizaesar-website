@@ -30,6 +30,7 @@ const NavMobileStyle = styled.div`
     padding: 4px 8px;
     border-radius: 8px;
     min-width: 60px;
+    width: 18%;
 
     &:hover {
       opacity: 1;
