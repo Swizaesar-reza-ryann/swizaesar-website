@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import ClientProviders from '@/components/providers/ClientProviders';
 import StylesReadyLoader from '@/components/StylesReadyLoader';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -102,6 +103,7 @@ export default function RootLayout({
           >
             {children}
           </StylesReadyLoader>
+          <LanguageSwitcher />
         </ClientProviders>
       </body>
     </html>
