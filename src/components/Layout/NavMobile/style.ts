@@ -73,12 +73,12 @@ const NavMobileStyle = styled.div`
       }
 
       &:hover .nav-icon {
-        transform: scale(1.15);
+        transform: scale(1.1);
         box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
       }
 
       &.active .nav-icon {
-        transform: scale(1.2);
+        transform: scale(1.1);
         box-shadow: 0 8px 20px rgba(249, 115, 22, 0.5);
         transition: all 0.3s ease;
       }

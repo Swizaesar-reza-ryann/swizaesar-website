@@ -1,17 +1,5 @@
 import { theme } from '@/theme';
 import styled from '@emotion/styled';
-import { keyframes } from '@emotion/react';
-
-const slideIn = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-1000px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
 
 const ExperiencePageStyle = styled.div`
   .experience {
