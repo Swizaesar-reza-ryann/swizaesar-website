@@ -61,6 +61,7 @@ const AboutPage = () => {
           >
             <div className="about-content__image">
               <Image
+                fetchPriority="high"
                 src={aboutImage}
                 alt="profile-image"
                 priority
