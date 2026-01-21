@@ -11,6 +11,8 @@ interface RowProps {
     | 'space-between'
     | 'space-around'
     | 'space-evenly';
+  align?: 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch';
+  direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
 }
 
 interface ColumnProps {
@@ -27,6 +29,18 @@ export const Row = styled.div<RowProps>`
     props.justify &&
     `
     justify-content: ${props.justify};
+  `}
+
+  ${(props) =>
+    props.align &&
+    `
+    align-items: ${props.align};
+  `}
+
+  ${(props) =>
+    props.direction &&
+    `
+    flex-direction: ${props.direction};
   `}
 `;
 

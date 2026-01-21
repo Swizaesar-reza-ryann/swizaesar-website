@@ -4,5 +4,7 @@ export type {
   RowProps,
   ColumnProps,
   JustifyContent,
+  AlignItems,
+  FlexDirection,
 } from './types';
 export { WIDTH_MAP } from './constants';

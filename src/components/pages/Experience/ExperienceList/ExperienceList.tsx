@@ -1,6 +1,7 @@
 import { Briefcase } from 'lucide-react';
 import ExperienceListStyle from './style';
 import { ExperienceListType } from '@/components/pages/Experience/types';
+import { useScreenSize } from '@/context/ScreenContext';
 
 interface ExperienceListProps {
   data: ExperienceListType;
@@ -8,6 +9,8 @@ interface ExperienceListProps {
 
 const ExperienceList = ({ data }: ExperienceListProps) => {
   const { title, subtitle, description, startDate, endDate } = data;
+  const isMobile = useScreenSize();
+
   return (
     <ExperienceListStyle key={`experience-${data.id}`}>
       <div className="experience-list__icon">
@@ -15,7 +18,15 @@ const ExperienceList = ({ data }: ExperienceListProps) => {
       </div>
 
       <div className="experience-list__content">
-        <h4 className="experience-list__content-title">{title}</h4>
+        <div className="experience-list__content-top" data-mobile={isMobile}>
+          <h4 className="experience-list__content-title">{title}</h4>
+
+          <div className="experience-list__date" data-mobile={isMobile}>
+            <span>
+              {startDate} - {endDate}
+            </span>
+          </div>
+        </div>
 
         <p className="experience-list__content-subtitle">{subtitle}</p>
 
@@ -29,12 +40,6 @@ const ExperienceList = ({ data }: ExperienceListProps) => {
             </li>
           ))}
         </ul>
-      </div>
-
-      <div className="experience-list__date">
-        <span>
-          {startDate} - {endDate}
-        </span>
       </div>
     </ExperienceListStyle>
   );

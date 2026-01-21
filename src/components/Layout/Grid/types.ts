@@ -8,14 +8,27 @@ export type JustifyContent =
   | 'space-around'
   | 'space-evenly';
 
+export type AlignItems =
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'baseline'
+  | 'stretch';
+
+export type FlexDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
+
 export interface RowProps {
   children: React.ReactNode;
   className?: string;
   justify?: JustifyContent;
+  align?: AlignItems;
+  direction?: FlexDirection;
 }
 
 export interface ColumnProps {
   children: React.ReactNode;
   width?: ColumnWidth;
   className?: string;
+  id?: string;
+  ['data-mobile']?: boolean;
 }

@@ -3,8 +3,11 @@ import PortfolioPageStyle from './style';
 import CardProject from './components/CardProject';
 import { Row, Column } from '@/components/Layout/Grid';
 import { PORTFOLIO_LIST } from './constant';
+import { useScreenSize } from '@/context/ScreenContext';
 
 const PortfolioPage = () => {
+  const isMobile = useScreenSize();
+
   return (
     <Container>
       <PortfolioPageStyle>
@@ -19,7 +22,7 @@ const PortfolioPage = () => {
         <Row justify="center">
           {PORTFOLIO_LIST &&
             PORTFOLIO_LIST.map((project) => (
-              <Column key={project.id} width={4}>
+              <Column key={project.id} width={isMobile ? 12 : 4}>
                 <CardProject data={project} />
               </Column>
             ))}

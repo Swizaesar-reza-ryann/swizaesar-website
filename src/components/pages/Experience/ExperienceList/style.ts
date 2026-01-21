@@ -34,7 +34,17 @@ const ExperienceListStyle = styled.div`
 
     &__content {
       z-index: 3;
-      width: calc(100% - 30px - 20%);
+      width: calc(100% - 30px);
+
+      &-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &[data-mobile='true'] {
+          display: block;
+        }
+      }
 
       &-title {
         color: ${theme.colors.secondary};
@@ -58,12 +68,16 @@ const ExperienceListStyle = styled.div`
     }
 
     &__date {
-      width: 20%;
       font-size: 14px;
       margin: 5px 0;
       z-index: 3;
       text-align: right;
       color: ${theme.colors.text};
+
+      &[data-mobile='true'] {
+        text-align: left;
+        margin-bottom: 16px;
+      }
     }
   }
 `;
