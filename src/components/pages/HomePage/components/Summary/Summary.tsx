@@ -1,5 +1,5 @@
 import Button from '@/components/Button';
-import { Facebook, Github, Instagram } from 'lucide-react';
+import { Facebook, Github, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { useScreenSize } from '@/context/ScreenContext';
 import CardDeveloper from '@/components/pages/HomePage/components/CardDeveloper';
@@ -42,6 +42,13 @@ const Summary = () => {
 
         <Link href="https://github.com/Swizaesar-reza-ryann" target="_blank">
           <Github size={isMobile ? 24 : 32} />
+        </Link>
+
+        <Link
+          href="https://www.linkedin.com/in/swizaesar-reza-ryann-05bb4a160/"
+          target="_blank"
+        >
+          <Linkedin size={isMobile ? 24 : 32} />
         </Link>
       </div>
     </>
