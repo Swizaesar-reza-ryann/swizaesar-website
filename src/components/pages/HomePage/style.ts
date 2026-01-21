@@ -11,6 +11,9 @@ const HomePageStyle = styled.div`
   }
 
   .summary {
+    position: relative;
+    z-index: 2;
+
     &-job {
       color: ${theme.colors.secondary};
     }
@@ -31,6 +34,11 @@ const HomePageStyle = styled.div`
       span {
         -webkit-text-fill-color: ${theme.colors.text};
       }
+
+      &[data-mobile='true'] {
+        font-size: 3rem;
+        line-height: 1.1;
+      }
     }
 
     &-description {
@@ -38,11 +46,20 @@ const HomePageStyle = styled.div`
       line-height: 1.5;
       font-size: 1.2rem;
       max-width: 920px;
+
+      &[data-mobile='true'] {
+        font-size: 1rem;
+      }
     }
 
     &-button {
       font-weight: 600;
       margin-bottom: 24px;
+
+      &[data-mobile='true'] {
+        margin-bottom: 16px;
+        font-size: 1rem;
+      }
     }
 
     &-social__media {
@@ -68,7 +85,7 @@ const HomePageStyle = styled.div`
 
     &__code {
       width: 350px;
-      height: 250px;
+      height: 220px;
       background: ${theme.colors.primary};
       border-radius: 8px;
       padding: 16px;
@@ -76,6 +93,11 @@ const HomePageStyle = styled.div`
       /* ONLY hover animation */
       transition: transform 0.3s ease;
       will-change: transform;
+
+      &[data-mobile='true'] {
+        margin-bottom: 24px;
+        border: 1px solid ${theme.colors.secondary};
+      }
 
       &-menu {
         display: flex;
