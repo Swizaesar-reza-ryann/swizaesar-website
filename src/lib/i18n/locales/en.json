@@ -175,7 +175,9 @@
     "reset": "Reset Game",
     "win": "🎉 Congratulations!",
     "winMessage": "You won in {moves} moves!",
-    "tryAgain": "❌ Try again!"
+    "tryAgain": "❌ Try again!",
+    "rememberCardPositions": "Please remember the card positions ({countdown}s)",
+    "gameStart": "Game Start!"
   },
   "portfolio_detail": {
     "project_category": "Category",

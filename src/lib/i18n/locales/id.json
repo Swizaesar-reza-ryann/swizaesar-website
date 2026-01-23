@@ -175,7 +175,9 @@
     "reset": "Atur Ulang",
     "win": "🎉 Selamat!",
     "winMessage": "Kamu menang dalam {moves} langkah!",
-    "tryAgain": "❌ Coba lagi!"
+    "tryAgain": "❌ Coba lagi!",
+    "rememberCardPositions": "Silakan ingat posisi kartu ({countdown}s)",
+    "gameStart": "Mulai Permainan!"
   },
   "portfolio_detail": {
     "project_category": "Kategori",

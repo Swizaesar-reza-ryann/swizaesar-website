@@ -11,6 +11,9 @@ export interface GameState {
   showWin: boolean;
   showError: boolean;
   showInitialReveal: boolean;
+  level: number;
+  revealTime: number;
+  countdown: number;
 }
 
 export const useGame = (
@@ -26,6 +29,14 @@ export const useGame = (
   const [showWin, setShowWin] = useState(false);
   const [showError, setShowError] = useState(false);
   const [showInitialReveal, setShowInitialReveal] = useState(false);
+  const [level, setLevel] = useState(1);
+  const [revealTime, setRevealTime] = useState(10000); // Level 1: 10 seconds
+  const [countdown, setCountdown] = useState(0);
+
+  // Calculate reveal time based on level (30% reduction per level)
+  const calculateRevealTime = useCallback((currentLevel: number) => {
+    return Math.max(1000, 10000 * Math.pow(0.7, currentLevel - 1)); // Minimum 1 second
+  }, []);
 
   // Initialize cards
   const initializeCards = useCallback(() => {
@@ -45,7 +56,8 @@ export const useGame = (
     setShowWin(false);
     setShowError(false);
     setShowInitialReveal(true); // Show initial reveal
-  }, [initialCardContents]);
+    setCountdown(revealTime / 1000); // Set countdown in seconds
+  }, [initialCardContents, revealTime]);
 
   // Start game with initial reveal
   const startGame = useCallback(() => {
@@ -53,17 +65,31 @@ export const useGame = (
     setGameStarted(true);
   }, [initializeCards]);
 
-  // Handle initial reveal - hide cards after 3 seconds
+  // Handle initial reveal - hide cards after reveal time based on level with countdown
   useEffect(() => {
     if (showInitialReveal && gameStarted) {
+      const countdownInterval = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            clearInterval(countdownInterval);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
       const timer = setTimeout(() => {
         setCards((prev) => prev.map((c) => ({ ...c, isFlipped: false })));
         setShowInitialReveal(false);
-      }, 3000);
+        setCountdown(0);
+      }, revealTime);
 
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+        clearInterval(countdownInterval);
+      };
     }
-  }, [showInitialReveal, gameStarted]);
+  }, [showInitialReveal, gameStarted, revealTime]);
 
   // Handle card click
   const handleCardClick = useCallback(
@@ -150,6 +176,24 @@ export const useGame = (
     initializeCards();
   }, [initializeCards]);
 
+  // Next level
+  const nextLevel = useCallback(() => {
+    const newLevel = level + 1;
+    const newRevealTime = calculateRevealTime(newLevel);
+    setLevel(newLevel);
+    setRevealTime(newRevealTime);
+    setCountdown(newRevealTime / 1000);
+    initializeCards();
+  }, [level, calculateRevealTime, initializeCards]);
+
+  // Reset to level 1
+  const resetToLevelOne = useCallback(() => {
+    setLevel(1);
+    setRevealTime(10000);
+    setCountdown(10);
+    initializeCards();
+  }, [initializeCards]);
+
   // Memoized state object
   const state = useMemo(
     () => ({
@@ -162,6 +206,9 @@ export const useGame = (
       showWin,
       showError,
       showInitialReveal,
+      level,
+      revealTime,
+      countdown,
     }),
     [
       cards,
@@ -173,6 +220,9 @@ export const useGame = (
       showWin,
       showError,
       showInitialReveal,
+      level,
+      revealTime,
+      countdown,
     ]
   );
 
@@ -182,8 +232,10 @@ export const useGame = (
       handleCardClick,
       startGame,
       resetGame,
+      nextLevel,
+      resetToLevelOne,
     }),
-    [handleCardClick, startGame, resetGame]
+    [handleCardClick, startGame, resetGame, nextLevel, resetToLevelOne]
   );
 
   return { state, actions };
