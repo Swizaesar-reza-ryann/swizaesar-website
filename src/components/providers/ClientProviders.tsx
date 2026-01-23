@@ -6,7 +6,7 @@ import { theme } from '@/theme';
 import { ScreenSizeProvider } from '@/context/ScreenContext';
 import { LanguageProvider } from '@/lib/i18n/LanguageProvider';
 import EmotionRegistry from '@/lib/emotion-registry';
-import LanguageSwitcher from '../LanguageSwitcher';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function ClientProviders({ children }: { children: ReactNode }) {
   return (
