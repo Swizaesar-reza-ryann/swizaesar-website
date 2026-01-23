@@ -1,6 +1,6 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { Home, User, Briefcase, Code, MessageCircle } from 'lucide-react';
+import { Home, User, Briefcase, Code, Gamepad2 } from 'lucide-react';
 import { NAVBAR_LIST } from '@/components/Layout/Header/constant';
 import NavMobileStyle from './style';
 import { theme } from '@/theme';
@@ -21,8 +21,8 @@ const NavMobile = () => {
         return <Briefcase size={20} />;
       case 'portfolio':
         return <Code size={20} />;
-      case 'contact':
-        return <MessageCircle size={20} />;
+      case 'games':
+        return <Gamepad2 size={20} />;
       default:
         return <Home size={20} />;
     }
@@ -36,13 +36,13 @@ const NavMobile = () => {
     return link.startsWith('http');
   };
 
-  // Reorder navigation: about, experience, HOME, portfolio, contact
+  // Reorder navigation: about, experience, HOME, portfolio, games
   const reorderedNavList = [
     NAVBAR_LIST.find((item) => item.key === 'about'),
     NAVBAR_LIST.find((item) => item.key === 'experience'),
     NAVBAR_LIST.find((item) => item.key === 'home'),
     NAVBAR_LIST.find((item) => item.key === 'portfolio'),
-    NAVBAR_LIST.find((item) => item.key === 'contact'),
+    NAVBAR_LIST.find((item) => item.key === 'games'),
   ].filter((item): item is NonNullable<typeof item> => item !== undefined);
 
   return (

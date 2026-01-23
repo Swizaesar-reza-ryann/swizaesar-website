@@ -50,7 +50,7 @@ const AboutPage = () => {
                 priority
                 width={500}
                 height={500}
-                quality={100}
+                quality={75}
               />
             </div>
           </Column>

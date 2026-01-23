@@ -4,6 +4,7 @@ import ClientProviders from '@/components/providers/ClientProviders';
 import StylesReadyLoader from '@/components/StylesReadyLoader';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import FloatingChatButton from '@/components/Layout/FloatingChatButton';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -106,6 +107,7 @@ export default function RootLayout({
             {children}
           </StylesReadyLoader>
           <LanguageSwitcher />
+          <FloatingChatButton />
         </ClientProviders>
       </body>
     </html>
