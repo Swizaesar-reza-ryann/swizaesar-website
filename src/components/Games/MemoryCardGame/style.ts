@@ -2,8 +2,6 @@ import styled from '@emotion/styled';
 import { theme } from '@/theme';
 
 export const GameContainer = styled.div<{ customBackground?: string }>`
-  min-height: 100vh;
-  padding: 2rem;
   background: ${({ customBackground }) =>
     customBackground || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
   display: flex;

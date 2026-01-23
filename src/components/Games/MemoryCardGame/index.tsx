@@ -21,16 +21,7 @@ export default function MemoryCardGame({
 
   const { state, actions } = useGame(cardContents, onGameComplete);
 
-  const {
-    cards,
-    selectedCards,
-    moves,
-    matches,
-    isChecking,
-    gameStarted,
-    showWin,
-    showError,
-  } = state;
+  const { cards, moves, matches, gameStarted, showWin, showError } = state;
 
   const { handleCardClick, startGame, resetGame } = actions;
 
