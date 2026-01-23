@@ -39,25 +39,31 @@ export const useGame = (
   }, []);
 
   // Initialize cards
-  const initializeCards = useCallback(() => {
-    // Reset cards to initial state (flipped for reveal)
-    const resetCards = initialCardContents.map((card) => ({
-      ...card,
-      isFlipped: true, // Start flipped for initial reveal
-      isMatched: false,
-    }));
+  const initializeCards = useCallback(
+    (currentRevealTime?: number) => {
+      // Reset cards to initial state (flipped for reveal)
+      const resetCards = initialCardContents.map((card) => ({
+        ...card,
+        isFlipped: true, // Start flipped for initial reveal
+        isMatched: false,
+      }));
 
-    // Shuffle cards
-    const shuffled = resetCards.sort(() => Math.random() - 0.5);
-    setCards(shuffled);
-    setSelectedCards([]);
-    setMoves(0);
-    setMatches(0);
-    setShowWin(false);
-    setShowError(false);
-    setShowInitialReveal(true); // Show initial reveal
-    setCountdown(revealTime / 1000); // Set countdown in seconds
-  }, [initialCardContents, revealTime]);
+      // Shuffle cards
+      const shuffled = resetCards.sort(() => Math.random() - 0.5);
+      setCards(shuffled);
+      setSelectedCards([]);
+      setMoves(0);
+      setMatches(0);
+      setShowWin(false);
+      setShowError(false);
+      setShowInitialReveal(true); // Show initial reveal
+
+      // Use provided revealTime or current state revealTime
+      const timeToUse = currentRevealTime || revealTime;
+      setCountdown(Math.ceil(timeToUse / 1000)); // Set countdown in seconds, rounded up
+    },
+    [initialCardContents, revealTime]
+  );
 
   // Start game with initial reveal
   const startGame = useCallback(() => {
@@ -182,16 +188,14 @@ export const useGame = (
     const newRevealTime = calculateRevealTime(newLevel);
     setLevel(newLevel);
     setRevealTime(newRevealTime);
-    setCountdown(newRevealTime / 1000);
-    initializeCards();
+    initializeCards(newRevealTime); // Pass the new reveal time directly
   }, [level, calculateRevealTime, initializeCards]);
 
   // Reset to level 1
   const resetToLevelOne = useCallback(() => {
     setLevel(1);
     setRevealTime(10000);
-    setCountdown(10);
-    initializeCards();
+    initializeCards(10000); // Pass the reveal time directly
   }, [initializeCards]);
 
   // Memoized state object
