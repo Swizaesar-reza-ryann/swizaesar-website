@@ -51,18 +51,6 @@ export const CardGrid = styled.div`
   margin-bottom: 2rem;
   max-width: 600px;
   width: 100%;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.8rem;
-    max-width: 400px;
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.6rem;
-    max-width: 300px;
-  }
 `;
 
 export const Card = styled.div<{
