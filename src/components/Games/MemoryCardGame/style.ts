@@ -8,6 +8,15 @@ export const GameContainer = styled.div<{ customBackground?: string }>`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 600px;
+
+  &[data-mobile='true'] {
+    width: 100%;
+  }
+
+  .game-message {
+    text-align: center;
+  }
 `;
 
 export const GameHeader = styled.div`

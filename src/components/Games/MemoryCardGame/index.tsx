@@ -10,8 +10,9 @@ import {
   WinButtons,
   CountdownDisplay,
 } from './style';
-import { GameCard, MemoryGameProps } from '@/components/pages/GamesPage/types';
+import { MemoryGameProps } from '@/components/pages/GamesPage/types';
 import { useGame } from '@/components/pages/GamesPage/usecase/useGame';
+import { useScreenSize } from '@/context/ScreenContext';
 
 export default function MemoryCardGame({
   cardContents,
@@ -21,7 +22,7 @@ export default function MemoryCardGame({
   customStyles = {},
 }: MemoryGameProps) {
   const { t } = useLanguage();
-
+  const isMobile = useScreenSize();
   const { state, actions } = useGame(cardContents, onGameComplete);
 
   const {
@@ -32,7 +33,6 @@ export default function MemoryCardGame({
     showWin,
     showError,
     level,
-    revealTime,
     countdown,
     showInitialReveal,
   } = state;
@@ -40,7 +40,10 @@ export default function MemoryCardGame({
   const { handleCardClick, startGame, resetGame, nextLevel } = actions;
 
   return (
-    <GameContainer customBackground={customStyles.background}>
+    <GameContainer
+      customBackground={customStyles.background}
+      data-mobile={isMobile}
+    >
       <GameHeader>
         <h1>{title || t('games.title')}</h1>
         <p>{description || t('games.description')}</p>
