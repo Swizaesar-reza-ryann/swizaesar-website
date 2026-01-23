@@ -177,7 +177,9 @@
     "winMessage": "Kamu menang dalam {moves} langkah!",
     "tryAgain": "❌ Coba lagi!",
     "rememberCardPositions": "Silakan ingat posisi kartu ({countdown}s)",
-    "gameStart": "Mulai Permainan!"
+    "gameStart": "Mulai Permainan!",
+    "nextLevel": "Level Berikutnya",
+    "playAgain": "Main Lagi"
   },
   "portfolio_detail": {
     "project_category": "Kategori",

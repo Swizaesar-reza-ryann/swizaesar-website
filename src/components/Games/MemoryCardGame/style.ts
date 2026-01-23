@@ -192,6 +192,10 @@ export const GameButton = styled.button`
   &:active {
     transform: translateY(0);
   }
+
+  &[data-mobile='true'] {
+    font-size: 14px;
+  }
 `;
 
 export const GameButtons = styled.div`
@@ -207,7 +211,8 @@ export const WinButtons = styled.div`
   gap: 1rem;
   justify-content: center;
   margin-top: 1.5rem;
-  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 `;
 
 export const CountdownDisplay = styled.div`
