@@ -15,9 +15,11 @@ export const CARD_CONTENTS: GameCard[] = [
 ];
 
 export const GAME_CONFIG = {
-  INITIAL_REVEAL_TIME: 3000, // 3 seconds
+  INITIAL_REVEAL_TIME: 10000, // 10 seconds for level 1
   MATCH_ANIMATION_TIME: 1000,
   ERROR_SHOW_TIME: 1500,
   CARD_PAIRS: 5,
   TOTAL_CARDS: 10,
+  LEVEL_REDUCTION_FACTOR: 0.7, // 30% reduction per level
+  MIN_REVEAL_TIME: 1000, // Minimum 1 second reveal time
 } as const;

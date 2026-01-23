@@ -30,17 +30,56 @@ export const GameHeader = styled.div`
 
 export const GameStats = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-bottom: 2rem;
   background: rgba(255, 255, 255, 0.1);
   padding: 1rem 2rem;
   border-radius: 12px;
   backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+  justify-content: center;
 
   .stat {
     color: white;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
+    text-align: center;
+    min-width: 80px;
+    transition: all 0.3s ease;
+
+    &.countdown {
+      color: #fbbf24;
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+      animation: pulse 1s infinite;
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    padding: 0.8rem 1.5rem;
+
+    .stat {
+      font-size: 0.9rem;
+      min-width: 70px;
+
+      &.countdown {
+        font-size: 1.1rem;
+      }
+    }
   }
 `;
 
@@ -134,6 +173,7 @@ export const GameButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 0.5rem;
 
   &:hover {
     transform: translateY(-2px);
@@ -142,6 +182,71 @@ export const GameButton = styled.button`
 
   &:active {
     transform: translateY(0);
+  }
+`;
+
+export const GameButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+`;
+
+export const WinButtons = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+`;
+
+export const CountdownDisplay = styled.div`
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+
+  span {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  &.countdown span {
+    color: #fbbf24;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.8rem 1.5rem;
+    margin-bottom: 1rem;
+
+    span {
+      font-size: 1.1rem;
+    }
+
+    &.countdown span {
+      font-size: 1.2rem;
+    }
   }
 `;
 

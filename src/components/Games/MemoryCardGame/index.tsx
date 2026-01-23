@@ -6,6 +6,9 @@ import {
   GameStats,
   GameButton,
   CardGrid,
+  GameButtons,
+  WinButtons,
+  CountdownDisplay,
 } from './style';
 import { GameCard, MemoryGameProps } from '@/components/pages/GamesPage/types';
 import { useGame } from '@/components/pages/GamesPage/usecase/useGame';
@@ -21,9 +24,20 @@ export default function MemoryCardGame({
 
   const { state, actions } = useGame(cardContents, onGameComplete);
 
-  const { cards, moves, matches, gameStarted, showWin, showError } = state;
+  const {
+    cards,
+    moves,
+    matches,
+    gameStarted,
+    showWin,
+    showError,
+    level,
+    revealTime,
+    countdown,
+    showInitialReveal,
+  } = state;
 
-  const { handleCardClick, startGame, resetGame } = actions;
+  const { handleCardClick, startGame, resetGame, nextLevel } = actions;
 
   return (
     <GameContainer customBackground={customStyles.background}>
@@ -47,7 +61,29 @@ export default function MemoryCardGame({
                 {t('games.matches')}: {matches}/{cardContents.length / 2}
               </span>
             </div>
+            <div className="stat">
+              <span>Level: {level}</span>
+            </div>
           </GameStats>
+
+          {showInitialReveal && (
+            <CountdownDisplay className={showInitialReveal ? 'countdown' : ''}>
+              <span>
+                {countdown > 0
+                  ? t('games.rememberCardPositions').replace(
+                      '{countdown}',
+                      countdown.toString()
+                    )
+                  : t('games.gameStart')}
+              </span>
+            </CountdownDisplay>
+          )}
+
+          {!showInitialReveal && countdown === 0 && (
+            <CountdownDisplay className="countdown">
+              <span>{t('games.gameStart')}</span>
+            </CountdownDisplay>
+          )}
 
           <CardGrid>
             {cards.map((card) => (
@@ -71,7 +107,9 @@ export default function MemoryCardGame({
             ))}
           </CardGrid>
 
-          <GameButton onClick={resetGame}>{t('games.reset')}</GameButton>
+          <GameButtons>
+            <GameButton onClick={resetGame}>{t('games.reset')}</GameButton>
+          </GameButtons>
         </>
       )}
 
@@ -79,6 +117,10 @@ export default function MemoryCardGame({
         <div className="game-message win">
           <h2>{t('games.win')}</h2>
           <p>{t('games.winMessage').replace('{moves}', moves.toString())}</p>
+          <WinButtons>
+            <GameButton onClick={nextLevel}>Next Level</GameButton>
+            <GameButton onClick={resetGame}>Play Again</GameButton>
+          </WinButtons>
         </div>
       )}
 

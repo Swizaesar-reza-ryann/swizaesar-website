@@ -13,6 +13,11 @@ const GamesPage = () => {
     // You can add additional logic here like saving scores, showing analytics, etc.
   };
 
+  const handleLevelComplete = (moves: number, level: number) => {
+    console.log(`Level ${level} completed in ${moves} moves!`);
+    // You can add level-specific logic here
+  };
+
   return (
     <GamesPageStyle>
       <Container>
