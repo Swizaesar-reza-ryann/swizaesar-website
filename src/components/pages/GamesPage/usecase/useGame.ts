@@ -1,20 +1,5 @@
 import { useState, useCallback, useMemo, useEffect } from 'react';
-import { GameCard } from '../types';
-
-export interface GameState {
-  cards: GameCard[];
-  selectedCards: number[];
-  moves: number;
-  matches: number;
-  isChecking: boolean;
-  gameStarted: boolean;
-  showWin: boolean;
-  showError: boolean;
-  showInitialReveal: boolean;
-  level: number;
-  revealTime: number;
-  countdown: number;
-}
+import { GameCard } from '@/components/pages/GamesPage/types';
 
 export const useGame = (
   initialCardContents: GameCard[],
