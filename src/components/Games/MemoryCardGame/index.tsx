@@ -50,7 +50,9 @@ export default function MemoryCardGame({
       </GameHeader>
 
       {!gameStarted ? (
-        <GameButton onClick={startGame}>{t('games.start')}</GameButton>
+        <GameButton data-mobile={isMobile} onClick={startGame}>
+          {t('games.start')}
+        </GameButton>
       ) : (
         <>
           <GameStats>
@@ -111,7 +113,9 @@ export default function MemoryCardGame({
           </CardGrid>
 
           <GameButtons>
-            <GameButton onClick={resetGame}>{t('games.reset')}</GameButton>
+            <GameButton data-mobile={isMobile} onClick={resetGame}>
+              {t('games.reset')}
+            </GameButton>
           </GameButtons>
         </>
       )}
@@ -121,8 +125,12 @@ export default function MemoryCardGame({
           <h2>{t('games.win')}</h2>
           <p>{t('games.winMessage').replace('{moves}', moves.toString())}</p>
           <WinButtons>
-            <GameButton onClick={nextLevel}>Next Level</GameButton>
-            <GameButton onClick={resetGame}>Play Again</GameButton>
+            <GameButton data-mobile={isMobile} onClick={nextLevel}>
+              {t('games.nextLevel')}
+            </GameButton>
+            <GameButton data-mobile={isMobile} onClick={resetGame}>
+              {t('games.playAgain')}
+            </GameButton>
           </WinButtons>
         </div>
       )}
