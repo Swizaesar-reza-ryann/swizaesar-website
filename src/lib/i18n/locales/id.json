@@ -25,6 +25,7 @@
     "about": "Tentang",
     "experience": "Pengalaman",
     "portfolio": "Portfolio",
+    "games": "Permainan Kecil",
     "contact": "Obrolan"
   },
   "about": {
@@ -158,9 +159,23 @@
       "responsibilities": [
         "Mengkonversi desain UI menjadi komponen React yang bersih dan dapat dipelihara",
         "Memastikan layout responsif di berbagai ukuran layar",
-        "Mengoptimalkan website untuk perangkat mobile"
+        "Mengoptimalkan kinerja website dan SEO",
+        "Menerapkan animasi yang halus dan mikro-interaksi"
       ]
     }
+  },
+  "games": {
+    "title": "Permainan Kartu Memori",
+    "description": "Cocokkan pasangan kartu!",
+    "animalsTitle": "Permainan Kartu Memori Hewan",
+    "animalsDescription": "Cocokkan pasangan hewan!",
+    "start": "Mulai Permainan",
+    "moves": "Langkah",
+    "matches": "Cocok",
+    "reset": "Atur Ulang",
+    "win": "🎉 Selamat!",
+    "winMessage": "Kamu menang dalam {moves} langkah!",
+    "tryAgain": "❌ Coba lagi!"
   },
   "portfolio_detail": {
     "project_category": "Kategori",
