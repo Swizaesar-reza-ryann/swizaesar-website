@@ -15,7 +15,7 @@ const montserrat = Montserrat({
   preload: true,
 });
 
-export const metadata = createMetadata('home');
+export const metadata: Metadata = createMetadata('home');
 
 export default function RootLayout({
   children,
