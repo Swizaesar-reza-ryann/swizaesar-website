@@ -177,7 +177,9 @@
     "winMessage": "You won in {moves} moves!",
     "tryAgain": "❌ Try again!",
     "rememberCardPositions": "Please remember the card positions ({countdown}s)",
-    "gameStart": "Game Start!"
+    "gameStart": "Game Start!",
+    "nextLevel": "Next Level",
+    "playAgain": "Play Again"
   },
   "portfolio_detail": {
     "project_category": "Category",
