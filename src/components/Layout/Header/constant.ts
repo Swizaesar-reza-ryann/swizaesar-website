@@ -24,6 +24,11 @@ export const NAVBAR_LIST: NavbarListType[] = [
     key: 'portfolio',
   },
   {
+    label: 'Mini Games',
+    link: '/games',
+    key: 'games',
+  },
+  {
     label: 'Contact',
     link: CONTACT_LINK,
     key: 'contact',

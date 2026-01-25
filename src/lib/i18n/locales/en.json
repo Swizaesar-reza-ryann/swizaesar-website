@@ -25,6 +25,7 @@
     "about": "About",
     "experience": "Experience",
     "portfolio": "Portfolio",
+    "games": "Mini Game",
     "contact": "Let's Chat"
   },
   "about": {
@@ -113,40 +114,40 @@
     },
     "fithub_website": {
       "title": "Fithub Website",
-      "description": "A responsive company website focused on performance optimization and modern UI/UX.",
+      "description": "Responsive company website with focus on performance optimization and modern UI/UX.",
       "responsibilities": [
         "Improved web performance for faster load times and better responsiveness",
-        "Built responsive pages optimized for multiple devices",
-        "Revamped existing pages to enhance UI/UX consistency",
+        "Built responsive pages optimized for various devices",
+        "Updated existing pages to improve UI/UX consistency",
         "Implemented form validation and user-friendly interactions"
       ]
     },
     "fithub_dashboard": {
       "title": "Fithub Internal Dashboard",
-      "description": "An internal dashboard used to manage content and operational data for Fithub platform.",
+      "description": "Internal dashboard used for managing content and operational data for the Fithub platform.",
       "responsibilities": [
         "Designed and improved internal dashboard workflows",
         "Migrated class components to functional components using TypeScript",
-        "Applied clean architecture for maintainable and scalable code",
+        "Implemented clean architecture for maintainable and scalable code",
         "Built reusable UI components and code generator tools",
         "Optimized application performance and rendering"
       ]
     },
     "tataskola_dashboard": {
       "title": "Tataskola Dashboard",
-      "description": "An internal dashboard application supporting education-related operational workflows.",
+      "description": "Internal dashboard application supporting education-related operational workflows.",
       "responsibilities": [
         "Developed dashboard features using Material UI",
         "Integrated RESTful APIs for backend communication",
         "Implemented real-time file upload progress using Firebase",
-        "Ensured consistent and user-friendly UI across features"
+        "Ensured consistent and user-friendly UI across all features"
       ]
     },
     "lakugan_platform": {
       "title": "Lakugan Platform",
-      "description": "A multi-role web platform including supplier, reseller, internal dashboards, and buyer-facing websites.",
+      "description": "Multi-role web platform including supplier, reseller, internal dashboards, and buyer-facing website.",
       "responsibilities": [
-        "Built dashboards for suppliers, resellers, and internal teams from scratch",
+        "Built supplier, reseller, and internal dashboards from scratch",
         "Implemented payment flow and order tracking features",
         "Collaborated with product team to design step-by-step checkout flow",
         "Defined base API contracts between frontend and backend"
@@ -154,13 +155,29 @@
     },
     "nusamed_website": {
       "title": "Nusamed Company Website",
-      "description": "A fully responsive company profile website built from scratch.",
+      "description": "Fully responsive company profile website built from scratch.",
       "responsibilities": [
-        "Converted UI design into clean and maintainable React components",
-        "Ensured responsive layout across multiple screen sizes",
-        "Optimized website for mobile devices"
+        "Converted UI designs into clean and maintainable React components",
+        "Ensured responsive layout across various screen sizes",
+        "Optimized website performance and SEO",
+        "Implemented smooth animations and micro-interactions"
       ]
     }
+  },
+  "games": {
+    "title": "Memory Card Game",
+    "description": "Match the pairs of cards!",
+    "animalsTitle": "Animal Memory Game",
+    "animalsDescription": "Match the animal pairs!",
+    "start": "Start Game",
+    "moves": "Moves",
+    "matches": "Matches",
+    "reset": "Reset Game",
+    "win": "🎉 Congratulations!",
+    "winMessage": "You won in {moves} moves!",
+    "tryAgain": "❌ Try again!",
+    "rememberCardPositions": "Please remember the card positions ({countdown}s)",
+    "gameStart": "Game Start!"
   },
   "portfolio_detail": {
     "project_category": "Category",

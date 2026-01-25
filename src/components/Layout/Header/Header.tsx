@@ -5,7 +5,6 @@ import HeaderStyle from './style';
 import Button from '@/components/Button';
 import { useEffect, useState } from 'react';
 import { useScreenSize } from '@/context/ScreenContext';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const Header = () => {
