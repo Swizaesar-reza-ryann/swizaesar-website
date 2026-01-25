@@ -45,7 +45,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
         'Swizaesar delivers professional web development, digital solutions, and innovative technology services.',
       images: [
         {
-          url: '/og-home.jpg',
+          url: '/og-image.svg',
           width: 1200,
           height: 630,
           alt: 'Swizaesar - Professional Web Development Services',
@@ -56,7 +56,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
       title: 'Swizaesar | Professional Web Development & Digital Solutions',
       description:
         'Swizaesar delivers professional web development, digital solutions, and innovative technology services.',
-      images: ['/og-home.jpg'],
+      images: ['/og-image.svg'],
     },
     canonical: 'https://swizaesar.com',
   },
@@ -88,7 +88,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
         'Play exciting mini games and memory card games at Swizaesar. Test your memory skills with our interactive memory matching game.',
       images: [
         {
-          url: '/og-games.jpg',
+          url: '/og-image.svg',
           width: 1200,
           height: 630,
           alt: 'Mini Games - Memory Card Games at Swizaesar',
@@ -99,7 +99,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
       title: 'Mini Games | Fun Memory Card Games | Swizaesar',
       description:
         'Play exciting mini games and memory card games at Swizaesar. Test your memory skills with our interactive memory matching game.',
-      images: ['/og-games.jpg'],
+      images: ['/og-image.svg'],
     },
     canonical: 'https://swizaesar.com/games',
   },
@@ -124,7 +124,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
         'Learn about Swizaesar - our team, values, and commitment to delivering exceptional web development and digital solutions.',
       images: [
         {
-          url: '/og-about.jpg',
+          url: '/og-image.svg',
           width: 1200,
           height: 630,
           alt: 'About Swizaesar - Our Team and Story',
@@ -135,7 +135,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
       title: 'About Us | Meet the Team | Swizaesar',
       description:
         'Learn about Swizaesar - our team, values, and commitment to delivering exceptional web development and digital solutions.',
-      images: ['/og-about.jpg'],
+      images: ['/og-image.svg'],
     },
     canonical: 'https://swizaesar.com/about',
   },
@@ -160,7 +160,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
         "Explore Swizaesar's portfolio of web development projects, custom applications, and digital solutions.",
       images: [
         {
-          url: '/og-portfolio.jpg',
+          url: '/og-image.svg',
           width: 1200,
           height: 630,
           alt: 'Swizaesar Portfolio - Web Development Projects',
@@ -171,7 +171,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
       title: 'Portfolio | Our Work | Swizaesar',
       description:
         "Explore Swizaesar's portfolio of web development projects, custom applications, and digital solutions.",
-      images: ['/og-portfolio.jpg'],
+      images: ['/og-image.svg'],
     },
     canonical: 'https://swizaesar.com/portfolio',
   },
@@ -196,7 +196,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
         "Discover Swizaesar's professional experience, technical expertise, and journey in web development.",
       images: [
         {
-          url: '/og-experience.jpg',
+          url: '/og-image.svg',
           width: 1200,
           height: 630,
           alt: 'Swizaesar Experience - Professional Journey and Expertise',
@@ -207,7 +207,7 @@ export const seoConfig: Record<string, PageSEOConfig> = {
       title: 'Experience | Professional Journey | Swizaesar',
       description:
         "Discover Swizaesar's professional experience, technical expertise, and journey in web development.",
-      images: ['/og-experience.jpg'],
+      images: ['/og-image.svg'],
     },
     canonical: 'https://swizaesar.com/experience',
   },
@@ -253,5 +253,11 @@ export function createMetadata(pageKey: string): Metadata {
     authors: [{ name: 'Swizaesar' }],
     creator: 'Swizaesar',
     publisher: 'Swizaesar',
+    // Additional metadata for better WhatsApp sharing
+    other: {
+      'og:site_name': 'Swizaesar',
+      'og:type': 'website',
+      'twitter:site': '@swizaesar',
+    },
   };
 }
