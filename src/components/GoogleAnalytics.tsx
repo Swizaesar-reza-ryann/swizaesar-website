@@ -8,17 +8,14 @@ export default function GoogleAnalytics() {
   useEffect(() => {
     // Only load Google Analytics in production and if tracking ID exists
     if (process.env.NODE_ENV === 'production' && GA_TRACKING_ID) {
-      // Load gtag.js script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
-      document.head.appendChild(script);
-
-      // Initialize dataLayer and gtag
+      // Initialize dataLayer and gtag first
       window.dataLayer = window.dataLayer || [];
       function gtag(...args: any[]) {
         window.dataLayer.push(arguments);
       }
+
+      // Make gtag available globally
+      (window as any).gtag = gtag;
 
       // Configure Google Analytics
       gtag('js', new Date());
@@ -28,8 +25,20 @@ export default function GoogleAnalytics() {
         page_path: window.location.pathname,
       });
 
-      // Make gtag available globally
-      (window as any).gtag = gtag;
+      // Load gtag.js script with error handling
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+
+      script.onerror = () => {
+        console.warn('Failed to load Google Analytics script');
+      };
+
+      script.onload = () => {
+        console.log('Google Analytics loaded successfully');
+      };
+
+      document.head.appendChild(script);
     }
   }, []);
 

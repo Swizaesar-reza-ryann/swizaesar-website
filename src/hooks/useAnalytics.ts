@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback } from 'react';
+import { AnalyticsFallback } from '@/utils/analytics-fallback';
 
 interface AnalyticsEvent {
   action: string;
@@ -11,13 +12,26 @@ interface AnalyticsEvent {
 
 export const useAnalytics = () => {
   const trackEvent = useCallback((event: AnalyticsEvent) => {
-    // Only track in production
+    // Try Google Analytics first
     if (process.env.NODE_ENV === 'production' && window.gtag) {
-      window.gtag('event', event.action, {
-        event_category: event.category,
-        event_label: event.label,
-        value: event.value,
-      });
+      try {
+        window.gtag('event', event.action, {
+          event_category: event.category,
+          event_label: event.label,
+          value: event.value,
+        });
+      } catch (error) {
+        console.warn('Google Analytics tracking failed:', error);
+        // Fallback to local storage
+        AnalyticsFallback.track(event);
+      }
+    } else {
+      // Log events in development for debugging
+      console.log('Analytics Event (dev mode):', event);
+      // Also store in fallback for development testing
+      if (process.env.NODE_ENV !== 'production') {
+        AnalyticsFallback.track(event);
+      }
     }
   }, []);
 
@@ -105,5 +119,8 @@ export const useAnalytics = () => {
     trackGameReset,
     trackGameWin,
     trackCardClick,
+    // Fallback utilities for debugging
+    getStoredEvents: AnalyticsFallback.getStoredEvents,
+    clearEvents: AnalyticsFallback.clearEvents,
   };
 };
