@@ -12,6 +12,7 @@ import {
 } from './style';
 import { MemoryGameProps } from '@/components/pages/GamesPage/types';
 import { useGame } from '@/components/pages/GamesPage/usecase/useGame';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { useScreenSize } from '@/context/ScreenContext';
 
 export default function MemoryCardGame({
@@ -23,7 +24,14 @@ export default function MemoryCardGame({
 }: MemoryGameProps) {
   const { t } = useLanguage();
   const isMobile = useScreenSize();
-  const { state, actions } = useGame(cardContents, onGameComplete);
+  const { trackGameStart, trackNextLevel, trackGameReset, trackGameWin } =
+    useAnalytics();
+
+  const { state, actions } = useGame(cardContents, (moves) => {
+    // Track game win when game completes
+    trackGameWin(level, moves);
+    onGameComplete?.(moves);
+  });
 
   const {
     cards,
@@ -39,6 +47,22 @@ export default function MemoryCardGame({
 
   const { handleCardClick, startGame, resetGame, nextLevel } = actions;
 
+  // Analytics wrapper functions
+  const handleStartGame = () => {
+    trackGameStart(level);
+    startGame();
+  };
+
+  const handleNextLevel = () => {
+    trackNextLevel(level, moves);
+    nextLevel();
+  };
+
+  const handleResetGame = () => {
+    trackGameReset(level);
+    resetGame();
+  };
+
   return (
     <GameContainer
       customBackground={customStyles.background}
@@ -50,7 +74,7 @@ export default function MemoryCardGame({
       </GameHeader>
 
       {!gameStarted ? (
-        <GameButton data-mobile={isMobile} onClick={startGame}>
+        <GameButton data-mobile={isMobile} onClick={handleStartGame}>
           {t('games.start')}
         </GameButton>
       ) : (
@@ -113,7 +137,7 @@ export default function MemoryCardGame({
           </CardGrid>
 
           <GameButtons>
-            <GameButton data-mobile={isMobile} onClick={resetGame}>
+            <GameButton data-mobile={isMobile} onClick={handleResetGame}>
               {t('games.reset')}
             </GameButton>
           </GameButtons>
@@ -125,10 +149,10 @@ export default function MemoryCardGame({
           <h2>{t('games.win')}</h2>
           <p>{t('games.winMessage').replace('{moves}', moves.toString())}</p>
           <WinButtons>
-            <GameButton data-mobile={isMobile} onClick={nextLevel}>
+            <GameButton data-mobile={isMobile} onClick={handleNextLevel}>
               {t('games.nextLevel')}
             </GameButton>
-            <GameButton data-mobile={isMobile} onClick={resetGame}>
+            <GameButton data-mobile={isMobile} onClick={handleResetGame}>
               {t('games.playAgain')}
             </GameButton>
           </WinButtons>
