@@ -6,6 +6,9 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import FloatingChatButton from '@/components/Layout/FloatingChatButton';
 import { createMetadata } from '@/lib/seo/metadata-config';
+import GlobalStyles from '@/components/GlobalStyles';
+import { Global, css } from '@emotion/react';
+import { globalStyle } from '@/components/Layout/style';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -25,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable}>
       <body>
+        <GlobalStyles />
         <GoogleAnalytics />
         <ClientProviders>
           <StylesReadyLoader
@@ -35,12 +39,10 @@ export default function RootLayout({
                   justifyContent: 'center',
                   alignItems: 'center',
                   height: '100vh',
-                  background: '#09090b',
+                  background: '#05010a',
                   color: '#ffffff',
                   padding: 0,
                   margin: 0,
-                  fontFamily: 'var(--font-montserrat)',
-                  fontSize: '16px',
                 }}
               >
                 Loading...

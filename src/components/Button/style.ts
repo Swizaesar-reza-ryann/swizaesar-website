@@ -1,10 +1,10 @@
 // @/components/Button/style.ts
-import { theme } from "@/theme";
-import styled from "@emotion/styled";
+import { theme } from '@/theme';
+import styled from '@emotion/styled';
 
 export const ButtonStyle = styled.button`
   padding: 8px 16px;
-  border-radius: 4px;
+  border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -13,15 +13,17 @@ export const ButtonStyle = styled.button`
   justify-content: center;
   gap: 8px;
   border: 1px solid transparent;
+  font-family: 'Montserrat', sans-serif;
 
   /* Variants */
   &.primary {
-    background: ${theme.colors.secondary};
+    background: ${theme.colors.gradient};
     color: ${theme.colors.text};
-    border-color: ${theme.colors.text};
+    border: none;
 
     &:hover {
-      opacity: 0.9;
+      transform: scale(1.03);
+      box-shadow: 0 0 15px rgba(108, 92, 231, 0.3);
     }
   }
 
