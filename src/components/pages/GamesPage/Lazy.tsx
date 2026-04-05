@@ -1,14 +1,9 @@
-import LoadingPage from '@/components/Layout/LoadingPage';
+import BlackholeLoader from '@/components/BlackholeLoader';
 import dynamic from 'next/dynamic';
 
 const GamesPageLazy = dynamic(() => import('./GamesPage'), {
   ssr: true,
-  loading: () => (
-    <LoadingPage
-      message="Loading Games"
-      subtitle="Preparing your memory game..."
-    />
-  ),
+  loading: () => <BlackholeLoader minDuration={1500} />,
 });
 
 export default GamesPageLazy;

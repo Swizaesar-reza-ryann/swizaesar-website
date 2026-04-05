@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 import Header from './Header';
-import { Global } from '@emotion/react';
-import { globalStyle, LayoutStyle } from './style';
+import { LayoutStyle } from './style';
 import { LayoutProps } from './types';
 import NavMobile from './NavMobile';
 import { useScreenSize } from '@/context/ScreenContext';
@@ -15,7 +14,6 @@ const Layout = ({ children, layout }: LayoutPropsType) => {
   const isMobile = useScreenSize();
   return (
     <div>
-      <Global styles={globalStyle} />
       {layout?.header && !isMobile && <Header />}
 
       {layout?.header && isMobile && <NavMobile />}

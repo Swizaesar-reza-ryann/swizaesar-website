@@ -1,14 +1,9 @@
 import dynamic from 'next/dynamic';
-import LoadingPage from '@/components/Layout/LoadingPage';
+import BlackholeLoader from '@/components/BlackholeLoader';
 
 const PortfolioDetailLazy = dynamic(() => import('./PortfolioDetail'), {
   ssr: true,
-  loading: () => (
-    <LoadingPage
-      message="Loading Project Details"
-      subtitle="Fetching project information..."
-    />
-  ),
+  loading: () => <BlackholeLoader minDuration={1500} />,
 });
 
 export default PortfolioDetailLazy;

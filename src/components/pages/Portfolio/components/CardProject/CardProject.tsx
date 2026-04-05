@@ -29,7 +29,7 @@ const CardProject = ({ data }: CardProjectProps) => {
       <div className="card-footer">
         <a href={`/portfolio/${data.urlId}`} className="view-project-btn">
           <ExternalLink size={16} />
-          View Details
+          <span>View Details</span>
         </a>
       </div>
     </CardProjectStyle>

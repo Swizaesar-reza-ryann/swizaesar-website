@@ -1,14 +1,9 @@
-import LoadingPage from '@/components/Layout/LoadingPage';
+import BlackholeLoader from '@/components/BlackholeLoader';
 import dynamic from 'next/dynamic';
 
 const HomePageLazy = dynamic(() => import('./HomePage'), {
   ssr: true,
-  loading: () => (
-    <LoadingPage
-      message="Loading Home Page"
-      subtitle="Fetching your projects..."
-    />
-  ),
+  loading: () => <BlackholeLoader minDuration={2000} />,
 });
 
 export default HomePageLazy;
