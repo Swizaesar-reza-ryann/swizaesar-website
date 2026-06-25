@@ -2,6 +2,31 @@ import { CategoryPortfolioEnum, PortfolioType } from './types';
 
 export const PORTFOLIO_LIST: PortfolioType[] = [
   {
+    id: 'arenix-platform',
+    urlId: 7,
+    key: 'arenix_platform',
+    category: CategoryPortfolioEnum.SAAS_PLATFORM,
+    techStack: [
+      'Next.js',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Go',
+      'Gin',
+      'PostgreSQL',
+      'GORM',
+      'Midtrans',
+      'Firebase FCM',
+      'Cloudflare R2',
+    ],
+    websiteUrl: 'https://arenix.id',
+    links: [
+      { labelKey: 'marketplace', url: 'https://arenix.id' },
+      { labelKey: 'tenant', url: 'https://tenant.arenix.id' },
+      { labelKey: 'official', url: 'https://official.arenix.id' },
+    ],
+  },
+  {
     id: 'swizaesar-portfolio',
     urlId: 1,
     key: 'swizaesar_portfolio',

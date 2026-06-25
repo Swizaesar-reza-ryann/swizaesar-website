@@ -1,7 +1,14 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { Locale, defaultLocale, locales } from './config';
+import enTranslations from './locales/en.json';
+import idTranslations from './locales/id.json';
+
+const TRANSLATIONS: Record<Locale, Record<string, unknown>> = {
+  en: enTranslations,
+  id: idTranslations,
+};
 
 type LanguageContextType = {
   locale: Locale;
@@ -16,39 +23,27 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(defaultLocale);
-  const [translations, setTranslations] = useState<Record<string, any>>({});
-
-  const loadTranslations = async (locale: Locale) => {
-    try {
-      const response = await import(`./locales/${locale}.json`);
-      setTranslations(response.default);
-    } catch (error) {
-      console.error(`Failed to load translations for ${locale}:`, error);
-      // Fallback to default locale
-      if (locale !== defaultLocale) {
-        const fallback = await import(`./locales/${defaultLocale}.json`);
-        setTranslations(fallback.default);
-      }
-    }
-  };
+  const [translations, setTranslations] = useState<Record<string, unknown>>(
+    TRANSLATIONS[defaultLocale]
+  );
 
   const setLocale = (newLocale: Locale) => {
     if (locales.includes(newLocale)) {
       setLocaleState(newLocale);
       document.cookie = `NEXT_LOCALE=${newLocale}; path=/; max-age=31536000; SameSite=Lax`;
-      loadTranslations(newLocale);
+      setTranslations(TRANSLATIONS[newLocale]);
     }
   };
 
   const t = (key: string): string => {
     const keys = key.split('.');
-    let value = translations;
+    let value: unknown = translations;
 
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
-        value = value[k];
+        value = (value as Record<string, unknown>)[k];
       } else {
-        return key; // Return key if translation not found
+        return key;
       }
     }
 
@@ -57,21 +52,20 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const tArray = (key: string): string[] => {
     const keys = key.split('.');
-    let value: any = translations;
+    let value: unknown = translations;
 
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
-        value = value[k];
+        value = (value as Record<string, unknown>)[k];
       } else {
-        return [key]; // Return key as array if translation not found
+        return [key];
       }
     }
 
-    return Array.isArray(value) ? value : [value];
+    return Array.isArray(value) ? value : [String(value)];
   };
 
   useEffect(() => {
-    // Get locale from cookie or browser
     const getLocaleFromCookie = (): Locale => {
       const match = document.cookie.match(/(?:^|; )NEXT_LOCALE=([^;]+)/);
       if (match) {
@@ -81,18 +75,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         }
       }
 
-      // Fallback to browser language
       const browserLocale = navigator.language.split('-')[0] as Locale;
       return locales.includes(browserLocale) ? browserLocale : defaultLocale;
     };
 
     const detectedLocale = getLocaleFromCookie();
     setLocaleState(detectedLocale);
-    loadTranslations(detectedLocale);
+    setTranslations(TRANSLATIONS[detectedLocale]);
   }, []);
 
+  const contextValue = useMemo(
+    () => ({ locale, setLocale, t, tArray }),
+    [locale, translations]
+  );
+
   return (
-    <LanguageContext.Provider value={{ locale, setLocale, t, tArray }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   );

@@ -3,36 +3,44 @@ import styled from '@emotion/styled';
 
 const NotFoundStyle = styled.div`
   text-align: center;
-  padding: 80px 20px;
+  padding: 64px 20px;
+  max-width: 480px;
+  margin: 0 auto;
 
   .error-code {
-    font-size: 120px;
-    font-weight: 700;
-    color: ${theme.colors.secondary};
+    font-size: clamp(5rem, 20vw, 8rem);
+    font-weight: 800;
+    background: linear-gradient(
+      135deg,
+      ${theme.colors.primary} 0%,
+      ${theme.colors.accent} 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin: 0;
     line-height: 1;
+    letter-spacing: -0.04em;
   }
 
   .error-message {
-    font-size: 24px;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: ${theme.colors.text};
-    margin: 20px 0;
-    opacity: 0.8;
+    margin: 16px 0 12px;
+    letter-spacing: -0.02em;
   }
 
   .error-description {
-    font-size: 16px;
-    color: ${theme.colors.text};
-    margin: 0 0 40px 0;
-    opacity: 0.6;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 0.9375rem;
+    color: ${theme.colors.textSecondary};
+    margin: 0 0 32px;
+    line-height: 1.6;
   }
 
   .action-buttons {
     display: flex;
-    gap: 16px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
 
@@ -41,29 +49,22 @@ const NotFoundStyle = styled.div`
       align-items: center;
       gap: 8px;
       padding: 12px 24px;
-      border-radius: 8px;
+      border-radius: ${theme.radius.md};
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 0.875rem;
       transition: all 0.2s ease;
 
       &.primary {
-        background: ${theme.colors.secondary};
-        color: white;
+        background: ${theme.colors.primary};
+        color: #fff;
+        box-shadow: ${theme.shadows.sm};
 
         &:hover {
-          background: #ea580c;
+          background: ${theme.colors.primaryDark};
           transform: translateY(-2px);
-        }
-      }
-
-      &.secondary {
-        background: transparent;
-        color: ${theme.colors.text};
-        border: 1px solid #525151dd;
-
-        &:hover {
-          background: #525151dd;
-          transform: translateY(-2px);
+          box-shadow: ${theme.shadows.md};
+          color: #fff;
         }
       }
 

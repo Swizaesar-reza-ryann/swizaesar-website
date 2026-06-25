@@ -11,32 +11,30 @@ const LoadingPageStyle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${theme.colors.primary};
+  background: ${theme.colors.bg};
   z-index: 9999;
 
   .spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid #525151dd;
-    border-top: 4px solid ${theme.colors.secondary};
+    width: 44px;
+    height: 44px;
+    border: 3px solid ${theme.colors.border};
+    border-top: 3px solid ${theme.colors.primary};
     border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-bottom: 24px;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 20px;
   }
 
   .loading-text {
     color: ${theme.colors.text};
-    font-size: 18px;
-    font-weight: 500;
-    opacity: 0.9;
+    font-size: 1rem;
+    font-weight: 600;
     margin: 0;
   }
 
   .loading-subtitle {
-    color: ${theme.colors.text};
-    font-size: 14px;
-    opacity: 0.6;
-    margin: 8px 0 0 0;
+    color: ${theme.colors.textMuted};
+    font-size: 0.875rem;
+    margin: 8px 0 0;
   }
 
   @keyframes spin {
@@ -48,4 +46,5 @@ const LoadingPageStyle = styled.div`
     }
   }
 `;
+
 export default LoadingPageStyle;

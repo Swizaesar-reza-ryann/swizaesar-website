@@ -20,6 +20,9 @@
     "subtitle": "Developer",
     "description": "I build accessible, pixel-perfect, secure, and performant web applications. Let's turn your vision into reality."
   },
+  "footer": {
+    "rights": "All rights reserved."
+  },
   "navigation": {
     "home": "Home",
     "about": "About",
@@ -102,6 +105,18 @@
   "portfolio": {
     "title": "Feature Projects",
     "subtitle": "Check out some of my recent work.",
+    "arenix_platform": {
+      "title": "AreniX — Sports Venue Booking SaaS",
+      "description": "End-to-end multi-tenant SaaS platform for futsal and mini-soccer venue booking — from product vision and UX to full-stack development and deployment.",
+      "responsibilities": [
+        "Owned the entire product lifecycle: product thinking, user flows, feature prioritization, and go-to-market direction",
+        "Designed and built the full-stack architecture — Go (Gin) REST API backend and Next.js frontend in a monorepo",
+        "Developed multi-tenant system with public marketplace, per-venue subdomain landing, online booking, and Midtrans payment integration",
+        "Built admin, tenant, and coach dashboards including scheduling, wallet, membership, and operational reporting",
+        "Integrated Firebase FCM push notifications, Cloudflare R2 file storage, and automated booking receipt emails",
+        "Implemented tenant subdomain routing, custom branding templates, and SaaS subscription billing for venue owners"
+      ]
+    },
     "swizaesar_portfolio": {
       "title": "Personal Portfolio Website",
       "description": "A modern, responsive personal portfolio website showcasing projects and professional experience with optimized performance.",
@@ -185,6 +200,9 @@
     "project_category": "Category",
     "responsibilities": "Responsibilities",
     "tech_stack": "Tech Stack",
-    "view_live_project": "View Live Project"
+    "view_live_project": "View Live Project",
+    "link_marketplace": "Marketplace",
+    "link_tenant": "Mitra (Tenant)",
+    "link_official": "Official"
   }
 }

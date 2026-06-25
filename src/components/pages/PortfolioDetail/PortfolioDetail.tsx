@@ -1,5 +1,5 @@
 import { notFound, useParams } from 'next/navigation';
-import { PortfolioType } from '@/components/pages/Portfolio/types';
+import { PortfolioType, PortfolioLink } from '@/components/pages/Portfolio/types';
 import Container from '@/components/Layout/Container';
 import Link from 'next/link';
 import {
@@ -12,6 +12,12 @@ import {
 import { PORTFOLIO_LIST } from '@/components/pages/Portfolio/constant';
 import PortfolioDetailStyle from './style';
 import { useLanguage } from '@/lib/i18n/LanguageProvider';
+
+const PORTFOLIO_LINK_LABELS: Record<PortfolioLink['labelKey'], string> = {
+  marketplace: 'Marketplace',
+  tenant: 'Mitra (Tenant)',
+  official: 'Official',
+};
 
 const PortfolioDetailPage = () => {
   const { id } = useParams();
@@ -29,6 +35,13 @@ const PortfolioDetailPage = () => {
   const responsibilitiesList = tArray(
     `portfolio.${project.key}.responsibilities`
   );
+
+  const getLinkLabel = (labelKey: PortfolioLink['labelKey']) => {
+    const translated = t(`portfolio_detail.link_${labelKey}`);
+    return translated === `portfolio_detail.link_${labelKey}`
+      ? PORTFOLIO_LINK_LABELS[labelKey]
+      : translated;
+  };
 
   return (
     <Container>
@@ -82,17 +95,32 @@ const PortfolioDetailPage = () => {
               ))}
             </div>
 
-            {project.websiteUrl && (
+            {(project.links?.length || project.websiteUrl) && (
               <div className="project-actions">
-                <a
-                  href={project.websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="view-project-btn"
-                >
-                  <ExternalLink size={16} />
-                  {t('portfolio_detail.view_live_project')}
-                </a>
+                {project.links?.map((link) => (
+                  <a
+                    key={link.labelKey}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="view-project-btn"
+                  >
+                    <ExternalLink size={16} />
+                    {getLinkLabel(link.labelKey)}
+                  </a>
+                ))}
+
+                {!project.links?.length && project.websiteUrl && (
+                  <a
+                    href={project.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="view-project-btn"
+                  >
+                    <ExternalLink size={16} />
+                    {t('portfolio_detail.view_live_project')}
+                  </a>
+                )}
               </div>
             )}
           </div>

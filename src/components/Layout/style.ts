@@ -7,55 +7,77 @@ export const globalStyle = css`
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', var(--font-montserrat), sans-serif;
     margin: 0;
     padding: 0;
-    background: ${theme.colors.primary};
+    background: ${theme.colors.bg};
     color: ${theme.colors.text};
+    line-height: 1.6;
   }
 
   a {
-    color: ${theme.colors.text};
+    color: ${theme.colors.primary};
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
     cursor: pointer;
 
     &:hover {
-      color: ${theme.colors.secondary};
+      color: ${theme.colors.primaryDark};
     }
+  }
+
+  ::selection {
+    background: ${theme.colors.primaryLight};
+    color: ${theme.colors.primaryDark};
   }
 `;
 
 export const LayoutStyle = styled.div`
-  padding-top: 134px;
+  padding-top: 72px;
   position: relative;
   min-height: 100dvh;
   overflow: clip;
-  padding-bottom: 32px;
 
   &[data-mobile='true'] {
-    padding-top: 64px;
-    padding-bottom: 95px;
+    padding-top: 56px;
+    padding-bottom: 88px;
   }
 
-  .blur-circle {
+  .ambient-blob {
     position: absolute;
-    opacity: 0.3;
-    width: 500px;
-    height: 500px;
-    background-color: ${theme.colors.secondary};
     border-radius: 50%;
-    filter: blur(120px);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
 
-    &-top {
-      top: -250px;
-      right: -250px;
+    &--primary {
+      width: 480px;
+      height: 480px;
+      top: -120px;
+      right: -120px;
+      background: ${theme.colors.primaryLight};
+      opacity: 0.6;
     }
 
-    &-bottom {
-      bottom: -250px;
-      left: -250px;
+    &--accent {
+      width: 360px;
+      height: 360px;
+      bottom: 200px;
+      left: -100px;
+      background: ${theme.colors.accentLight};
+      opacity: 0.5;
     }
+  }
+
+  .layout-content {
+    position: relative;
+    z-index: 1;
   }
 `;

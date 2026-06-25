@@ -13,20 +13,16 @@ export const ScreenSizeProvider = (
   props: PropsWithChildren<ScreenSizeProviderProps>
 ) => {
   const { children, isMobile: isMobileProps } = props;
-  const [isMobile, toggleIsMobile] = useState(isMobileProps);
+  const [isMobile, setIsMobile] = useState(isMobileProps);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const checkScreenSize = () => {
-        toggleIsMobile(window.innerWidth < 768);
-      };
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
 
-      checkScreenSize();
-
-      window.addEventListener('resize', checkScreenSize);
-
-      return () => window.removeEventListener('resize', checkScreenSize);
-    }
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
   }, []);
 
   const contextValue = useMemo<ScreenSizeProviderProps>(() => {

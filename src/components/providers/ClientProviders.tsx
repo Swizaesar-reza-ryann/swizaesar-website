@@ -7,6 +7,7 @@ import { ScreenSizeProvider } from '@/context/ScreenContext';
 import { LanguageProvider } from '@/lib/i18n/LanguageProvider';
 import EmotionRegistry from '@/lib/emotion-registry';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import FloatingChatButton from '@/components/Layout/FloatingChatButton';
 
 export default function ClientProviders({ children }: { children: ReactNode }) {
   return (
@@ -15,6 +16,7 @@ export default function ClientProviders({ children }: { children: ReactNode }) {
         <ThemeProvider theme={theme}>
           <ScreenSizeProvider isMobile={false}>
             <LanguageSwitcher />
+            <FloatingChatButton />
             {children}
           </ScreenSizeProvider>
         </ThemeProvider>

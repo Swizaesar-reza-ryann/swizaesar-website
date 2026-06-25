@@ -3,80 +3,130 @@ import styled from '@emotion/styled';
 
 const ExperienceListStyle = styled.div`
   display: flex;
-  gap: 16px;
+  gap: 20px;
   position: relative;
-  width: 100%;
-  padding-bottom: 24px;
+  padding-bottom: 32px;
+
+  &:last-child {
+    padding-bottom: 0;
+
+    &::after {
+      display: none;
+    }
+  }
 
   &::after {
     position: absolute;
     content: '';
     width: 2px;
-    height: 100%;
-    background: ${theme.colors.text};
-    z-index: 2;
-    left: 14px;
+    height: calc(100% - 8px);
+    background: ${theme.colors.border};
+    top: 40px;
+    left: 19px;
   }
 
   .experience-list {
     &__icon {
       position: relative;
-      z-index: 3;
-      width: 30px;
-      height: 30px;
-      border: 1px solid ${theme.colors.text};
+      z-index: 2;
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border: 2px solid ${theme.colors.primaryLight};
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: ${theme.colors.secondary};
+      background: ${theme.colors.surface};
+      color: ${theme.colors.primary};
+      box-shadow: ${theme.shadows.sm};
     }
 
     &__content {
-      z-index: 3;
-      width: calc(100% - 30px);
+      flex: 1;
+      min-width: 0;
+      background: ${theme.colors.surface};
+      border: 1px solid ${theme.colors.border};
+      border-radius: ${theme.radius.lg};
+      padding: 20px 24px;
+      box-shadow: ${theme.shadows.sm};
+      transition: box-shadow 0.2s ease;
+
+      &:hover {
+        box-shadow: ${theme.shadows.md};
+      }
 
       &-top {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 4px;
 
         &[data-mobile='true'] {
-          display: block;
+          flex-direction: column;
+          gap: 4px;
         }
       }
 
       &-title {
-        color: ${theme.colors.secondary};
-        margin: 5px 0 10px;
+        color: ${theme.colors.primary};
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
       }
 
       &-subtitle {
-        margin-top: 0;
-        color: ${theme.colors.text};
+        margin: 4px 0 12px;
+        color: ${theme.colors.textSecondary};
         font-weight: 500;
+        font-size: 0.875rem;
       }
 
       &-description {
-        padding-left: 16px;
+        padding-left: 0;
+        margin: 0;
+        list-style: none;
 
         &-list {
-          margin-bottom: 12px;
-          font-size: 14px;
+          position: relative;
+          padding-left: 18px;
+          margin-bottom: 8px;
+          font-size: 0.875rem;
+          color: ${theme.colors.textSecondary};
+          line-height: 1.6;
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: ${theme.colors.accent};
+          }
+
+          &:last-child {
+            margin-bottom: 0;
+          }
         }
       }
     }
 
     &__date {
-      font-size: 14px;
-      margin: 5px 0;
-      z-index: 3;
-      text-align: right;
-      color: ${theme.colors.text};
+      flex-shrink: 0;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: ${theme.colors.textMuted};
+      background: ${theme.colors.surfaceHover};
+      padding: 4px 10px;
+      border-radius: ${theme.radius.full};
+      white-space: nowrap;
 
       &[data-mobile='true'] {
-        text-align: left;
-        margin-bottom: 16px;
+        align-self: flex-start;
       }
     }
   }

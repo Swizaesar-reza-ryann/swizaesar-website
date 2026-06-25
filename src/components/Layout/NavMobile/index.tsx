@@ -3,40 +3,33 @@ import Link from 'next/link';
 import { Home, User, Briefcase, Code, Gamepad2 } from 'lucide-react';
 import { NAVBAR_LIST } from '@/components/Layout/Header/constant';
 import NavMobileStyle from './style';
-import { theme } from '@/theme';
 import { useLanguage } from '@/lib/i18n/LanguageProvider';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 const NavMobile = () => {
   const pathname = usePathname();
   const { t } = useLanguage();
 
-  const getIcon = (key: string) => {
+  const getIcon = (key: string, isActiveItem: boolean) => {
+    const size = key === 'home' ? 22 : 20;
+
     switch (key) {
       case 'home':
-        return <Home color={theme.colors.secondary} size={34} />;
+        return <Home size={size} color={isActiveItem ? '#fff' : undefined} />;
       case 'about':
-        return <User size={20} />;
+        return <User size={size} />;
       case 'experience':
-        return <Briefcase size={20} />;
+        return <Briefcase size={size} />;
       case 'portfolio':
-        return <Code size={20} />;
+        return <Code size={size} />;
       case 'games':
-        return <Gamepad2 size={20} />;
+        return <Gamepad2 size={size} />;
       default:
-        return <Home size={20} />;
+        return <Home size={size} />;
     }
   };
 
-  const isActive = (path: string) => {
-    return pathname === path;
-  };
+  const isActive = (path: string) => pathname === path;
 
-  const isExternalLink = (link: string) => {
-    return link.startsWith('http');
-  };
-
-  // Reorder navigation: about, experience, HOME, portfolio, games
   const reorderedNavList = [
     NAVBAR_LIST.find((item) => item.key === 'about'),
     NAVBAR_LIST.find((item) => item.key === 'experience'),
@@ -46,22 +39,23 @@ const NavMobile = () => {
   ].filter((item): item is NonNullable<typeof item> => item !== undefined);
 
   return (
-    <NavMobileStyle>
+    <NavMobileStyle aria-label="Mobile navigation">
       <div className="nav-mobile">
-        {reorderedNavList.map((item) => (
-          <Link
-            key={item.key}
-            href={item.link}
-            className={`nav-item ${isActive(item.link) ? 'active' : ''} ${
-              item.key === 'home' ? 'home-item' : ''
-            }`}
-            target={isExternalLink(item.link) ? '_blank' : '_self'}
-            rel={isExternalLink(item.link) ? 'noopener noreferrer' : ''}
-          >
-            <div className="nav-icon">{getIcon(item.key)}</div>
-            <span className="nav-label">{t(`navigation.${item.key}`)}</span>
-          </Link>
-        ))}
+        {reorderedNavList.map((item) => {
+          const active = isActive(item.link);
+          return (
+            <Link
+              key={item.key}
+              href={item.link}
+              className={`nav-item ${active ? 'active' : ''} ${
+                item.key === 'home' ? 'home-item' : ''
+              }`}
+            >
+              <div className="nav-icon">{getIcon(item.key, active)}</div>
+              <span className="nav-label">{t(`navigation.${item.key}`)}</span>
+            </Link>
+          );
+        })}
       </div>
     </NavMobileStyle>
   );

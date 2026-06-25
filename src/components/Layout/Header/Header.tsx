@@ -4,13 +4,11 @@ import { CONTACT_LINK, NAVBAR_LIST } from './constant';
 import HeaderStyle from './style';
 import Button from '@/components/Button';
 import { useEffect, useState } from 'react';
-import { useScreenSize } from '@/context/ScreenContext';
 import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const Header = () => {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const isMobile = useScreenSize();
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -22,15 +20,18 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const isActive = (path: string) => {
-    return pathname === path;
-  };
+  const isActive = (path: string) => pathname === path;
 
   return (
     <HeaderStyle className={isScrolled ? 'scrolled' : ''}>
-      <div className="header-list">
-        {NAVBAR_LIST.filter((item) => isMobile || item.key !== 'contact').map(
-          (item) => (
+      <div className="header-inner">
+        <Link href="/" className="header-brand">
+          <span className="brand-mark">SR</span>
+          <span className="brand-name">Swizaesar</span>
+        </Link>
+
+        <nav className="header-list" aria-label="Main navigation">
+          {NAVBAR_LIST.filter((item) => item.key !== 'contact').map((item) => (
             <Link
               key={item.key}
               href={item.link}
@@ -40,15 +41,15 @@ const Header = () => {
             >
               {t(`navigation.${item.key}`)}
             </Link>
-          )
-        )}
-        <Button
-          onClick={() => window.open(CONTACT_LINK, '_blank')}
-          size="small"
-          variant="primary"
-        >
-          {t('navigation.contact')}
-        </Button>
+          ))}
+          <Button
+            onClick={() => window.open(CONTACT_LINK, '_blank')}
+            size="small"
+            variant="primary"
+          >
+            {t('navigation.contact')}
+          </Button>
+        </nav>
       </div>
     </HeaderStyle>
   );
