@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import Header from './Header';
+import Footer from './Footer';
 import { Global } from '@emotion/react';
 import { globalStyle, LayoutStyle } from './style';
 import { LayoutProps } from './types';
@@ -21,9 +22,10 @@ const Layout = ({ children, layout }: LayoutPropsType) => {
       {layout?.header && isMobile && <NavMobile />}
 
       <LayoutStyle data-mobile={isMobile}>
-        <div className="blur-circle blur-circle-top" />
-        <div className="blur-circle blur-circle-bottom" />
-        {children}
+        <div className="ambient-blob ambient-blob--primary" />
+        <div className="ambient-blob ambient-blob--accent" />
+        <div className="layout-content">{children}</div>
+        {layout?.footer && <Footer />}
       </LayoutStyle>
     </div>
   );

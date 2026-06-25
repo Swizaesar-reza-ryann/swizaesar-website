@@ -2,51 +2,64 @@ import { theme } from '@/theme';
 import styled from '@emotion/styled';
 
 const PortfolioDetailStyle = styled.div`
-  padding: 40px 20px;
+  padding: 16px 0 48px;
 
   .back-button {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: ${theme.colors.text};
+    color: ${theme.colors.textSecondary};
     text-decoration: none;
-    margin-bottom: 32px;
-    opacity: 0.8;
-    transition: opacity 0.2s ease;
+    margin-bottom: 28px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: ${theme.radius.md};
+    border: 1px solid ${theme.colors.border};
+    background: ${theme.colors.surface};
+    transition: all 0.2s ease;
 
     &:hover {
-      opacity: 1;
+      color: ${theme.colors.primary};
+      border-color: ${theme.colors.primaryLight};
+      background: ${theme.colors.primaryLight};
     }
   }
 
   .project-header {
-    margin-bottom: 40px;
+    background: ${theme.colors.surface};
+    border: 1px solid ${theme.colors.border};
+    border-radius: ${theme.radius.lg};
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: ${theme.shadows.sm};
 
     .project-title {
-      font-size: 36px;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
       font-weight: 700;
       color: ${theme.colors.text};
-      margin: 0 0 16px 0;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
     }
 
     .project-category {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: ${theme.colors.secondary};
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 24px;
+      background: ${theme.colors.primaryLight};
+      color: ${theme.colors.primary};
+      padding: 6px 14px;
+      border-radius: ${theme.radius.full};
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 20px;
     }
 
     .project-description {
-      font-size: 18px;
-      line-height: 1.6;
-      color: ${theme.colors.text};
-      opacity: 0.9;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: ${theme.colors.textSecondary};
       margin: 0;
     }
   }
@@ -54,26 +67,31 @@ const PortfolioDetailStyle = styled.div`
   .project-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 24px;
 
     @media (max-width: 768px) {
       grid-template-columns: 1fr;
-      gap: 32px;
     }
   }
 
   .section {
+    background: ${theme.colors.surface};
+    border: 1px solid ${theme.colors.border};
+    border-radius: ${theme.radius.lg};
+    padding: 28px;
+    box-shadow: ${theme.shadows.sm};
+
     h3 {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 20px;
-      font-weight: 600;
+      gap: 10px;
+      font-size: 1.0625rem;
+      font-weight: 700;
       color: ${theme.colors.text};
-      margin: 0 0 20px 0;
+      margin: 0 0 20px;
 
       svg {
-        color: ${theme.colors.secondary};
+        color: ${theme.colors.primary};
       }
     }
   }
@@ -88,13 +106,18 @@ const PortfolioDetailStyle = styled.div`
       align-items: flex-start;
       gap: 12px;
       margin-bottom: 12px;
-      color: ${theme.colors.text};
-      opacity: 0.9;
+      color: ${theme.colors.textSecondary};
+      font-size: 0.875rem;
+      line-height: 1.6;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
 
       svg {
-        color: ${theme.colors.secondary};
+        color: ${theme.colors.accent};
         flex-shrink: 0;
-        margin-top: 2px;
+        margin-top: 3px;
       }
     }
   }
@@ -105,34 +128,65 @@ const PortfolioDetailStyle = styled.div`
     gap: 8px;
 
     .tech-tag {
-      background: #525151dd;
-      color: ${theme.colors.text};
-      padding: 6px 12px;
-      border-radius: 16px;
-      font-size: 14px;
+      background: ${theme.colors.surfaceHover};
+      color: ${theme.colors.textSecondary};
+      border: 1px solid ${theme.colors.border};
+      padding: 6px 14px;
+      border-radius: ${theme.radius.full};
+      font-size: 0.8125rem;
       font-weight: 500;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: ${theme.colors.primaryLight};
+        color: ${theme.colors.primary};
+        background: ${theme.colors.primaryLight};
+      }
     }
   }
 
   .project-actions {
-    margin-top: 32px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid ${theme.colors.border};
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 
     .view-project-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: ${theme.colors.secondary};
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
+      background: ${theme.colors.primary};
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: ${theme.radius.md};
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 0.875rem;
       transition: all 0.2s ease;
+      box-shadow: ${theme.shadows.sm};
 
       &:hover {
-        background: #ea580c;
+        background: ${theme.colors.primaryDark};
         transform: translateY(-2px);
+        box-shadow: ${theme.shadows.md};
+        color: #fff;
       }
+
+      svg {
+        color: #fff;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .project-header {
+      padding: 24px 20px;
+    }
+
+    .section {
+      padding: 24px 20px;
     }
   }
 `;

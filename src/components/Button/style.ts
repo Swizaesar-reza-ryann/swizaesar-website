@@ -1,74 +1,81 @@
-// @/components/Button/style.ts
-import { theme } from "@/theme";
-import styled from "@emotion/styled";
+import { theme } from '@/theme';
+import styled from '@emotion/styled';
 
 export const ButtonStyle = styled.button`
   padding: 8px 16px;
-  border-radius: 4px;
-  font-weight: 500;
+  border-radius: ${theme.radius.md};
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   border: 1px solid transparent;
+  font-family: inherit;
+  letter-spacing: -0.01em;
 
-  /* Variants */
   &.primary {
-    background: ${theme.colors.secondary};
-    color: ${theme.colors.text};
-    border-color: ${theme.colors.text};
+    background: ${theme.colors.primary};
+    color: #fff;
+    border-color: ${theme.colors.primary};
+    box-shadow: ${theme.shadows.sm};
 
     &:hover {
-      opacity: 0.9;
+      background: ${theme.colors.primaryDark};
+      border-color: ${theme.colors.primaryDark};
+      box-shadow: ${theme.shadows.md};
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 
   &.secondary {
-    background: ${theme.colors.primary};
+    background: ${theme.colors.surface};
     color: ${theme.colors.text};
-    border-color: ${theme.colors.text};
+    border-color: ${theme.colors.border};
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: ${theme.colors.surfaceHover};
+      border-color: ${theme.colors.borderStrong};
     }
   }
 
   &.outline {
     background: transparent;
-    color: ${theme.colors.text};
-    border-color: ${theme.colors.text};
+    color: ${theme.colors.primary};
+    border-color: ${theme.colors.primary};
 
     &:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: ${theme.colors.primaryLight};
     }
   }
 
-  /* Sizes */
   &.small {
-    padding: 4px 12px;
-    font-size: 0.875rem;
+    padding: 6px 14px;
+    font-size: 0.8125rem;
   }
 
   &.medium {
-    padding: 8px 16px;
-    font-size: 1rem;
+    padding: 10px 18px;
+    font-size: 0.9375rem;
   }
 
   &.large {
-    padding: 12px 24px;
-    font-size: 1.125rem;
+    padding: 14px 28px;
+    font-size: 1rem;
   }
 
-  /* Full width */
   &.full-width {
     width: 100%;
   }
 
-  /* Disabled state */
   &:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    transform: none !important;
   }
 `;

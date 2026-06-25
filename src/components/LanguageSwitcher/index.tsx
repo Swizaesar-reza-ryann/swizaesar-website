@@ -6,12 +6,9 @@ import {
   LanguageToggle,
   LanguageOption,
 } from './style';
-import { useScreenSize } from '@/context/ScreenContext';
 
 export default function LanguageSwitcher() {
   const { locale, setLocale } = useLanguage();
-
-  const isMobile = useScreenSize();
 
   const handleLanguageChange = () => {
     const newLocale = locale === 'en' ? 'id' : 'en';
@@ -19,7 +16,7 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <LanguageSwitcherContainer data-mobile={isMobile}>
+    <LanguageSwitcherContainer>
       <LanguageToggle
         onClick={handleLanguageChange}
         active={locale as 'id' | 'en'}

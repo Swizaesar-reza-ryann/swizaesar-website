@@ -1,64 +1,95 @@
-// @/components/Layout/Header/style.ts
-import { theme } from "@/theme";
-import styled from "@emotion/styled";
+import { theme } from '@/theme';
+import styled from '@emotion/styled';
 
-const HeaderStyle = styled.div`
+const HeaderStyle = styled.header`
   position: fixed;
   width: 100%;
   z-index: 100;
-  transition: all 0.3s ease;
-  background: transparent;
-  padding: 16px 0;
+  transition: all 0.25s ease;
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  padding: 12px 0;
 
   &.scrolled {
-    background: rgba(9, 9, 11, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    border-bottom-color: ${theme.colors.border};
+    box-shadow: ${theme.shadows.sm};
     padding: 8px 0;
   }
 
-  .header {
-    &-list {
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+    gap: 24px;
+  }
+
+  .header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: ${theme.colors.text};
+    flex-shrink: 0;
+
+    &:hover {
+      color: ${theme.colors.text};
+    }
+
+    .brand-mark {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 16px;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: ${theme.radius.md};
+      background: ${theme.colors.primary};
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8125rem;
+      letter-spacing: -0.02em;
+    }
 
-      a {
-        padding: 8px 16px;
-        color: ${theme.colors.text};
-        text-decoration: none;
-        font-weight: 500;
-        position: relative;
-        transition: color 0.3s ease;
-        opacity: 0.8;
+    .brand-name {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: -0.01em;
+    }
+  }
 
-        &:hover {
-          color: ${theme.colors.secondary};
-          opacity: 1;
-        }
+  .header-list {
+    display: flex;
+    align-items: center;
+    gap: 4px;
 
-        &.active {
-          color: ${theme.colors.secondary};
-          opacity: 1;
-          
-          &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 2px;
-            background: ${theme.colors.secondary};
-          }
-        }
+    a {
+      padding: 8px 14px;
+      color: ${theme.colors.textSecondary};
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.875rem;
+      position: relative;
+      border-radius: ${theme.radius.sm};
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: ${theme.colors.primary};
+        background: ${theme.colors.primaryLight};
       }
 
-      button {
-        margin-left: 16px;
+      &.active {
+        color: ${theme.colors.primary};
+        background: ${theme.colors.primaryLight};
+        font-weight: 600;
       }
+    }
+
+    button {
+      margin-left: 8px;
     }
   }
 `;

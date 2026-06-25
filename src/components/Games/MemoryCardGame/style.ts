@@ -2,13 +2,14 @@ import styled from '@emotion/styled';
 import { theme } from '@/theme';
 
 export const GameContainer = styled.div<{ customBackground?: string }>`
-  background: ${({ customBackground }) =>
-    customBackground || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
+  background: ${({ customBackground }) => customBackground || 'transparent'};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
 
   &[data-mobile='true'] {
     width: 100%;
@@ -21,46 +22,45 @@ export const GameContainer = styled.div<{ customBackground?: string }>`
 
 export const GameHeader = styled.div`
   text-align: center;
-  margin-bottom: 2rem;
-  color: white;
+  margin-bottom: 1.5rem;
+  display: none;
 
   h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: ${theme.colors.text};
   }
 
   p {
-    font-size: 1.2rem;
-    opacity: 0.9;
+    font-size: 0.9375rem;
+    color: ${theme.colors.textSecondary};
   }
 `;
 
 export const GameStats = styled.div`
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: ${theme.colors.surfaceHover};
+  border: 1px solid ${theme.colors.border};
+  padding: 12px 20px;
+  border-radius: ${theme.radius.lg};
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 
   .stat {
-    color: white;
-    font-size: 1rem;
+    color: ${theme.colors.textSecondary};
+    font-size: 0.875rem;
     font-weight: 600;
     text-align: center;
-    min-width: 80px;
-    transition: all 0.3s ease;
+    min-width: 72px;
 
     &.countdown {
-      color: #fbbf24;
-      font-size: 1.2rem;
+      color: ${theme.colors.primary};
+      font-size: 1rem;
       font-weight: 700;
-      text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
       animation: pulse 1s infinite;
     }
   }
@@ -78,16 +78,12 @@ export const GameStats = styled.div`
   }
 
   @media (max-width: 768px) {
-    gap: 1rem;
-    padding: 0.8rem 1.5rem;
+    gap: 0.75rem;
+    padding: 10px 16px;
 
     .stat {
-      font-size: 0.9rem;
-      min-width: 70px;
-
-      &.countdown {
-        font-size: 1.1rem;
-      }
+      font-size: 0.8125rem;
+      min-width: 64px;
     }
   }
 `;
@@ -95,10 +91,13 @@ export const GameStats = styled.div`
 export const CardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-  margin-bottom: 2rem;
-  max-width: 600px;
+  gap: 0.625rem;
+  margin-bottom: 1.5rem;
   width: 100%;
+
+  @media (max-width: 480px) {
+    gap: 0.5rem;
+  }
 `;
 
 export const Card = styled.div<{
@@ -110,10 +109,10 @@ export const Card = styled.div<{
   aspect-ratio: 1;
   cursor: pointer;
   perspective: 1000px;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 
   &:hover:not(.matched) {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 
   &.matched {
@@ -125,7 +124,7 @@ export const Card = styled.div<{
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform 0.5s;
     transform-style: preserve-3d;
     transform: ${({ isFlipped, isMatched }) =>
       isFlipped || isMatched ? 'rotateY(180deg)' : 'rotateY(0deg)'};
@@ -140,53 +139,57 @@ export const Card = styled.div<{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    font-size: 2rem;
+    border-radius: ${theme.radius.md};
+    font-size: clamp(1rem, 3vw, 1.5rem);
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: ${theme.shadows.sm};
   }
 
   .card-front {
     background: ${({ customCardFront }) =>
-      customCardFront || 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'};
+      customCardFront ||
+      `linear-gradient(135deg, ${theme.colors.primary} 0%, ${theme.colors.primaryDark} 100%)`};
     color: white;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid ${theme.colors.primaryLight};
   }
 
   .card-back {
-    background: ${({ customCardBack }) => customCardBack || 'white'};
-    color: #333;
+    background: ${({ customCardBack }) => customCardBack || theme.colors.surface};
+    color: ${theme.colors.text};
     transform: rotateY(180deg);
-    border: 2px solid ${theme.colors.secondary};
+    border: 2px solid ${theme.colors.border};
   }
 
   ${({ isMatched }) =>
     isMatched &&
     `
     .card-back {
-      background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+      background: linear-gradient(135deg, #34d399 0%, #059669 100%);
       color: white;
+      border-color: #059669;
       animation: matchPulse 0.6s ease;
     }
   `}
 `;
 
 export const GameButton = styled.button`
-  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  background: ${theme.colors.primary};
   color: white;
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
+  padding: 12px 24px;
+  font-size: 0.9375rem;
   font-weight: 600;
-  border-radius: 12px;
+  border-radius: ${theme.radius.md};
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: ${theme.shadows.sm};
+  margin: 0.25rem;
+  font-family: inherit;
 
   &:hover {
+    background: ${theme.colors.primaryDark};
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: ${theme.shadows.md};
   }
 
   &:active {
@@ -194,47 +197,47 @@ export const GameButton = styled.button`
   }
 
   &[data-mobile='true'] {
-    font-size: 14px;
+    font-size: 0.8125rem;
+    padding: 10px 18px;
   }
 `;
 
 export const GameButtons = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   flex-wrap: wrap;
 `;
 
 export const WinButtons = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
   position: relative;
   z-index: 2;
 `;
 
 export const CountdownDisplay = styled.div`
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  margin-bottom: 1.5rem;
+  padding: 12px 20px;
+  border-radius: ${theme.radius.lg};
+  background: ${theme.colors.surfaceHover};
+  border: 1px solid ${theme.colors.border};
+  margin-bottom: 1.25rem;
   text-align: center;
-  transition: all 0.3s ease;
+  width: 100%;
 
   span {
-    color: white;
-    font-size: 1.2rem;
+    color: ${theme.colors.textSecondary};
+    font-size: 1rem;
     font-weight: 600;
-    transition: all 0.3s ease;
   }
 
   &.countdown span {
-    color: #fbbf24;
-    font-size: 1.4rem;
+    color: ${theme.colors.primary};
+    font-size: 1.125rem;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
     animation: pulse 1s infinite;
   }
 
@@ -249,25 +252,12 @@ export const CountdownDisplay = styled.div`
       transform: scale(1);
     }
   }
-
-  @media (max-width: 768px) {
-    padding: 0.8rem 1.5rem;
-    margin-bottom: 1rem;
-
-    span {
-      font-size: 1.1rem;
-    }
-
-    &.countdown span {
-      font-size: 1.2rem;
-    }
-  }
 `;
 
 export const gameMessageStyles = `
   @keyframes matchPulse {
     0% { transform: scale(1) rotateY(180deg); }
-    50% { transform: scale(1.1) rotateY(180deg); }
+    50% { transform: scale(1.08) rotateY(180deg); }
     100% { transform: scale(1) rotateY(180deg); }
   }
 

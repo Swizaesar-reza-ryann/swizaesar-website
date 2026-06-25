@@ -1,29 +1,27 @@
 import styled from '@emotion/styled';
 import { theme } from '@/theme';
 
-export const FloatingChatStyle = styled.div`
+export const FloatingChatStyle = styled.button`
   position: fixed;
-  bottom: 80px;
-  right: 20px;
-  background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+  bottom: 96px;
+  right: 16px;
+  background: ${theme.colors.primary};
   color: white;
   border: none;
-  padding: 9px 9px;
-  border-radius: 50px;
+  padding: 12px;
+  border-radius: ${theme.radius.full};
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  transition: all 0.2s ease;
+  box-shadow: ${theme.shadows.lg};
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  z-index: 1000;
+  justify-content: center;
+  z-index: 999;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.4);
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    background: ${theme.colors.primaryDark};
+    box-shadow: ${theme.shadows.xl};
   }
 
   &:active {
@@ -31,6 +29,6 @@ export const FloatingChatStyle = styled.div`
   }
 
   @media (min-width: 768px) {
-    display: none; /* Hide on desktop, show only on mobile */
+    display: none;
   }
 `;

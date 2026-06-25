@@ -3,6 +3,7 @@ import ExperiencePageStyle from './style';
 import ExperienceList from './ExperienceList';
 import { EXPERIENCE_LIST } from './constant';
 import { useLanguage } from '@/lib/i18n/LanguageProvider';
+import PageHeader from '@/components/shared/PageHeader';
 
 const ExperiencePage = () => {
   const { t } = useLanguage();
@@ -10,17 +11,16 @@ const ExperiencePage = () => {
   return (
     <Container>
       <ExperiencePageStyle>
-        <div className="experience-title">
-          <div>
-            <h1>{t('experience.title')}</h1>
-          </div>
+        <PageHeader
+          title={t('experience.title')}
+          
+        />
 
-          <h4>{t('experience.subtitle')}</h4>
+        <div className="experience-timeline">
+          {EXPERIENCE_LIST.map((item, index) => (
+            <ExperienceList key={index} data={item} />
+          ))}
         </div>
-
-        {EXPERIENCE_LIST.map((item, index) => (
-          <ExperienceList key={index} data={item} />
-        ))}
       </ExperiencePageStyle>
     </Container>
   );

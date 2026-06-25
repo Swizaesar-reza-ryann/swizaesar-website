@@ -20,6 +20,9 @@
     "subtitle": "Developer",
     "description": "Saya membangun aplikasi web yang mudah diakses, pixel-perfect, aman, dan berkinerja tinggi. Mari wujudkan visi Anda menjadi kenyataan."
   },
+  "footer": {
+    "rights": "Hak cipta dilindungi."
+  },
   "navigation": {
     "home": "Beranda",
     "about": "Tentang",
@@ -102,6 +105,18 @@
   "portfolio": {
     "title": "Proyek Unggulan",
     "subtitle": "Lihat beberapa karya terbaru saya.",
+    "arenix_platform": {
+      "title": "AreniX — SaaS Booking Venue Olahraga",
+      "description": "Platform SaaS multi-tenant end-to-end untuk booking venue futsal dan mini soccer — dari visi produk dan UX hingga pengembangan full-stack dan deployment.",
+      "responsibilities": [
+        "Memimpin seluruh siklus produk: product thinking, alur pengguna, prioritas fitur, dan arah go-to-market",
+        "Merancang dan membangun arsitektur full-stack — backend REST API Go (Gin) dan frontend Next.js dalam satu monorepo",
+        "Mengembangkan sistem multi-tenant dengan marketplace publik, landing subdomain per venue, booking online, dan integrasi pembayaran Midtrans",
+        "Membangun dashboard admin, tenant, dan coach termasuk penjadwalan, dompet, membership, dan laporan operasional",
+        "Mengintegrasikan push notification Firebase FCM, penyimpanan file Cloudflare R2, dan email receipt booking otomatis",
+        "Mengimplementasikan routing subdomain tenant, template branding kustom, dan billing langganan SaaS untuk pemilik venue"
+      ]
+    },
     "swizaesar_portfolio": {
       "title": "Website Portfolio Pribadi",
       "description": "Website portfolio pribadi yang modern dan responsif yang menampilkan proyek dan pengalaman profesional dengan kinerja yang dioptimalkan.",
@@ -185,6 +200,9 @@
     "project_category": "Kategori",
     "responsibilities": "Tanggung Jawab",
     "tech_stack": "Teknologi",
-    "view_live_project": "Lihat Proyek Live"
+    "view_live_project": "Lihat Proyek Live",
+    "link_marketplace": "Marketplace",
+    "link_tenant": "Mitra (Tenant)",
+    "link_official": "Official"
   }
 }

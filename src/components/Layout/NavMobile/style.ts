@@ -1,7 +1,7 @@
 import { theme } from '@/theme';
 import styled from '@emotion/styled';
 
-const NavMobileStyle = styled.div`
+const NavMobileStyle = styled.nav`
   .nav-mobile {
     position: fixed;
     bottom: 0;
@@ -10,12 +10,12 @@ const NavMobileStyle = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: ${theme.colors.primary};
-    border-top: 1px solid #525151dd;
-    padding: 12px 0 8px 0;
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 1px solid ${theme.colors.border};
+    padding: 8px 4px calc(8px + env(safe-area-inset-bottom, 0px));
     z-index: 1000;
-    backdrop-filter: blur(10px);
-    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.06);
   }
 
   .nav-item {
@@ -24,63 +24,47 @@ const NavMobileStyle = styled.div`
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: ${theme.colors.text};
-    opacity: 0.7;
-    transition: all 0.3s ease;
-    padding: 4px 8px;
-    border-radius: 8px;
-    min-width: 60px;
-    width: 18%;
+    color: ${theme.colors.textMuted};
+    transition: all 0.2s ease;
+    padding: 6px 4px;
+    border-radius: ${theme.radius.md};
+    min-width: 52px;
+    flex: 1;
+    max-width: 72px;
 
     &:hover {
-      opacity: 1;
-      transform: translateY(-2px);
+      color: ${theme.colors.primary};
     }
 
     &.active {
-      opacity: 1;
-      color: ${theme.colors.secondary};
+      color: ${theme.colors.primary};
 
       .nav-icon {
-        transform: scale(1.1);
+        background: ${theme.colors.primaryLight};
       }
     }
 
     &.home-item {
-      min-width: 80px;
-      position: relative;
-      opacity: 1;
-      top: -15px; /* Move home item up to extend 50% beyond border */
+      max-width: 80px;
 
       .nav-icon {
-        position: absolute;
-        width: 76px;
-        height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #19191a;
+        width: 52px;
+        height: 52px;
+        margin-top: -20px;
+        background: ${theme.colors.primary};
+        color: #fff;
         border-radius: 50%;
-        color: ${theme.colors.primary};
-        border: 2px solid ${theme.colors.secondary};
-        transition: all 0.3s ease;
+        box-shadow: ${theme.shadows.lg};
+        border: 3px solid ${theme.colors.surface};
+      }
+
+      &.active .nav-icon {
+        background: ${theme.colors.primaryDark};
       }
 
       .nav-label {
         font-weight: 600;
-        font-size: 12px;
-        margin-top: 4px;
-      }
-
-      &:hover .nav-icon {
-        transform: scale(1.1);
-        box-shadow: 0 6px 16px rgba(249, 115, 22, 0.4);
-      }
-
-      &.active .nav-icon {
-        transform: scale(1.1);
-        box-shadow: 0 8px 20px rgba(249, 115, 22, 0.5);
-        transition: all 0.3s ease;
+        margin-top: 2px;
       }
     }
   }
@@ -89,44 +73,29 @@ const NavMobileStyle = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 4px;
-    transition: all 0.3s ease;
+    width: 36px;
+    height: 36px;
+    border-radius: ${theme.radius.md};
+    margin-bottom: 2px;
+    transition: all 0.2s ease;
   }
 
   .nav-label {
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 500;
     text-align: center;
     white-space: nowrap;
+    line-height: 1.2;
   }
 
-  /* Responsive adjustments */
   @media (max-width: 380px) {
-    .nav-mobile {
-      padding: 10px 0 6px 0;
-    }
-
-    .nav-item {
-      min-width: 50px;
-      padding: 2px 4px;
-    }
-
     .nav-label {
-      font-size: 10px;
+      font-size: 9px;
     }
 
-    .home-item {
-      min-width: 70px;
-      top: -21px; /* Maintain 50% extension on smaller screens */
-
-      .nav-icon {
-        width: 48px;
-        height: 48px;
-      }
-
-      .nav-label {
-        font-size: 11px;
-      }
+    .nav-item.home-item .nav-icon {
+      width: 46px;
+      height: 46px;
     }
   }
 `;
