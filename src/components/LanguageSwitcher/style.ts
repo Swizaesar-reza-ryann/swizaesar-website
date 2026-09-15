@@ -1,19 +1,27 @@
 import { theme } from '@/theme';
 import styled from '@emotion/styled';
 
-export const LanguageSwitcherContainer = styled.div`
+export const LanguageSwitcherContainer = styled.div<{ $variant: 'fixed' | 'inline' }>`
   display: flex;
   align-items: center;
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  z-index: 1001;
 
-  @media (max-width: 767px) {
+  ${({ $variant }) =>
+    $variant === 'fixed'
+      ? `
+    position: fixed;
     top: 12px;
     right: 12px;
     left: unset;
-  }
+    z-index: 1001;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  `
+      : `
+    position: static;
+    z-index: auto;
+  `}
 `;
 
 export const LanguageToggle = styled.button<{ active: 'id' | 'en' }>`
@@ -25,10 +33,10 @@ export const LanguageToggle = styled.button<{ active: 'id' | 'en' }>`
   padding: 3px;
   cursor: pointer;
   transition: all 0.2s ease;
-  min-width: 76px;
-  height: 34px;
+  min-width: 72px;
+  height: 32px;
   position: relative;
-  box-shadow: ${theme.shadows.sm};
+  box-shadow: none;
 
   &::before {
     content: '';
@@ -37,15 +45,14 @@ export const LanguageToggle = styled.button<{ active: 'id' | 'en' }>`
     left: ${({ active }) => (active === 'id' ? '3px' : '50%')};
     width: calc(50% - 3px);
     height: calc(100% - 6px);
-    background: ${theme.colors.primary};
+    background: ${theme.gradients.cta};
     border-radius: ${theme.radius.full};
     transition: all 0.2s ease;
     z-index: 1;
   }
 
   &:hover {
-    border-color: ${theme.colors.primaryLight};
-    box-shadow: ${theme.shadows.md};
+    border-color: rgba(240, 134, 90, 0.4);
   }
 `;
 

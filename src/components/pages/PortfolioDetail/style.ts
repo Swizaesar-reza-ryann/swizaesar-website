@@ -14,29 +14,42 @@ const PortfolioDetailStyle = styled.div`
     font-size: 0.875rem;
     font-weight: 500;
     padding: 8px 14px;
-    border-radius: ${theme.radius.md};
+    border-radius: ${theme.radius.full};
     border: 1px solid ${theme.colors.border};
     background: ${theme.colors.surface};
     transition: all 0.2s ease;
 
     &:hover {
-      color: ${theme.colors.primary};
-      border-color: ${theme.colors.primaryLight};
+      color: ${theme.colors.accent};
+      border-color: rgba(240, 134, 90, 0.4);
       background: ${theme.colors.primaryLight};
     }
   }
 
   .project-header {
+    position: relative;
     background: ${theme.colors.surface};
     border: 1px solid ${theme.colors.border};
-    border-radius: ${theme.radius.lg};
+    border-radius: ${theme.radius.xl};
     padding: 32px;
     margin-bottom: 24px;
-    box-shadow: ${theme.shadows.sm};
+    box-shadow: ${theme.shadows.md}, ${theme.shadows.glowSoft};
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: ${theme.gradients.rim};
+    }
 
     .project-title {
-      font-size: clamp(1.5rem, 4vw, 2.25rem);
-      font-weight: 700;
+      font-family: ${theme.fonts.display};
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 400;
       color: ${theme.colors.text};
       margin: 0 0 16px;
       letter-spacing: -0.02em;
@@ -48,7 +61,8 @@ const PortfolioDetailStyle = styled.div`
       align-items: center;
       gap: 8px;
       background: ${theme.colors.primaryLight};
-      color: ${theme.colors.primary};
+      color: ${theme.colors.accent};
+      border: 1px solid rgba(240, 134, 90, 0.28);
       padding: 6px 14px;
       border-radius: ${theme.radius.full};
       font-size: 0.8125rem;
@@ -77,16 +91,23 @@ const PortfolioDetailStyle = styled.div`
   .section {
     background: ${theme.colors.surface};
     border: 1px solid ${theme.colors.border};
-    border-radius: ${theme.radius.lg};
+    border-radius: ${theme.radius.xl};
     padding: 28px;
     box-shadow: ${theme.shadows.sm};
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      border-color: rgba(240, 134, 90, 0.25);
+      box-shadow: ${theme.shadows.md};
+    }
 
     h3 {
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 1.0625rem;
-      font-weight: 700;
+      font-family: ${theme.fonts.display};
+      font-size: 1.25rem;
+      font-weight: 400;
       color: ${theme.colors.text};
       margin: 0 0 20px;
 
@@ -138,8 +159,8 @@ const PortfolioDetailStyle = styled.div`
       transition: all 0.2s ease;
 
       &:hover {
-        border-color: ${theme.colors.primaryLight};
-        color: ${theme.colors.primary};
+        border-color: rgba(240, 134, 90, 0.4);
+        color: ${theme.colors.accent};
         background: ${theme.colors.primaryLight};
       }
     }
@@ -157,20 +178,20 @@ const PortfolioDetailStyle = styled.div`
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: ${theme.colors.primary};
+      background: ${theme.gradients.cta};
       color: #fff;
       padding: 12px 22px;
-      border-radius: ${theme.radius.md};
+      border-radius: ${theme.radius.full};
       text-decoration: none;
       font-weight: 600;
       font-size: 0.875rem;
       transition: all 0.2s ease;
-      box-shadow: ${theme.shadows.sm};
+      box-shadow: ${theme.shadows.glow};
 
       &:hover {
-        background: ${theme.colors.primaryDark};
+        filter: brightness(1.06);
         transform: translateY(-2px);
-        box-shadow: ${theme.shadows.md};
+        box-shadow: ${theme.shadows.glow}, ${theme.shadows.md};
         color: #fff;
       }
 

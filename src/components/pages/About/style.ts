@@ -18,11 +18,24 @@ const AboutPageStyle = styled.div`
       max-width: 420px;
       margin: 0 auto;
 
+      &::before {
+        content: '';
+        position: absolute;
+        inset: -2px;
+        border-radius: calc(${theme.radius.xl} + 2px);
+        background: ${theme.gradients.rim};
+        opacity: 0.55;
+        z-index: 0;
+      }
+
       img {
+        position: relative;
+        z-index: 1;
         width: 100%;
         height: auto;
-        border-radius: ${theme.radius.lg};
+        border-radius: ${theme.radius.xl};
         display: block;
+        box-shadow: ${theme.shadows.lg};
       }
     }
 
@@ -51,7 +64,7 @@ const AboutPageStyle = styled.div`
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: ${theme.colors.textMuted};
+      color: ${theme.colors.accent};
     }
   }
 

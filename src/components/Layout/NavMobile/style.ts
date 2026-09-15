@@ -10,12 +10,12 @@ const NavMobileStyle = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(12, 9, 8, 0.94);
     border-top: 1px solid ${theme.colors.border};
     padding: 8px 4px calc(8px + env(safe-area-inset-bottom, 0px));
     z-index: 1000;
-    backdrop-filter: blur(12px);
-    box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.06);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.45);
   }
 
   .nav-item {

@@ -2,11 +2,11 @@ import { theme } from '@/theme';
 import styled from '@emotion/styled';
 
 const HomePageStyle = styled.div`
-  padding: 24px 0 48px;
+  padding: 32px 0 64px;
 
   .home-section {
     display: flex;
-    gap: 48px;
+    gap: 56px;
     align-items: center;
     min-height: calc(100dvh - 200px);
   }
@@ -16,49 +16,61 @@ const HomePageStyle = styled.div`
     min-width: 0;
 
     &-job {
-      display: inline-block;
-      font-size: 0.875rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       color: ${theme.colors.accent};
-      background: ${theme.colors.accentLight};
-      padding: 6px 14px;
+      background: ${theme.colors.primaryLight};
+      border: 1px solid rgba(240, 134, 90, 0.28);
+      padding: 7px 14px;
       border-radius: ${theme.radius.full};
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+
+      &::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: ${theme.colors.primary};
+        box-shadow: 0 0 10px ${theme.colors.primary};
+      }
     }
 
     &-name {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      font-weight: 700;
+      font-family: ${theme.fonts.display};
+      font-size: clamp(2.75rem, 7vw, 4.5rem);
+      font-weight: 400;
       margin: 0 0 20px;
       line-height: 1.05;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       color: ${theme.colors.text};
+      text-shadow: 0 0 60px rgba(240, 134, 90, 0.12);
 
       span {
         display: block;
-        background: linear-gradient(
-          135deg,
-          ${theme.colors.primary} 0%,
-          ${theme.colors.accent} 100%
-        );
+        background: ${theme.gradients.accentText};
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        filter: drop-shadow(0 0 24px rgba(240, 134, 90, 0.35));
       }
 
       &[data-mobile='true'] {
-        font-size: clamp(2rem, 8vw, 2.75rem);
-        line-height: 1.1;
+        font-size: clamp(2.25rem, 10vw, 3rem);
+        line-height: 1.08;
       }
     }
 
     &-description {
       color: ${theme.colors.textSecondary};
-      line-height: 1.7;
+      line-height: 1.75;
       font-size: 1.0625rem;
       max-width: 540px;
-      margin: 0 0 28px;
+      margin: 0 0 32px;
 
       &[data-mobile='true'] {
         font-size: 0.9375rem;
@@ -92,10 +104,11 @@ const HomePageStyle = styled.div`
         box-shadow: ${theme.shadows.sm};
 
         &:hover {
-          color: ${theme.colors.primary};
-          border-color: ${theme.colors.primaryLight};
+          color: ${theme.colors.accent};
+          border-color: rgba(240, 134, 90, 0.4);
           background: ${theme.colors.primaryLight};
           transform: translateY(-2px);
+          box-shadow: ${theme.shadows.glowSoft};
         }
       }
     }
@@ -104,25 +117,39 @@ const HomePageStyle = styled.div`
   .card-developer {
     flex: 0 0 48%;
     max-width: 520px;
+    position: relative;
     background: ${theme.colors.surface};
     border: 1px solid ${theme.colors.border};
-    border-radius: ${theme.radius.lg};
+    border-radius: ${theme.radius.xl};
     padding: 24px;
-    box-shadow: ${theme.shadows.lg};
+    box-shadow: ${theme.shadows.lg}, ${theme.shadows.glowSoft};
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: ${theme.gradients.rim};
+      opacity: 0.9;
+    }
 
     &__code {
       width: 100%;
       max-width: 380px;
-      background: #1e293b;
-      border-radius: ${theme.radius.md};
+      background: #0a0706;
+      border: 1px solid ${theme.colors.border};
+      border-radius: ${theme.radius.lg};
       padding: 20px;
       font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
       font-size: 0.8125rem;
       line-height: 1.6;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
       box-shadow: ${theme.shadows.md};
 
       &[data-mobile='true'] {
@@ -164,7 +191,7 @@ const HomePageStyle = styled.div`
           flex-wrap: wrap;
 
           .const {
-            color: #c084fc;
+            color: #f0865a;
           }
 
           .name {
@@ -180,7 +207,7 @@ const HomePageStyle = styled.div`
             flex-wrap: wrap;
 
             .key {
-              color: #93c5fd;
+              color: #ffb089;
             }
 
             .operator {
@@ -196,25 +223,25 @@ const HomePageStyle = styled.div`
             }
 
             .bracket {
-              color: #94a3b8;
+              color: #6b635c;
             }
           }
         }
       }
 
       .bracket {
-        color: #94a3b8;
+        color: #6b635c;
       }
     }
 
     &:hover .card-developer__code {
       transform: translateY(-4px);
-      box-shadow: ${theme.shadows.xl};
+      box-shadow: ${theme.shadows.xl}, ${theme.shadows.glow};
     }
   }
 
   @media (max-width: 768px) {
-    padding: 8px 0 32px;
+    padding: 8px 0 40px;
 
     .home-section {
       flex-direction: column;
@@ -230,6 +257,10 @@ const HomePageStyle = styled.div`
       background: transparent;
       border: none;
       box-shadow: none;
+
+      &::before {
+        display: none;
+      }
     }
   }
 `;

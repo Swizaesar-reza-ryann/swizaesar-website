@@ -1,10 +1,13 @@
+'use client';
+
 import Container from '@/components/Layout/Container';
 import AboutPageStyle from './style';
 import Image from 'next/image';
-import aboutImage from '@/assets/images/about-image.webp';
+import aboutImage from '@/assets/images/about-image.png';
 import Skills from '@/components/Skills';
 import { useLanguage } from '@/lib/i18n/LanguageProvider';
 import PageHeader from '@/components/shared/PageHeader';
+import { Reveal } from '@/components/shared/Reveal';
 
 const AboutPage = () => {
   const { t } = useLanguage();
@@ -19,7 +22,7 @@ const AboutPage = () => {
         />
 
         <div className="about-grid">
-          <div className="about-content__text">
+          <Reveal y={24} className="about-content__text">
             <p>{t('about.paragraph1')}</p>
             <p>{t('about.paragraph2')}</p>
             <p>{t('about.paragraph3')}</p>
@@ -28,19 +31,19 @@ const AboutPage = () => {
               <h4>{t('common.tech_stack')}</h4>
               <Skills />
             </div>
-          </div>
+          </Reveal>
 
-          <div className="about-content__image">
+          <Reveal delay={0.15} y={32} className="about-content__image">
             <Image
               fetchPriority="high"
               src={aboutImage}
-              alt="profile-image"
+              alt="Developer workspace — cinematic coding desk"
               priority
               width={500}
               height={500}
               quality={75}
             />
-          </div>
+          </Reveal>
         </div>
       </AboutPageStyle>
     </Container>

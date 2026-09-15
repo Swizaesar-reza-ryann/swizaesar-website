@@ -8,24 +8,23 @@ const NotFoundStyle = styled.div`
   margin: 0 auto;
 
   .error-code {
+    font-family: ${theme.fonts.display};
     font-size: clamp(5rem, 20vw, 8rem);
-    font-weight: 800;
-    background: linear-gradient(
-      135deg,
-      ${theme.colors.primary} 0%,
-      ${theme.colors.accent} 100%
-    );
+    font-weight: 400;
+    background: ${theme.gradients.accentText};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin: 0;
     line-height: 1;
     letter-spacing: -0.04em;
+    filter: drop-shadow(0 0 32px rgba(240, 134, 90, 0.35));
   }
 
   .error-message {
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-family: ${theme.fonts.display};
+    font-size: 1.75rem;
+    font-weight: 400;
     color: ${theme.colors.text};
     margin: 16px 0 12px;
     letter-spacing: -0.02em;
@@ -49,21 +48,21 @@ const NotFoundStyle = styled.div`
       align-items: center;
       gap: 8px;
       padding: 12px 24px;
-      border-radius: ${theme.radius.md};
+      border-radius: ${theme.radius.full};
       text-decoration: none;
       font-weight: 600;
       font-size: 0.875rem;
       transition: all 0.2s ease;
 
       &.primary {
-        background: ${theme.colors.primary};
+        background: ${theme.gradients.cta};
         color: #fff;
-        box-shadow: ${theme.shadows.sm};
+        box-shadow: ${theme.shadows.glow};
 
         &:hover {
-          background: ${theme.colors.primaryDark};
+          filter: brightness(1.06);
           transform: translateY(-2px);
-          box-shadow: ${theme.shadows.md};
+          box-shadow: ${theme.shadows.glow}, ${theme.shadows.md};
           color: #fff;
         }
       }
