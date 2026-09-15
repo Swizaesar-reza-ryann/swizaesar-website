@@ -95,10 +95,37 @@ const PageHeaderStyle = styled.header`
   }
 
   @media (max-width: 768px) {
-    margin-bottom: 28px;
+    margin-bottom: 24px;
+    /* Keep clear of fixed language toggle */
+    padding-right: 84px;
+
+    &[data-align='center'] {
+      align-items: flex-start;
+      text-align: left;
+
+      .page-header__title::after {
+        left: 0;
+        transform: none;
+      }
+
+      .page-header__subtitle {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    .page-header__title {
+      font-size: clamp(1.75rem, 8vw, 2.25rem);
+    }
 
     .page-header__subtitle {
       font-size: 0.9375rem;
+    }
+
+    .page-header__eyebrow {
+      font-size: 0.6875rem;
+      padding: 5px 10px;
+      margin-bottom: 12px;
     }
   }
 `;

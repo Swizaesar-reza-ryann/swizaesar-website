@@ -23,6 +23,17 @@ const SkillStyle = styled.div`
       box-shadow: ${theme.shadows.glowSoft};
     }
   }
+
+  @media (max-width: 768px) {
+    gap: 8px;
+
+    .skill {
+      padding: 7px 12px;
+      font-size: 0.75rem;
+      background: ${theme.colors.bg};
+      border-color: ${theme.colors.borderStrong};
+    }
+  }
 `;
 
 export default SkillStyle;

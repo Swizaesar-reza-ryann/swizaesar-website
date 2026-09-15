@@ -69,26 +69,71 @@ const AboutPageStyle = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 4px 0 40px;
+    padding: 40px 0 28px;
 
     .about-grid {
       grid-template-columns: 1fr;
-      gap: 28px;
+      gap: 22px;
     }
 
     .about-content__image {
       max-width: 100%;
-      order: -1;
+
+      &::before {
+        inset: -1.5px;
+        border-radius: 19px;
+        opacity: 0.7;
+      }
+
+      img {
+        border-radius: 18px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        max-height: 320px;
+        width: 100%;
+      }
     }
 
-    .about-content__text p {
-      font-size: 0.9375rem;
-      line-height: 1.75;
+    .about-content__text {
+      p {
+        font-size: 0.875rem;
+        line-height: 1.7;
+        margin: 0 0 14px;
+        color: ${theme.colors.textSecondary};
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
     }
 
     .about-skills {
-      margin-top: 28px;
-      padding-top: 24px;
+      margin-top: 22px;
+      padding: 18px 16px 16px;
+      border-top: none;
+      border: 1px solid ${theme.colors.border};
+      border-radius: 18px;
+      background: ${theme.colors.surface};
+      box-shadow: ${theme.shadows.sm};
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: ${theme.gradients.rim};
+        opacity: 0.85;
+      }
+
+      h4 {
+        margin: 0 0 14px;
+        font-size: 0.75rem;
+        letter-spacing: 0.1em;
+      }
     }
   }
 `;
