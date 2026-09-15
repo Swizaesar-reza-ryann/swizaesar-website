@@ -13,7 +13,6 @@ const CardProjectStyle = styled.article`
   flex-direction: column;
   background: ${theme.colors.surface};
   transition: all 0.3s ease;
-  margin-bottom: 24px;
 
   &::before {
     content: '';
@@ -73,7 +72,7 @@ const CardProjectStyle = styled.article`
 
     &-body {
       flex: 1;
-      margin-bottom: 22px;
+      margin-bottom: 16px;
 
       p {
         margin: 0;
@@ -83,7 +82,34 @@ const CardProjectStyle = styled.article`
       }
     }
 
+    &-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+
+      span {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: ${theme.colors.textSecondary};
+        background: ${theme.colors.surfaceHover};
+        border: 1px solid ${theme.colors.border};
+        border-radius: ${theme.radius.full};
+        padding: 5px 10px;
+        line-height: 1.2;
+      }
+
+      .stack-more {
+        color: ${theme.colors.accent};
+        border-color: rgba(240, 134, 90, 0.28);
+        background: ${theme.colors.primaryLight};
+      }
+    }
+
     &-footer {
+      margin-top: auto;
+
       .view-project-btn {
         display: inline-flex;
         align-items: center;
@@ -114,6 +140,67 @@ const CardProjectStyle = styled.article`
           color: ${theme.colors.primary};
           transition: color 0.2s ease;
         }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px 18px 18px;
+    border-radius: 18px;
+    transform: none;
+
+    &::before {
+      opacity: 0.85;
+    }
+
+    &:hover {
+      transform: none;
+    }
+
+    .card {
+      &-header {
+        margin-bottom: 12px;
+
+        h5 {
+          font-size: 0.6875rem;
+        }
+      }
+
+      &-title h3 {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+      }
+
+      &-body {
+        margin-bottom: 14px;
+
+        p {
+          font-size: 0.8125rem;
+          line-height: 1.6;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+      }
+
+      &-stack {
+        gap: 6px;
+        margin-bottom: 16px;
+        padding-top: 14px;
+        border-top: 1px solid ${theme.colors.border};
+
+        span {
+          font-size: 0.625rem;
+          padding: 5px 9px;
+        }
+      }
+
+      &-footer .view-project-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 18px;
+        font-size: 0.8125rem;
       }
     }
   }

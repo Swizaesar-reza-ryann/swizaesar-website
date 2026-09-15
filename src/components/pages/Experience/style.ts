@@ -13,10 +13,12 @@ const ExperiencePageStyle = styled.div`
   }
 
   @media (max-width: 768px) {
-    padding: 16px 0 56px;
+    /* Clear fixed language switcher */
+    padding: 40px 0 32px;
 
     .experience-timeline {
-      gap: 28px;
+      gap: 20px;
+      margin-top: 4px;
     }
   }
 `;

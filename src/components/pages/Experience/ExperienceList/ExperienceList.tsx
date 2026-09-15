@@ -21,20 +21,35 @@ const ExperienceList = ({ data, isLast = false }: ExperienceListProps) => {
   const endDate = t(`experience.${key}.endDate`);
 
   return (
-    <ExperienceListStyle data-last={isLast}>
-      <div className="experience-list__icon">
+    <ExperienceListStyle data-last={isLast} data-mobile={isMobile}>
+      <div className="experience-list__icon" aria-hidden={!isMobile}>
         <Briefcase width={16} />
       </div>
 
       <div className="experience-list__content">
-        <div className="experience-list__content-top" data-mobile={isMobile}>
+        {isMobile && (
+          <div className="experience-list__meta">
+            <span className="experience-list__meta-icon" aria-hidden>
+              <Briefcase width={14} />
+            </span>
+            <div className="experience-list__date">
+              <span>
+                {startDate} – {endDate}
+              </span>
+            </div>
+          </div>
+        )}
+
+        <div className="experience-list__content-top">
           <h4 className="experience-list__content-title">{title}</h4>
 
-          <div className="experience-list__date" data-mobile={isMobile}>
-            <span>
-              {startDate} - {endDate}
-            </span>
-          </div>
+          {!isMobile && (
+            <div className="experience-list__date">
+              <span>
+                {startDate} – {endDate}
+              </span>
+            </div>
+          )}
         </div>
 
         <p className="experience-list__content-subtitle">{subtitle}</p>
