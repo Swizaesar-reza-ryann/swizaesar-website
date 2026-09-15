@@ -24,11 +24,12 @@ const FooterStyle = styled.footer`
       width: 36px;
       height: 36px;
       border-radius: ${theme.radius.md};
-      background: ${theme.colors.primaryLight};
-      color: ${theme.colors.primary};
+      background: ${theme.gradients.cta};
+      color: #fff;
       font-weight: 700;
       font-size: 0.875rem;
       margin-bottom: 8px;
+      box-shadow: ${theme.shadows.glow};
     }
 
     .footer-tagline {

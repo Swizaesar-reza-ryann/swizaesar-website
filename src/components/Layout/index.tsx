@@ -22,8 +22,9 @@ const Layout = ({ children, layout }: LayoutPropsType) => {
       {layout?.header && isMobile && <NavMobile />}
 
       <LayoutStyle data-mobile={isMobile}>
-        <div className="ambient-blob ambient-blob--primary" />
-        <div className="ambient-blob ambient-blob--accent" />
+        <div className="ambient-blob ambient-blob--primary" aria-hidden />
+        <div className="ambient-blob ambient-blob--accent" aria-hidden />
+        <div className="film-grain" aria-hidden />
         <div className="layout-content">{children}</div>
         {layout?.footer && <Footer />}
       </LayoutStyle>

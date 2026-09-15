@@ -7,7 +7,13 @@ import {
   LanguageOption,
 } from './style';
 
-export default function LanguageSwitcher() {
+type LanguageSwitcherProps = {
+  variant?: 'fixed' | 'inline';
+};
+
+export default function LanguageSwitcher({
+  variant = 'fixed',
+}: LanguageSwitcherProps) {
   const { locale, setLocale } = useLanguage();
 
   const handleLanguageChange = () => {
@@ -16,11 +22,12 @@ export default function LanguageSwitcher() {
   };
 
   return (
-    <LanguageSwitcherContainer>
+    <LanguageSwitcherContainer $variant={variant}>
       <LanguageToggle
         onClick={handleLanguageChange}
         active={locale as 'id' | 'en'}
         aria-label="Toggle language"
+        type="button"
       >
         <LanguageOption active={locale === 'id'}>ID</LanguageOption>
         <LanguageOption active={locale === 'en'}>EN</LanguageOption>

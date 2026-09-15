@@ -1,8 +1,11 @@
+'use client';
+
 import Container from '@/components/Layout/Container';
 import Summary from './components/Summary';
 import HomePageStyle from './style';
 import CardDeveloper from './components/CardDeveloper';
 import { useScreenSize } from '@/context/ScreenContext';
+import { Reveal } from '@/components/shared/Reveal';
 
 const Homepage = () => {
   const isMobile = useScreenSize();
@@ -16,9 +19,9 @@ const Homepage = () => {
           </div>
 
           {!isMobile && (
-            <div className="card-developer">
+            <Reveal className="card-developer" delay={0.18} y={32}>
               <CardDeveloper />
-            </div>
+            </Reveal>
           )}
         </div>
       </Container>

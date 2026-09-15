@@ -6,14 +6,14 @@ import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 interface ExperienceListProps {
   data: ExperienceListType;
+  isLast?: boolean;
 }
 
-const ExperienceList = ({ data }: ExperienceListProps) => {
+const ExperienceList = ({ data, isLast = false }: ExperienceListProps) => {
   const { t, tArray } = useLanguage();
   const { key } = data;
   const isMobile = useScreenSize();
 
-  // Get translated content
   const title = t(`experience.${key}.title`);
   const subtitle = t(`experience.${key}.subtitle`);
   const descriptionList = tArray(`experience.${key}.description`);
@@ -21,7 +21,7 @@ const ExperienceList = ({ data }: ExperienceListProps) => {
   const endDate = t(`experience.${key}.endDate`);
 
   return (
-    <ExperienceListStyle key={`experience-${data.id}`}>
+    <ExperienceListStyle data-last={isLast}>
       <div className="experience-list__icon">
         <Briefcase width={16} />
       </div>

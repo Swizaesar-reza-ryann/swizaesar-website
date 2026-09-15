@@ -5,14 +5,14 @@ export const FloatingChatStyle = styled.button`
   position: fixed;
   bottom: 96px;
   right: 16px;
-  background: ${theme.colors.primary};
+  background: ${theme.gradients.cta};
   color: white;
   border: none;
   padding: 12px;
   border-radius: ${theme.radius.full};
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: ${theme.shadows.lg};
+  box-shadow: ${theme.shadows.glow};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,8 +20,8 @@ export const FloatingChatStyle = styled.button`
 
   &:hover {
     transform: translateY(-2px);
-    background: ${theme.colors.primaryDark};
-    box-shadow: ${theme.shadows.xl};
+    filter: brightness(1.06);
+    box-shadow: ${theme.shadows.glow}, ${theme.shadows.xl};
   }
 
   &:active {

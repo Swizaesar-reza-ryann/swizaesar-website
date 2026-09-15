@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 export const ButtonStyle = styled.button`
   padding: 8px 16px;
-  border-radius: ${theme.radius.md};
+  border-radius: ${theme.radius.full};
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -16,15 +16,14 @@ export const ButtonStyle = styled.button`
   letter-spacing: -0.01em;
 
   &.primary {
-    background: ${theme.colors.primary};
+    background: ${theme.gradients.cta};
     color: #fff;
-    border-color: ${theme.colors.primary};
-    box-shadow: ${theme.shadows.sm};
+    border-color: transparent;
+    box-shadow: ${theme.shadows.glow};
 
     &:hover {
-      background: ${theme.colors.primaryDark};
-      border-color: ${theme.colors.primaryDark};
-      box-shadow: ${theme.shadows.md};
+      filter: brightness(1.06);
+      box-shadow: ${theme.shadows.glow}, ${theme.shadows.md};
       transform: translateY(-1px);
     }
 
@@ -46,11 +45,12 @@ export const ButtonStyle = styled.button`
 
   &.outline {
     background: transparent;
-    color: ${theme.colors.primary};
-    border-color: ${theme.colors.primary};
+    color: ${theme.colors.accent};
+    border-color: rgba(240, 134, 90, 0.45);
 
     &:hover {
       background: ${theme.colors.primaryLight};
+      border-color: ${theme.colors.primary};
     }
   }
 

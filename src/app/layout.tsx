@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Montserrat } from 'next/font/google';
+import { Instrument_Serif, Montserrat } from 'next/font/google';
 import ClientProviders from '@/components/providers/ClientProviders';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import { createMetadata } from '@/lib/seo/metadata-config';
@@ -12,6 +12,15 @@ const montserrat = Montserrat({
   preload: true,
 });
 
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-display',
+  preload: true,
+});
+
 export const metadata: Metadata = createMetadata('home');
 
 export default function RootLayout({
@@ -20,7 +29,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${instrumentSerif.variable}`}
+    >
       <body>
         <GoogleAnalytics />
         <ClientProviders>{children}</ClientProviders>

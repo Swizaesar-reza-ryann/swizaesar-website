@@ -147,10 +147,9 @@ export const Card = styled.div<{
 
   .card-front {
     background: ${({ customCardFront }) =>
-      customCardFront ||
-      `linear-gradient(135deg, ${theme.colors.primary} 0%, ${theme.colors.primaryDark} 100%)`};
+      customCardFront || theme.gradients.cta};
     color: white;
-    border: 2px solid ${theme.colors.primaryLight};
+    border: 2px solid rgba(240, 134, 90, 0.35);
   }
 
   .card-back {
@@ -173,23 +172,23 @@ export const Card = styled.div<{
 `;
 
 export const GameButton = styled.button`
-  background: ${theme.colors.primary};
+  background: ${theme.gradients.cta};
   color: white;
   border: none;
   padding: 12px 24px;
   font-size: 0.9375rem;
   font-weight: 600;
-  border-radius: ${theme.radius.md};
+  border-radius: ${theme.radius.full};
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: ${theme.shadows.sm};
+  box-shadow: ${theme.shadows.glow};
   margin: 0.25rem;
   font-family: inherit;
 
   &:hover {
-    background: ${theme.colors.primaryDark};
+    filter: brightness(1.06);
     transform: translateY(-2px);
-    box-shadow: ${theme.shadows.md};
+    box-shadow: ${theme.shadows.glow}, ${theme.shadows.md};
   }
 
   &:active {

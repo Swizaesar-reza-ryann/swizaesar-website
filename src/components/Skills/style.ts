@@ -17,9 +17,10 @@ const SkillStyle = styled.div`
     transition: all 0.2s ease;
 
     &:hover {
-      border-color: ${theme.colors.primaryLight};
-      color: ${theme.colors.primary};
+      border-color: rgba(240, 134, 90, 0.4);
+      color: ${theme.colors.accent};
       background: ${theme.colors.primaryLight};
+      box-shadow: ${theme.shadows.glowSoft};
     }
   }
 `;
