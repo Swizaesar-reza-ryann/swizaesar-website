@@ -34,8 +34,8 @@ export const downloadFile = (
  */
 export const downloadCV = (openInNewTab: boolean = false) => {
   downloadFile(
-    '/assets/document/Swizaesar_Reza_Ryann-CV.pdf',
-    'Swizaesar_Reza_Ryann-CV.pdf',
+    '/assets/document/Swizaesar-Reza-Ryann_(CV).pdf',
+    'Swizaesar-Reza-Ryann_(CV).pdf',
     openInNewTab
   );
 };
