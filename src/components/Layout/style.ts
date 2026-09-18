@@ -52,6 +52,32 @@ export const LayoutStyle = styled.div`
     padding-bottom: 88px;
   }
 
+  .site-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-color: ${theme.colors.bg};
+    background-image: url('/assets/images/site-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.42;
+  }
+
+  .site-bg-veil {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(12, 9, 8, 0.35) 0%,
+      rgba(12, 9, 8, 0.5) 50%,
+      rgba(12, 9, 8, 0.7) 100%
+    );
+  }
+
   .film-grain {
     position: fixed;
     inset: 0;
@@ -77,7 +103,7 @@ export const LayoutStyle = styled.div`
       top: -160px;
       right: -140px;
       background: ${theme.colors.primary};
-      opacity: 0.14;
+      opacity: 0.1;
     }
 
     &--accent {
@@ -86,7 +112,7 @@ export const LayoutStyle = styled.div`
       bottom: 160px;
       left: -140px;
       background: #fcd34d;
-      opacity: 0.06;
+      opacity: 0.045;
     }
   }
 

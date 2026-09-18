@@ -2,6 +2,8 @@ import { theme } from '@/theme';
 import styled from '@emotion/styled';
 
 const FooterStyle = styled.footer`
+  position: relative;
+  z-index: 1;
   margin-top: 64px;
   border-top: 1px solid ${theme.colors.border};
   background: ${theme.colors.surface};
