@@ -62,7 +62,17 @@ export const LayoutStyle = styled.div`
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.42;
+    opacity: 0.28;
+  }
+
+  .network-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.85;
   }
 
   .site-bg-veil {
@@ -72,9 +82,9 @@ export const LayoutStyle = styled.div`
     z-index: 0;
     background: linear-gradient(
       180deg,
-      rgba(12, 9, 8, 0.35) 0%,
-      rgba(12, 9, 8, 0.5) 50%,
-      rgba(12, 9, 8, 0.7) 100%
+      rgba(12, 9, 8, 0.2) 0%,
+      rgba(12, 9, 8, 0.35) 55%,
+      rgba(12, 9, 8, 0.55) 100%
     );
   }
 

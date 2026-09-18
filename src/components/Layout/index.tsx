@@ -6,6 +6,7 @@ import { globalStyle, LayoutStyle } from './style';
 import { LayoutProps } from './types';
 import NavMobile from './NavMobile';
 import { useScreenSize } from '@/context/ScreenContext';
+import NetworkBackground from './NetworkBackground';
 
 interface LayoutPropsType {
   children: ReactNode;
@@ -23,6 +24,7 @@ const Layout = ({ children, layout }: LayoutPropsType) => {
 
       <LayoutStyle data-mobile={isMobile}>
         <div className="site-bg" aria-hidden />
+        <NetworkBackground />
         <div className="site-bg-veil" aria-hidden />
         <div className="ambient-blob ambient-blob--primary" aria-hidden />
         <div className="ambient-blob ambient-blob--accent" aria-hidden />
