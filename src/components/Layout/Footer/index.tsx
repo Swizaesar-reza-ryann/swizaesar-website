@@ -26,7 +26,7 @@ const Footer = () => {
             />
             <span className="footer-brand__name">Swizaesar</span>
           </Link>
-          <p className="footer-role">{t('home.subtitle')}</p>
+          <p className="footer-role">{t('home.role')}</p>
           <p className="footer-tagline">{t('footer.tagline')}</p>
         </div>
 

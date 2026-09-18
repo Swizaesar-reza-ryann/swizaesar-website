@@ -91,12 +91,14 @@ export default function MemoryCardGame({
               </span>
             </div>
             <div className="stat">
-              <span>Level: {level}</span>
+              <span>
+                {t('games.level')}: {level}
+              </span>
             </div>
           </GameStats>
 
           {showInitialReveal && (
-            <CountdownDisplay className={showInitialReveal ? 'countdown' : ''}>
+            <CountdownDisplay className="countdown">
               <span>
                 {countdown > 0
                   ? t('games.rememberCardPositions').replace(
@@ -105,12 +107,6 @@ export default function MemoryCardGame({
                     )
                   : t('games.gameStart')}
               </span>
-            </CountdownDisplay>
-          )}
-
-          {!showInitialReveal && countdown === 0 && (
-            <CountdownDisplay className="countdown">
-              <span>{t('games.gameStart')}</span>
             </CountdownDisplay>
           )}
 

@@ -7,24 +7,24 @@ import { Home } from 'lucide-react';
 import Layout from '@/components/Layout';
 import { LAYOUT_NOT_FOUND } from './constant';
 import { Reveal } from '@/components/shared/Reveal';
+import { useLanguage } from '@/lib/i18n/LanguageProvider';
 
 const NotFoundPage = () => {
+  const { t } = useLanguage();
+
   return (
     <Layout layout={LAYOUT_NOT_FOUND}>
       <Container>
         <Reveal y={20}>
           <NotFoundStyle>
             <h1 className="error-code">404</h1>
-            <h2 className="error-message">Page Not Found</h2>
-            <p className="error-description">
-              The page you&apos;re looking for doesn&apos;t exist or has been
-              moved. Don&apos;t worry, let&apos;s get you back on track.
-            </p>
+            <h2 className="error-message">{t('notFound.title')}</h2>
+            <p className="error-description">{t('notFound.description')}</p>
 
             <div className="action-buttons">
               <Link href="/" className="btn primary">
                 <Home size={16} />
-                Go Home
+                {t('notFound.goHome')}
               </Link>
             </div>
           </NotFoundStyle>

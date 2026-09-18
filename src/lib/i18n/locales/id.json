@@ -16,9 +16,11 @@
   },
   "home": {
     "greeting": "Halo, saya",
-    "title": "Website",
-    "subtitle": "Developer",
-    "description": "Saya membangun aplikasi web yang mudah diakses, pixel-perfect, aman, dan berkinerja tinggi. Mari wujudkan visi Anda menjadi kenyataan."
+    "role": "Website Developer",
+    "name": "Swizaesar",
+    "nameAccent": "Reza Ryann",
+    "description": "Saya membangun aplikasi web yang mudah diakses, pixel-perfect, aman, dan berkinerja tinggi. Mari wujudkan visi Anda menjadi kenyataan.",
+    "view_work": "Lihat Karya"
   },
   "footer": {
     "rights": "Hak cipta dilindungi.",
@@ -30,7 +32,7 @@
     "experience": "Pengalaman",
     "portfolio": "Portfolio",
     "games": "Permainan Kecil",
-    "contact": "Obrolan"
+    "contact": "Let's Chat"
   },
   "about": {
     "who_i_am": "siapa saya",
@@ -194,8 +196,14 @@
     "tryAgain": "❌ Coba lagi!",
     "rememberCardPositions": "Silakan ingat posisi kartu ({countdown}s)",
     "gameStart": "Mulai Permainan!",
+    "level": "Level",
     "nextLevel": "Level Berikutnya",
     "playAgain": "Main Lagi"
+  },
+  "notFound": {
+    "title": "Halaman Tidak Ditemukan",
+    "description": "Halaman yang kamu cari tidak ada atau sudah dipindahkan. Tenang, mari kembali ke jalur yang benar.",
+    "goHome": "Ke Beranda"
   },
   "portfolio_detail": {
     "project_category": "Kategori",

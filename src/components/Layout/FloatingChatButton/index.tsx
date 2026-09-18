@@ -12,7 +12,11 @@ const FloatingChatButton = () => {
   };
 
   return (
-    <FloatingChatStyle onClick={handleClick}>
+    <FloatingChatStyle
+      type="button"
+      onClick={handleClick}
+      aria-label={t('navigation.contact')}
+    >
       <MessageCircle size={24} />
     </FloatingChatStyle>
   );

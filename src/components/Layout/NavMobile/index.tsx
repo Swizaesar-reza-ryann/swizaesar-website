@@ -28,7 +28,10 @@ const NavMobile = () => {
     }
   };
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/') return pathname === '/';
+    return pathname === path || pathname.startsWith(`${path}/`);
+  };
 
   const reorderedNavList = [
     NAVBAR_LIST.find((item) => item.key === 'about'),

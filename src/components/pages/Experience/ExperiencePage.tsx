@@ -14,7 +14,10 @@ const ExperiencePage = () => {
   return (
     <Container>
       <ExperiencePageStyle>
-        <PageHeader title={t('experience.title')} />
+        <PageHeader
+          title={t('experience.title')}
+          subtitle={t('experience.subtitle')}
+        />
 
         <div className="experience-timeline">
           {EXPERIENCE_LIST.map((item, index) => (

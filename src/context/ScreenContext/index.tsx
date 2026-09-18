@@ -1,29 +1,48 @@
 import { Maybe } from '@/types';
 import type { PropsWithChildren } from 'react';
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useMemo,
+  useSyncExternalStore,
+} from 'react';
 
 interface ScreenSizeProviderProps {
   isMobile: boolean;
 }
 
+const MOBILE_QUERY = '(max-width: 767px)';
+
 const _ScreenSizeContext =
   createContext<Maybe<ScreenSizeProviderProps>>(undefined);
 
+function subscribe(onStoreChange: () => void) {
+  const media = window.matchMedia(MOBILE_QUERY);
+  media.addEventListener('change', onStoreChange);
+  window.addEventListener('resize', onStoreChange);
+  return () => {
+    media.removeEventListener('change', onStoreChange);
+    window.removeEventListener('resize', onStoreChange);
+  };
+}
+
+function getSnapshot() {
+  return window.matchMedia(MOBILE_QUERY).matches;
+}
+
+function getServerSnapshot() {
+  return false;
+}
+
 export const ScreenSizeProvider = (
-  props: PropsWithChildren<ScreenSizeProviderProps>
+  props: PropsWithChildren<Partial<ScreenSizeProviderProps>>
 ) => {
-  const { children, isMobile: isMobileProps } = props;
-  const [isMobile, setIsMobile] = useState(isMobileProps);
-
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    return () => window.removeEventListener('resize', checkScreenSize);
-  }, []);
+  const { children } = props;
+  const isMobile = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
 
   const contextValue = useMemo<ScreenSizeProviderProps>(() => {
     return { isMobile };

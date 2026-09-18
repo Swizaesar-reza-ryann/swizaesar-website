@@ -38,16 +38,35 @@ export const globalStyle = css`
     background: ${theme.colors.primary};
     color: ${theme.colors.bg};
   }
+
+  .layout-chrome--mobile {
+    display: none;
+  }
+
+  .layout-chrome--desktop {
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    .layout-chrome--desktop {
+      display: none;
+    }
+
+    .layout-chrome--mobile {
+      display: block;
+    }
+  }
 `;
 
 export const LayoutStyle = styled.div`
   padding-top: 84px;
+  padding-bottom: 0;
   position: relative;
   min-height: 100dvh;
   overflow: clip;
   background: ${theme.colors.bg};
 
-  &[data-mobile='true'] {
+  @media (max-width: 767px) {
     padding-top: 56px;
     padding-bottom: 88px;
   }

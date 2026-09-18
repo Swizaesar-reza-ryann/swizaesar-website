@@ -5,7 +5,6 @@ import { Global } from '@emotion/react';
 import { globalStyle, LayoutStyle } from './style';
 import { LayoutProps } from './types';
 import NavMobile from './NavMobile';
-import { useScreenSize } from '@/context/ScreenContext';
 import NetworkBackground from './NetworkBackground';
 
 interface LayoutPropsType {
@@ -14,15 +13,21 @@ interface LayoutPropsType {
 }
 
 const Layout = ({ children, layout }: LayoutPropsType) => {
-  const isMobile = useScreenSize();
   return (
     <div>
       <Global styles={globalStyle} />
-      {layout?.header && !isMobile && <Header />}
+      {layout?.header && (
+        <>
+          <div className="layout-chrome layout-chrome--desktop">
+            <Header />
+          </div>
+          <div className="layout-chrome layout-chrome--mobile">
+            <NavMobile />
+          </div>
+        </>
+      )}
 
-      {layout?.header && isMobile && <NavMobile />}
-
-      <LayoutStyle data-mobile={isMobile}>
+      <LayoutStyle>
         <div className="site-bg" aria-hidden />
         <NetworkBackground />
         <div className="site-bg-veil" aria-hidden />
