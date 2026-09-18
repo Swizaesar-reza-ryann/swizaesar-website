@@ -126,6 +126,80 @@ export const LayoutStyle = styled.div`
     }
   }
 
+  .planet {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    user-select: none;
+    will-change: transform;
+
+    &--ring {
+      width: min(34vw, 360px);
+      top: 12%;
+      right: -4%;
+      opacity: 0.42;
+      animation: planet-float-a 22s ease-in-out infinite;
+    }
+
+    &--moon {
+      width: min(18vw, 180px);
+      bottom: 18%;
+      left: 4%;
+      opacity: 0.34;
+      animation: planet-float-b 28s ease-in-out infinite;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @keyframes planet-float-a {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(-18px, 22px, 0) rotate(4deg);
+    }
+  }
+
+  @keyframes planet-float-b {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(14px, -16px, 0) rotate(-5deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .planet--ring {
+      width: 46vw;
+      top: 8%;
+      right: -12%;
+      opacity: 0.28;
+    }
+
+    .planet--moon {
+      width: 26vw;
+      bottom: 22%;
+      left: -4%;
+      opacity: 0.22;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .planet--ring,
+    .planet--moon {
+      animation: none;
+    }
+  }
+
   .layout-content {
     position: relative;
     z-index: 1;

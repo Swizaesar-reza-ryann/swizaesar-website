@@ -21,7 +21,8 @@
     "description": "Saya membangun aplikasi web yang mudah diakses, pixel-perfect, aman, dan berkinerja tinggi. Mari wujudkan visi Anda menjadi kenyataan."
   },
   "footer": {
-    "rights": "Hak cipta dilindungi."
+    "rights": "Hak cipta dilindungi.",
+    "tagline": "Membangun pengalaman web yang aksesibel dan berkinerja."
   },
   "navigation": {
     "home": "Beranda",

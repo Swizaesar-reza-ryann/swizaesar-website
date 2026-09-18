@@ -21,7 +21,8 @@
     "description": "I build accessible, pixel-perfect, secure, and performant web applications. Let's turn your vision into reality."
   },
   "footer": {
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "tagline": "Building accessible, performant web experiences."
   },
   "navigation": {
     "home": "Home",
