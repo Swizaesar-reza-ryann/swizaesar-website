@@ -14,7 +14,7 @@ export default function ClientProviders({ children }: { children: ReactNode }) {
     <LanguageProvider>
       <EmotionRegistry>
         <ThemeProvider theme={theme}>
-          <ScreenSizeProvider isMobile={false}>
+          <ScreenSizeProvider>
             <LanguageSwitcher />
             <FloatingChatButton />
             {children}

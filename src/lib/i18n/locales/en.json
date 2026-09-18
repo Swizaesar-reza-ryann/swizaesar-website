@@ -16,12 +16,15 @@
   },
   "home": {
     "greeting": "Hello, I'm",
-    "title": "Website",
-    "subtitle": "Developer",
-    "description": "I build accessible, pixel-perfect, secure, and performant web applications. Let's turn your vision into reality."
+    "role": "Website Developer",
+    "name": "Swizaesar",
+    "nameAccent": "Reza Ryann",
+    "description": "I build accessible, pixel-perfect, secure, and performant web applications. Let's turn your vision into reality.",
+    "view_work": "View Work"
   },
   "footer": {
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "tagline": "Building accessible, performant web experiences."
   },
   "navigation": {
     "home": "Home",
@@ -103,7 +106,7 @@
     }
   },
   "portfolio": {
-    "title": "Feature Projects",
+    "title": "Featured Projects",
     "subtitle": "Check out some of my recent work.",
     "arenix_platform": {
       "title": "AreniX — Sports Venue Booking SaaS",
@@ -193,8 +196,14 @@
     "tryAgain": "❌ Try again!",
     "rememberCardPositions": "Please remember the card positions ({countdown}s)",
     "gameStart": "Game Start!",
+    "level": "Level",
     "nextLevel": "Next Level",
     "playAgain": "Play Again"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved. Don't worry, let's get you back on track.",
+    "goHome": "Go Home"
   },
   "portfolio_detail": {
     "project_category": "Category",

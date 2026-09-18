@@ -38,18 +38,73 @@ export const globalStyle = css`
     background: ${theme.colors.primary};
     color: ${theme.colors.bg};
   }
+
+  .layout-chrome--mobile {
+    display: none;
+  }
+
+  .layout-chrome--desktop {
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    .layout-chrome--desktop {
+      display: none;
+    }
+
+    .layout-chrome--mobile {
+      display: block;
+    }
+  }
 `;
 
 export const LayoutStyle = styled.div`
   padding-top: 84px;
+  padding-bottom: 0;
   position: relative;
   min-height: 100dvh;
   overflow: clip;
   background: ${theme.colors.bg};
 
-  &[data-mobile='true'] {
+  @media (max-width: 767px) {
     padding-top: 56px;
     padding-bottom: 88px;
+  }
+
+  .site-bg {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-color: ${theme.colors.bg};
+    background-image: url('/assets/images/site-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.28;
+  }
+
+  .network-bg {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.85;
+  }
+
+  .site-bg-veil {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(12, 9, 8, 0.2) 0%,
+      rgba(12, 9, 8, 0.35) 55%,
+      rgba(12, 9, 8, 0.55) 100%
+    );
   }
 
   .film-grain {
@@ -77,7 +132,7 @@ export const LayoutStyle = styled.div`
       top: -160px;
       right: -140px;
       background: ${theme.colors.primary};
-      opacity: 0.14;
+      opacity: 0.1;
     }
 
     &--accent {
@@ -86,7 +141,81 @@ export const LayoutStyle = styled.div`
       bottom: 160px;
       left: -140px;
       background: #fcd34d;
-      opacity: 0.06;
+      opacity: 0.045;
+    }
+  }
+
+  .planet {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: screen;
+    user-select: none;
+    will-change: transform;
+
+    &--ring {
+      width: min(34vw, 360px);
+      top: 12%;
+      right: -4%;
+      opacity: 0.42;
+      animation: planet-float-a 22s ease-in-out infinite;
+    }
+
+    &--moon {
+      width: min(18vw, 180px);
+      bottom: 18%;
+      left: 4%;
+      opacity: 0.34;
+      animation: planet-float-b 28s ease-in-out infinite;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @keyframes planet-float-a {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(-18px, 22px, 0) rotate(4deg);
+    }
+  }
+
+  @keyframes planet-float-b {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(14px, -16px, 0) rotate(-5deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .planet--ring {
+      width: 46vw;
+      top: 8%;
+      right: -12%;
+      opacity: 0.28;
+    }
+
+    .planet--moon {
+      width: 26vw;
+      bottom: 22%;
+      left: -4%;
+      opacity: 0.22;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .planet--ring,
+    .planet--moon {
+      animation: none;
     }
   }
 

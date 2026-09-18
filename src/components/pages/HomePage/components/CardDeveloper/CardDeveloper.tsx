@@ -1,9 +1,6 @@
-import { useScreenSize } from '@/context/ScreenContext';
-
 const CardDeveloper = () => {
-  const isMobile = useScreenSize();
   return (
-    <div className="card-developer__code" data-mobile={isMobile}>
+    <div className="card-developer__code">
       <div className="card-developer__code-menu">
         <div className="card-developer__code-menu-item close" />
         <div className="card-developer__code-menu-item minimize" />

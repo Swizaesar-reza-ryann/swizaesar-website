@@ -224,6 +224,14 @@ export function createMetadata(pageKey: string): Metadata {
     title: config.title,
     description: config.description,
     keywords: config.keywords.join(', '),
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/favicon.png', type: 'image/png' },
+      ],
+      apple: [{ url: '/apple-icon.png', type: 'image/png', sizes: '180x180' }],
+      shortcut: '/favicon.ico',
+    },
     openGraph: {
       type: 'website',
       locale: 'en_US',

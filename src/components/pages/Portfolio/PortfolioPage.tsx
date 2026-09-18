@@ -14,7 +14,10 @@ const PortfolioPage = () => {
   return (
     <Container>
       <PortfolioPageStyle>
-        <PageHeader title={t('portfolio.title')} />
+        <PageHeader
+          title={t('portfolio.title')}
+          subtitle={t('portfolio.subtitle')}
+        />
 
         <div className="portfolio-grid">
           {PORTFOLIO_LIST.map((project, index) => (

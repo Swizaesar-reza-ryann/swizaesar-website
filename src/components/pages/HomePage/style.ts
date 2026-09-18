@@ -58,11 +58,6 @@ const HomePageStyle = styled.div`
         background-clip: text;
         filter: drop-shadow(0 0 24px rgba(240, 134, 90, 0.35));
       }
-
-      &[data-mobile='true'] {
-        font-size: clamp(2.25rem, 10vw, 3rem);
-        line-height: 1.08;
-      }
     }
 
     &-description {
@@ -71,18 +66,39 @@ const HomePageStyle = styled.div`
       font-size: 1.0625rem;
       max-width: 540px;
       margin: 0 0 32px;
+    }
 
-      &[data-mobile='true'] {
-        font-size: 0.9375rem;
-      }
+    &-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
     }
 
     &-button {
-      margin-bottom: 28px;
+      margin: 0;
+    }
 
-      &[data-mobile='true'] {
-        margin-bottom: 20px;
-        width: 100%;
+    &-work {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      border-radius: ${theme.radius.full};
+      border: 1px solid rgba(240, 134, 90, 0.45);
+      background: transparent;
+      color: ${theme.colors.accent};
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: ${theme.colors.primaryLight};
+        border-color: ${theme.colors.primary};
+        color: ${theme.colors.accent};
       }
     }
 
@@ -151,11 +167,6 @@ const HomePageStyle = styled.div`
       line-height: 1.6;
       transition: transform 0.35s ease, box-shadow 0.35s ease;
       box-shadow: ${theme.shadows.md};
-
-      &[data-mobile='true'] {
-        max-width: 100%;
-        margin: 24px 0;
-      }
 
       &-menu {
         display: flex;
@@ -240,6 +251,14 @@ const HomePageStyle = styled.div`
     }
   }
 
+  .card-developer--mobile {
+    display: none;
+  }
+
+  .card-developer--desktop {
+    display: flex;
+  }
+
   @media (max-width: 768px) {
     padding: 8px 0 40px;
 
@@ -247,6 +266,40 @@ const HomePageStyle = styled.div`
       flex-direction: column;
       gap: 0;
       min-height: auto;
+    }
+
+    .summary-name {
+      font-size: clamp(2.25rem, 10vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .summary-description {
+      font-size: 0.9375rem;
+    }
+
+    .summary-actions {
+      flex-direction: column;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    .summary-button,
+    .summary-work {
+      width: 100%;
+    }
+
+    .card-developer--desktop {
+      display: none !important;
+    }
+
+    .card-developer--mobile {
+      display: block;
+      margin: 0 0 8px;
+    }
+
+    .card-developer--mobile .card-developer__code {
+      max-width: 100%;
+      margin: 8px 0 24px;
     }
 
     .card-developer {
