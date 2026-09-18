@@ -40,17 +40,11 @@ const HeaderStyle = styled.header`
     }
 
     .brand-mark {
-      display: flex;
-      align-items: center;
-      justify-content: center;
       width: 38px;
       height: 38px;
       border-radius: 11px;
-      background: ${theme.gradients.cta};
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.8125rem;
-      letter-spacing: -0.02em;
+      object-fit: cover;
+      display: block;
       box-shadow: ${theme.shadows.glowSoft};
     }
 

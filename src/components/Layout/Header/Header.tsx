@@ -27,7 +27,13 @@ const Header = () => {
     <HeaderStyle className={isScrolled ? 'scrolled' : ''}>
       <div className="header-inner">
         <Link href="/" className="header-brand">
-          <span className="brand-mark">SR</span>
+          <img
+            src="/brand-mark.png"
+            alt="Swizaesar"
+            className="brand-mark"
+            width={38}
+            height={38}
+          />
           <span className="brand-name">Swizaesar</span>
         </Link>
 

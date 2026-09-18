@@ -18,16 +18,11 @@ const FooterStyle = styled.footer`
 
   .footer-brand {
     .footer-mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
       width: 36px;
       height: 36px;
       border-radius: ${theme.radius.md};
-      background: ${theme.gradients.cta};
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.875rem;
+      object-fit: cover;
       margin-bottom: 8px;
       box-shadow: ${theme.shadows.glow};
     }

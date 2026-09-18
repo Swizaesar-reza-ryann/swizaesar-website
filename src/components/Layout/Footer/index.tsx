@@ -13,7 +13,13 @@ const Footer = () => {
     <FooterStyle>
       <div className="footer-inner">
         <div className="footer-brand">
-          <span className="footer-mark">SR</span>
+          <img
+            src="/brand-mark.png"
+            alt="Swizaesar"
+            className="footer-mark"
+            width={36}
+            height={36}
+          />
           <p className="footer-tagline">{t('home.subtitle')}</p>
         </div>
 
